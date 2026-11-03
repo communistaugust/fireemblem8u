@@ -4,51 +4,51 @@
 
 	.global Img_EfxDracoZombie
 Img_EfxDracoZombie:  @ 0x0878D648
-	.incbin "baserom.gba", 0x78D648, 0x3940
+	.incbin "graphics/unsorted/Img_EfxDracoZombie.4bpp.lz"
 
 	.global Tsa_EfxDracoZombieBaseLeft
 Tsa_EfxDracoZombieBaseLeft:  @ 0x08790F88
-	.incbin "baserom.gba", 0x790F88, 0x1D4
+	.incbin "graphics/unsorted/Tsa_EfxDracoZombieBaseLeft.bin.lz"
 
 	.global Tsa_EfxDracoZombieBaseRight
 Tsa_EfxDracoZombieBaseRight:  @ 0x0879115C
-	.incbin "baserom.gba", 0x79115C, 0x1E0
+	.incbin "graphics/unsorted/Tsa_EfxDracoZombieBaseRight.bin.lz"
 
 	.global Tsa_EfxDracoZombie2
 Tsa_EfxDracoZombie2:
-    .incbin "baserom.gba", 0x79133C, 0x1E4
+    .incbin "graphics/unsorted/Tsa_EfxDracoZombie2.bin.lz"
 
 	.global Tsa_EfxDracoZombie3
 Tsa_EfxDracoZombie3:
-    .incbin "baserom.gba", 0x791520, 0x218
+    .incbin "graphics/unsorted/Tsa_EfxDracoZombie3.bin.lz"
 
 	.global Tsa_EfxDracoZombie4
 Tsa_EfxDracoZombie4:
-    .incbin "baserom.gba", 0x791738, 0x210
+    .incbin "graphics/unsorted/Tsa_EfxDracoZombie4.bin.lz"
 
 	.global Tsa_EfxDracoZombie5
 Tsa_EfxDracoZombie5:
-    .incbin "baserom.gba", 0x791948, 0x1F4
+    .incbin "graphics/unsorted/Tsa_EfxDracoZombie5.bin.lz"
 
 	.global Tsa_EfxDracoZombie1
 Tsa_EfxDracoZombie1:
-    .incbin "baserom.gba", 0x791B3C, 0x220
+    .incbin "graphics/unsorted/Tsa_EfxDracoZombie1.bin.lz"
 
 	.global Pal_EfxDracoZombie
 Pal_EfxDracoZombie:  @ 0x08791D5C
-	.incbin "baserom.gba", 0x791D5C, 0x20
+	.incbin "graphics/unsorted/Pal_EfxDracoZombie.gbapal"
 
 	.global Pal_08791D7C
 Pal_08791D7C:  @ 0x08791D7C
-	.incbin "baserom.gba", 0x791D7C, 0x20
+	.incbin "graphics/unsorted/Pal_08791D7C.gbapal"
 
 	.global Img_08791D9C
 Img_08791D9C:  @ 0x08791D9C
-	.incbin "baserom.gba", 0x791D9C, 0x3F8
+	.incbin "graphics/unsorted/Img_08791D9C.4bpp.lz"
 
 	.global Pal_08792194
 Pal_08792194:  @ 0x08792194
-	.incbin "baserom.gba", 0x792194, 0x20
+	.incbin "graphics/unsorted/Pal_08792194.gbapal"
 
 .global AnimSprite_EfxClasschgObjDrop_1
 AnimSprite_EfxClasschgObjDrop_1:  @ 0x7921B4
@@ -349,315 +349,315 @@ BanimScr_08792988:  @ 0x08792988
 
 	.global Img_87929B8
 Img_87929B8:
-	.incbin "baserom.gba", 0x7929B8, 0x7932CC - 0x7929B8
+	.incbin "graphics/unsorted/Img_87929B8.4bpp.lz"
 
 	.global Pal_87932CC
 Pal_87932CC:
-	.incbin "baserom.gba", 0x7932CC, 0x7932EC - 0x7932CC
+	.incbin "graphics/unsorted/Pal_87932CC.gbapal"
 
 	.global Tsa_87932EC
 Tsa_87932EC:
-	.incbin "baserom.gba", 0x7932EC, 0x793384 - 0x7932EC
+	.incbin "graphics/unsorted/Tsa_87932EC.bin.lz"
 
 	.global Tsa_8793384
 Tsa_8793384:
-	.incbin "baserom.gba", 0x793384, 0x793494 - 0x793384
+	.incbin "graphics/unsorted/Tsa_8793384.bin.lz"
 
 	.global Tsa_8793494
 Tsa_8793494:
-	.incbin "baserom.gba", 0x793494, 0x7935B0 - 0x793494
+	.incbin "graphics/unsorted/Tsa_8793494.bin.lz"
 
 	.global Tsa_87935B0
 Tsa_87935B0:
-	.incbin "baserom.gba", 0x7935B0, 0x7936C0 - 0x7935B0
+	.incbin "graphics/unsorted/Tsa_87935B0.bin.lz"
 
 	.global Tsa_87936C0
 Tsa_87936C0:
-	.incbin "baserom.gba", 0x7936C0, 0x7937D0 - 0x7936C0
+	.incbin "graphics/unsorted/Tsa_87936C0.bin.lz"
 
 	.global Tsa_87937D0
 Tsa_87937D0:
-	.incbin "baserom.gba", 0x7937D0, 0x7938EC - 0x7937D0
+	.incbin "graphics/unsorted/Tsa_87937D0.bin.lz"
 
 	.global Tsa_87938EC
 Tsa_87938EC:
-	.incbin "baserom.gba", 0x7938EC, 0x7939FC - 0x7938EC
+	.incbin "graphics/unsorted/Tsa_87938EC.bin.lz"
 
 	.global Img_87939FC
 Img_87939FC:
-	.incbin "baserom.gba", 0x7939FC, 0x794628 - 0x7939FC
+	.incbin "graphics/unsorted/Img_87939FC.4bpp.lz"
 
 	.global Img_8794628
 Img_8794628:
-	.incbin "baserom.gba", 0x794628, 0x7951D8 - 0x794628
+	.incbin "graphics/unsorted/Img_8794628.4bpp.lz"
 
 	.global Img_87951D8
 Img_87951D8:
-	.incbin "baserom.gba", 0x7951D8, 0x795DF4 - 0x7951D8
+	.incbin "graphics/unsorted/Img_87951D8.4bpp.lz"
 
 	.global Img_8795DF4
 Img_8795DF4:
-	.incbin "baserom.gba", 0x795DF4, 0x7969F4 - 0x795DF4
+	.incbin "graphics/unsorted/Img_8795DF4.4bpp.lz"
 
 	.global Img_87969F4
 Img_87969F4:
-	.incbin "baserom.gba", 0x7969F4, 0x7970DC - 0x7969F4
+	.incbin "graphics/unsorted/Img_87969F4.4bpp.lz"
 
 	.global Img_87970DC
 Img_87970DC:
-	.incbin "baserom.gba", 0x7970DC, 0x797AC4 - 0x7970DC
+	.incbin "graphics/unsorted/Img_87970DC.4bpp.lz"
 
 	.global Img_8797AC4
 Img_8797AC4:
-	.incbin "baserom.gba", 0x797AC4, 0x798394 - 0x797AC4
+	.incbin "graphics/unsorted/Img_8797AC4.4bpp.lz"
 
 	.global Img_8798394
 Img_8798394:
-	.incbin "baserom.gba", 0x798394, 0x798B6C - 0x798394
+	.incbin "graphics/unsorted/Img_8798394.4bpp.lz"
 
 	.global Img_8798B6C
 Img_8798B6C:
-	.incbin "baserom.gba", 0x798B6C, 0x799228 - 0x798B6C
+	.incbin "graphics/unsorted/Img_8798B6C.4bpp.lz"
 
 	.global Img_8799228
 Img_8799228:
-	.incbin "baserom.gba", 0x799228, 0x7997F8 - 0x799228
+	.incbin "graphics/unsorted/Img_8799228.4bpp.lz"
 
 	.global Pal_87997F8
 Pal_87997F8:
-	.incbin "baserom.gba", 0x7997F8, 0x799818 - 0x7997F8
+	.incbin "graphics/unsorted/Pal_87997F8.gbapal"
 
 	.global Tsa_8799818
 Tsa_8799818:
-	.incbin "baserom.gba", 0x799818, 0x799ABC - 0x799818
+	.incbin "graphics/unsorted/Tsa_8799818.bin.lz"
 
 	.global Tsa_8799ABC
 Tsa_8799ABC:
-	.incbin "baserom.gba", 0x799ABC, 0x799D64 - 0x799ABC
+	.incbin "graphics/unsorted/Tsa_8799ABC.bin.lz"
 
 	.global Tsa_8799D64
 Tsa_8799D64:
-	.incbin "baserom.gba", 0x799D64, 0x79A008 - 0x799D64
+	.incbin "graphics/unsorted/Tsa_8799D64.bin.lz"
 
 	.global Tsa_879A008
 Tsa_879A008:
-	.incbin "baserom.gba", 0x79A008, 0x79A2A8 - 0x79A008
+	.incbin "graphics/unsorted/Tsa_879A008.bin.lz"
 
 	.global Tsa_879A2A8
 Tsa_879A2A8:
-	.incbin "baserom.gba", 0x79A2A8, 0x79A444 - 0x79A2A8
+	.incbin "graphics/unsorted/Tsa_879A2A8.bin.lz"
 
 	.global Tsa_879A444
 Tsa_879A444:
-	.incbin "baserom.gba", 0x79A444, 0x79A6A0 - 0x79A444
+	.incbin "graphics/unsorted/Tsa_879A444.bin.lz"
 
 	.global Tsa_879A6A0
 Tsa_879A6A0:
-	.incbin "baserom.gba", 0x79A6A0, 0x79A87C - 0x79A6A0
+	.incbin "graphics/unsorted/Tsa_879A6A0.bin.lz"
 
 	.global Tsa_879A87C
 Tsa_879A87C:
-	.incbin "baserom.gba", 0x79A87C, 0x79A9E8 - 0x79A87C
+	.incbin "graphics/unsorted/Tsa_879A87C.bin.lz"
 
 	.global Tsa_879A9E8
 Tsa_879A9E8:
-	.incbin "baserom.gba", 0x79A9E8, 0x79AB10 - 0x79A9E8
+	.incbin "graphics/unsorted/Tsa_879A9E8.bin.lz"
 
 	.global Tsa_879AB10
 Tsa_879AB10:
-	.incbin "baserom.gba", 0x79AB10, 0x79AC08 - 0x79AB10
+	.incbin "graphics/unsorted/Tsa_879AB10.bin.lz"
 
 	.global Img_879AC08
 Img_879AC08:
-	.incbin "baserom.gba", 0x79AC08, 0x79B168 - 0x79AC08
+	.incbin "graphics/unsorted/Img_879AC08.4bpp.lz"
 
 	.global Img_879B168
 Img_879B168:
-	.incbin "baserom.gba", 0x79B168, 0x79B8F4 - 0x79B168
+	.incbin "graphics/unsorted/Img_879B168.4bpp.lz"
 
 	.global Img_879B8F4
 Img_879B8F4:
-	.incbin "baserom.gba", 0x79B8F4, 0x79C1E4 - 0x79B8F4
+	.incbin "graphics/unsorted/Img_879B8F4.4bpp.lz"
 
 	.global Img_879C1E4
 Img_879C1E4:
-	.incbin "baserom.gba", 0x79C1E4, 0x79CAB4 - 0x79C1E4
+	.incbin "graphics/unsorted/Img_879C1E4.4bpp.lz"
 
 	.global Img_879CAB4
 Img_879CAB4:
-	.incbin "baserom.gba", 0x79CAB4, 0x79D1F8 - 0x79CAB4
+	.incbin "graphics/unsorted/Img_879CAB4.4bpp.lz"
 
 	.global Img_879D1F8
 Img_879D1F8:
-	.incbin "baserom.gba", 0x79D1F8, 0x79DC10 - 0x79D1F8
+	.incbin "graphics/unsorted/Img_879D1F8.4bpp.lz"
 
 	.global Img_879DC10
 Img_879DC10:
-	.incbin "baserom.gba", 0x79DC10, 0x79E5DC - 0x79DC10
+	.incbin "graphics/unsorted/Img_879DC10.4bpp.lz"
 
 	.global Img_879E5DC
 Img_879E5DC:
-	.incbin "baserom.gba", 0x79E5DC, 0x79EED0 - 0x79E5DC
+	.incbin "graphics/unsorted/Img_879E5DC.4bpp.lz"
 
 	.global Img_879EED0
 Img_879EED0:
-	.incbin "baserom.gba", 0x79EED0, 0x79F698 - 0x79EED0
+	.incbin "graphics/unsorted/Img_879EED0.4bpp.lz"
 
 	.global Img_879F698
 Img_879F698:
-	.incbin "baserom.gba", 0x79F698, 0x79FD3C - 0x79F698
+	.incbin "graphics/unsorted/Img_879F698.4bpp.lz"
 
 	.global Img_879FD3C
 Img_879FD3C:
-	.incbin "baserom.gba", 0x79FD3C, 0x7A0338 - 0x79FD3C
+	.incbin "graphics/unsorted/Img_879FD3C.4bpp.lz"
 
 	.global Img_87A0338
 Img_87A0338:
-	.incbin "baserom.gba", 0x7A0338, 0x7A090C - 0x7A0338
+	.incbin "graphics/unsorted/Img_87A0338.4bpp.lz"
 
 	.global Img_87A090C
 Img_87A090C:
-	.incbin "baserom.gba", 0x7A090C, 0x7A0E78 - 0x7A090C
+	.incbin "graphics/unsorted/Img_87A090C.4bpp.lz"
 
 	.global Img_87A0E78
 Img_87A0E78:
-	.incbin "baserom.gba", 0x7A0E78, 0x7A13C0 - 0x7A0E78
+	.incbin "graphics/unsorted/Img_87A0E78.4bpp.lz"
 
 	.global Img_87A13C0
 Img_87A13C0:
-	.incbin "baserom.gba", 0x7A13C0, 0x7A18D0 - 0x7A13C0
+	.incbin "graphics/unsorted/Img_87A13C0.4bpp.lz"
 
 	.global Pal_87A18D0
 Pal_87A18D0:
-	.incbin "baserom.gba", 0x7A18D0, 0x7A18F0 - 0x7A18D0
+	.incbin "graphics/unsorted/Pal_87A18D0.gbapal"
 
 	.global Tsa_87A18F0
 Tsa_87A18F0:
-	.incbin "baserom.gba", 0x7A18F0, 0x7A19EC - 0x7A18F0
+	.incbin "graphics/unsorted/Tsa_87A18F0.bin.lz"
 
 	.global Tsa_87A19EC
 Tsa_87A19EC:
-	.incbin "baserom.gba", 0x7A19EC, 0x7A1B68 - 0x7A19EC
+	.incbin "graphics/unsorted/Tsa_87A19EC.bin.lz"
 
 	.global Tsa_87A1B68
 Tsa_87A1B68:
-	.incbin "baserom.gba", 0x7A1B68, 0x7A1D74 - 0x7A1B68
+	.incbin "graphics/unsorted/Tsa_87A1B68.bin.lz"
 
 	.global Tsa_87A1D74
 Tsa_87A1D74:
-	.incbin "baserom.gba", 0x7A1D74, 0x7A1F9C - 0x7A1D74
+	.incbin "graphics/unsorted/Tsa_87A1D74.bin.lz"
 
 	.global Tsa_87A1F9C
 Tsa_87A1F9C:
-	.incbin "baserom.gba", 0x7A1F9C, 0x7A2134 - 0x7A1F9C
+	.incbin "graphics/unsorted/Tsa_87A1F9C.bin.lz"
 
 	.global Tsa_87A2134
 Tsa_87A2134:
-	.incbin "baserom.gba", 0x7A2134, 0x7A2384 - 0x7A2134
+	.incbin "graphics/unsorted/Tsa_87A2134.bin.lz"
 
 	.global Tsa_87A2384
 Tsa_87A2384:
-	.incbin "baserom.gba", 0x7A2384, 0x7A2584 - 0x7A2384
+	.incbin "graphics/unsorted/Tsa_87A2384.bin.lz"
 
 	.global Tsa_87A2584
 Tsa_87A2584:
-	.incbin "baserom.gba", 0x7A2584, 0x7A2748 - 0x7A2584
+	.incbin "graphics/unsorted/Tsa_87A2584.bin.lz"
 
 	.global Tsa_87A2748
 Tsa_87A2748:
-	.incbin "baserom.gba", 0x7A2748, 0x7A28A8 - 0x7A2748
+	.incbin "graphics/unsorted/Tsa_87A2748.bin.lz"
 
 	.global Tsa_87A28A8
 Tsa_87A28A8:
-	.incbin "baserom.gba", 0x7A28A8, 0x7A29DC - 0x7A28A8
+	.incbin "graphics/unsorted/Tsa_87A28A8.bin.lz"
 
 	.global Tsa_87A29DC
 Tsa_87A29DC:
-	.incbin "baserom.gba", 0x7A29DC, 0x7A2AE8 - 0x7A29DC
+	.incbin "graphics/unsorted/Tsa_87A29DC.bin.lz"
 
 	.global Tsa_87A2AE8
 Tsa_87A2AE8:
-	.incbin "baserom.gba", 0x7A2AE8, 0x7A2BE4 - 0x7A2AE8
+	.incbin "graphics/unsorted/Tsa_87A2AE8.bin.lz"
 
 	.global Tsa_87A2BE4
 Tsa_87A2BE4:
-	.incbin "baserom.gba", 0x7A2BE4, 0x7A2CCC - 0x7A2BE4
+	.incbin "graphics/unsorted/Tsa_87A2BE4.bin.lz"
 
 	.global Tsa_87A2CCC
 Tsa_87A2CCC:
-	.incbin "baserom.gba", 0x7A2CCC, 0x7A2DB8 - 0x7A2CCC
+	.incbin "graphics/unsorted/Tsa_87A2CCC.bin.lz"
 
 	.global Tsa_87A2DB8
 Tsa_87A2DB8:
-	.incbin "baserom.gba", 0x7A2DB8, 0x7A2EA0 - 0x7A2DB8
+	.incbin "graphics/unsorted/Tsa_87A2DB8.bin.lz"
 
 	.global Img_87A2EA0
 Img_87A2EA0:
-	.incbin "baserom.gba", 0x7A2EA0, 0x7A3400 - 0x7A2EA0
+	.incbin "graphics/unsorted/Img_87A2EA0.4bpp.lz"
 
 	.global Img_87A3400
 Img_87A3400:
-	.incbin "baserom.gba", 0x7A3400, 0x7A39A0 - 0x7A3400
+	.incbin "graphics/unsorted/Img_87A3400.4bpp.lz"
 
 	.global Img_87A39A0
 Img_87A39A0:
-	.incbin "baserom.gba", 0x7A39A0, 0x7A3F38 - 0x7A39A0
+	.incbin "graphics/unsorted/Img_87A39A0.4bpp.lz"
 
 	.global Img_87A3F38
 Img_87A3F38:
-	.incbin "baserom.gba", 0x7A3F38, 0x7A44D8 - 0x7A3F38
+	.incbin "graphics/unsorted/Img_87A3F38.4bpp.lz"
 
 	.global Img_87A44D8
 Img_87A44D8:
-	.incbin "baserom.gba", 0x7A44D8, 0x7A4A68 - 0x7A44D8
+	.incbin "graphics/unsorted/Img_87A44D8.4bpp.lz"
 
 	.global Pal_87A4A68
 Pal_87A4A68:
-	.incbin "baserom.gba", 0x7A4A68, 0x7A4A88 - 0x7A4A68
+	.incbin "graphics/unsorted/Pal_87A4A68.gbapal"
 
 	.global Tsa_87A4A88
 Tsa_87A4A88:
-	.incbin "baserom.gba", 0x7A4A88, 0x7A4B68 - 0x7A4A88
+	.incbin "graphics/unsorted/Tsa_87A4A88.bin.lz"
 
 	.global Tsa_87A4B68
 Tsa_87A4B68:
-	.incbin "baserom.gba", 0x7A4B68, 0x7A4C44 - 0x7A4B68
+	.incbin "graphics/unsorted/Tsa_87A4B68.bin.lz"
 
 	.global Tsa_87A4C44
 Tsa_87A4C44:
-	.incbin "baserom.gba", 0x7A4C44, 0x7A4D2C - 0x7A4C44
+	.incbin "graphics/unsorted/Tsa_87A4C44.bin.lz"
 
 	.global Tsa_87A4D2C
 Tsa_87A4D2C:
-	.incbin "baserom.gba", 0x7A4D2C, 0x7A4E0C - 0x7A4D2C
+	.incbin "graphics/unsorted/Tsa_87A4D2C.bin.lz"
 
 	.global Tsa_87A4E0C
 Tsa_87A4E0C:
-	.incbin "baserom.gba", 0x7A4E0C, 0x7A4EEC - 0x7A4E0C
+	.incbin "graphics/unsorted/Tsa_87A4E0C.bin.lz"
 
 	.global Img_DemonLightSprites_EyeFlash
 Img_DemonLightSprites_EyeFlash:  @ 0x087A4EEC
-	.incbin "baserom.gba", 0x7A4EEC, 0x22C
+	.incbin "graphics/unsorted/Img_DemonLightSprites_EyeFlash.4bpp.lz"
 
 	.global Pal_DemonLightSprites_EyeFlash
 Pal_DemonLightSprites_EyeFlash:  @ 0x087A5118
-	.incbin "baserom.gba", 0x7A5118, 0x128
+	.incbin "graphics/unsorted/Pal_DemonLightSprites_EyeFlash.gbapal"
 
 	.global gUnknown_087A5240
 gUnknown_087A5240:  @ 0x087A5240
-	.incbin "baserom.gba", 0x7A5240, 0x12C    @ 0x7A536C - 0x7A5240
+	.incbin "graphics/unsorted/gUnknown_087A5240.bin"
 
 	.global gUnknown_087A536C
 gUnknown_087A536C:  @ 0x087A536C
-	.incbin "baserom.gba", 0x7A536C, 0x24    @ 0x7A5390 - 0x7A536C
+	.incbin "graphics/unsorted/gUnknown_087A536C.bin"
 
 	.global Img_DemonLightSprites
 Img_DemonLightSprites:  @ 0x087A5390
-	.incbin "baserom.gba", 0x7A5390, 0x3BC
+	.incbin "graphics/unsorted/Img_DemonLightSprites.4bpp.lz"
 
 	.global Pal_DemonLightSprites
 Pal_DemonLightSprites:  @ 0x087A574C
-	.incbin "baserom.gba", 0x7A574C, 0x20
+	.incbin "graphics/unsorted/Pal_DemonLightSprites.gbapal"
 
 .global AnimSprite_EfxMaohFlashEye_1
 AnimSprite_EfxMaohFlashEye_1:  @ 0x7A576C
@@ -871,15 +871,15 @@ gUnknown_087A5B8C: @ 0x7A5B8C
 
 	.global Img_DemonLightSprites_087A5BA4
 Img_DemonLightSprites_087A5BA4:  @ 0x087A5BA4
-	.incbin "baserom.gba", 0x7A5BA4, 0x2F8
+	.incbin "graphics/unsorted/Img_DemonLightSprites_087A5BA4.4bpp.lz"
 
 	.global Img_DemonLightSprites_087A5E9C
 Img_DemonLightSprites_087A5E9C:  @ 0x087A5E9C
-	.incbin "baserom.gba", 0x7A5E9C, 0x350
+	.incbin "graphics/unsorted/Img_DemonLightSprites_087A5E9C.4bpp.lz"
 
 	.global Pal_DemonLightSprites_087A61EC
 Pal_DemonLightSprites_087A61EC:  @ 0x087A61EC
-	.incbin "baserom.gba", 0x7A61EC, 0x7A620C - 0x7A61EC
+	.incbin "graphics/unsorted/Pal_DemonLightSprites_087A61EC.gbapal"
 
 .global AnimSprite_EfxMaohFlashEyeFire1Obj_1
 AnimSprite_EfxMaohFlashEyeFire1Obj_1:  @ 0x7A620C
@@ -1745,159 +1745,159 @@ Tsa_DemonLightBg_Close_32:
 
 	.global Img_087C5190
 Img_087C5190:  @ 0x087C5190
-	.incbin "baserom.gba", 0x7C5190, 0x554    @ 0x7C56E4 - 0x7C5190
+	.incbin "graphics/unsorted/Img_087C5190.4bpp.lz"
 
 	.global Img_087C56E4
 Img_087C56E4:  @ 0x087C56E4
-	.incbin "baserom.gba", 0x7C56E4, 0xAB8    @ 0x7C619C - 0x7C56E4
+	.incbin "graphics/unsorted/Img_087C56E4.4bpp.lz"
 
 	.global Img_087C619C
 Img_087C619C:  @ 0x087C619C
-	.incbin "baserom.gba", 0x7C619C, 0xB58    @ 0x7C6CF4 - 0x7C619C
+	.incbin "graphics/unsorted/Img_087C619C.4bpp.lz"
 
 	.global Img_087C6CF4
 Img_087C6CF4:  @ 0x087C6CF4
-	.incbin "baserom.gba", 0x7C6CF4, 0x984    @ 0x7C7678 - 0x7C6CF4
+	.incbin "graphics/unsorted/Img_087C6CF4.4bpp.lz"
 
 	.global Img_087C7678
 Img_087C7678:  @ 0x087C7678
-	.incbin "baserom.gba", 0x7C7678, 0xA94    @ 0x7C810C - 0x7C7678
+	.incbin "graphics/unsorted/Img_087C7678.4bpp.lz"
 
 	.global Img_087C810C
 Img_087C810C:  @ 0x087C810C
-	.incbin "baserom.gba", 0x7C810C, 0x5B0    @ 0x7C86BC - 0x7C810C
+	.incbin "graphics/unsorted/Img_087C810C.4bpp.lz"
 
 	.global Img_087C86BC
 Img_087C86BC:  @ 0x087C86BC
-	.incbin "baserom.gba", 0x7C86BC, 0x5C4    @ 0x7C8C80 - 0x7C86BC
+	.incbin "graphics/unsorted/Img_087C86BC.4bpp.lz"
 
 	.global Img_087C8C80
 Img_087C8C80:  @ 0x087C8C80
-	.incbin "baserom.gba", 0x7C8C80, 0x610    @ 0x7C9290 - 0x7C8C80
+	.incbin "graphics/unsorted/Img_087C8C80.4bpp.lz"
 
 	.global Pal_087C9290
 Pal_087C9290:  @ 0x087C9290
-	.incbin "baserom.gba", 0x7C9290, 0x20    @ 0x7C92B0 - 0x7C9290
+	.incbin "graphics/unsorted/Pal_087C9290.gbapal"
 
 	.global Pal_087C92B0
 Pal_087C92B0:  @ 0x087C92B0
-	.incbin "baserom.gba", 0x7C92B0, 0x20    @ 0x7C92D0 - 0x7C92B0
+	.incbin "graphics/unsorted/Pal_087C92B0.gbapal"
 
 	.global Pal_087C92D0
 Pal_087C92D0:  @ 0x087C92D0
-	.incbin "baserom.gba", 0x7C92D0, 0x20    @ 0x7C92F0 - 0x7C92D0
+	.incbin "graphics/unsorted/Pal_087C92D0.gbapal"
 
 	.global Pal_087C92F0
 Pal_087C92F0:  @ 0x087C92F0
-	.incbin "baserom.gba", 0x7C92F0, 0x20    @ 0x7C9310 - 0x7C92F0
+	.incbin "graphics/unsorted/Pal_087C92F0.gbapal"
 
 	.global Pal_087C9310
 Pal_087C9310:  @ 0x087C9310
-	.incbin "baserom.gba", 0x7C9310, 0x20    @ 0x7C9330 - 0x7C9310
+	.incbin "graphics/unsorted/Pal_087C9310.gbapal"
 
 	.global Pal_087C9330
 Pal_087C9330:  @ 0x087C9330
-	.incbin "baserom.gba", 0x7C9330, 0x20    @ 0x7C9350 - 0x7C9330
+	.incbin "graphics/unsorted/Pal_087C9330.gbapal"
 
 	.global Pal_087C9350
 Pal_087C9350:  @ 0x087C9350
-	.incbin "baserom.gba", 0x7C9350, 0x20    @ 0x7C9370 - 0x7C9350
+	.incbin "graphics/unsorted/Pal_087C9350.gbapal"
 
 	.global Pal_087C9370
 Pal_087C9370:  @ 0x087C9370
-	.incbin "baserom.gba", 0x7C9370, 0x20    @ 0x7C9390 - 0x7C9370
+	.incbin "graphics/unsorted/Pal_087C9370.gbapal"
 
 	.global Tsa_087C9390
 Tsa_087C9390:  @ 0x087C9390
-	.incbin "baserom.gba", 0x7C9390, 0xD4    @ 0x7C9464 - 0x7C9390
+	.incbin "graphics/unsorted/Tsa_087C9390.bin.lz"
 
 	.global Tsa_087C9464
 Tsa_087C9464:  @ 0x087C9464
-	.incbin "baserom.gba", 0x7C9464, 0x19C    @ 0x7C9600 - 0x7C9464
+	.incbin "graphics/unsorted/Tsa_087C9464.bin.lz"
 
 	.global Tsa_087C9600
 Tsa_087C9600:  @ 0x087C9600
-	.incbin "baserom.gba", 0x7C9600, 0x218    @ 0x7C9818 - 0x7C9600
+	.incbin "graphics/unsorted/Tsa_087C9600.bin.lz"
 
 	.global Tsa_087C9818
 Tsa_087C9818:  @ 0x087C9818
-	.incbin "baserom.gba", 0x7C9818, 0x214    @ 0x7C9A2C - 0x7C9818
+	.incbin "graphics/unsorted/Tsa_087C9818.bin.lz"
 
 	.global Tsa_087C9A2C
 Tsa_087C9A2C:  @ 0x087C9A2C
-	.incbin "baserom.gba", 0x7C9A2C, 0x1C0    @ 0x7C9BEC - 0x7C9A2C
+	.incbin "graphics/unsorted/Tsa_087C9A2C.bin.lz"
 
 	.global Tsa_087C9BEC
 Tsa_087C9BEC:  @ 0x087C9BEC
-	.incbin "baserom.gba", 0x7C9BEC, 0x108    @ 0x7C9CF4 - 0x7C9BEC
+	.incbin "graphics/unsorted/Tsa_087C9BEC.bin.lz"
 
 	.global Tsa_087C9CF4
 Tsa_087C9CF4:  @ 0x087C9CF4
-	.incbin "baserom.gba", 0x7C9CF4, 0x110    @ 0x7C9E04 - 0x7C9CF4
+	.incbin "graphics/unsorted/Tsa_087C9CF4.bin.lz"
 
 	.global Tsa_087C9E04
 Tsa_087C9E04:  @ 0x087C9E04
-	.incbin "baserom.gba", 0x7C9E04, 0x114    @ 0x7C9F18 - 0x7C9E04
+	.incbin "graphics/unsorted/Tsa_087C9E04.bin.lz"
 
 	.global Img_087C9F18
 Img_087C9F18:  @ 0x087C9F18
-	.incbin "baserom.gba", 0x7C9F18, 0x774    @ 0x7CA68C - 0x7C9F18
+	.incbin "graphics/unsorted/Img_087C9F18.4bpp.lz"
 
 	.global Img_087CA68C
 Img_087CA68C:  @ 0x087CA68C
-	.incbin "baserom.gba", 0x7CA68C, 0x7D4    @ 0x7CAE60 - 0x7CA68C
+	.incbin "graphics/unsorted/Img_087CA68C.4bpp.lz"
 
 	.global Img_087CAE60
 Img_087CAE60:  @ 0x087CAE60
-	.incbin "baserom.gba", 0x7CAE60, 0x7D0    @ 0x7CB630 - 0x7CAE60
+	.incbin "graphics/unsorted/Img_087CAE60.4bpp.lz"
 
 	.global Img_087CB630
 Img_087CB630:  @ 0x087CB630
-	.incbin "baserom.gba", 0x7CB630, 0x7C4    @ 0x7CBDF4 - 0x7CB630
+	.incbin "graphics/unsorted/Img_087CB630.4bpp.lz"
 
 	.global Img_087CBDF4
 Img_087CBDF4:  @ 0x087CBDF4
-	.incbin "baserom.gba", 0x7CBDF4, 0x768    @ 0x7CC55C - 0x7CBDF4
+	.incbin "graphics/unsorted/Img_087CBDF4.4bpp.lz"
 
 	.global Pal_087CC55C
 Pal_087CC55C:  @ 0x087CC55C
-	.incbin "baserom.gba", 0x7CC55C, 0x20    @ 0x7CC57C - 0x7CC55C
+	.incbin "graphics/unsorted/Pal_087CC55C.gbapal"
 
 	.global Pal_087CC57C
 Pal_087CC57C:  @ 0x087CC57C
-	.incbin "baserom.gba", 0x7CC57C, 0x20    @ 0x7CC59C - 0x7CC57C
+	.incbin "graphics/unsorted/Pal_087CC57C.gbapal"
 
 	.global Pal_087CC59C
 Pal_087CC59C:  @ 0x087CC59C
-	.incbin "baserom.gba", 0x7CC59C, 0x20    @ 0x7CC5BC - 0x7CC59C
+	.incbin "graphics/unsorted/Pal_087CC59C.gbapal"
 
 	.global Pal_087CC5BC
 Pal_087CC5BC:  @ 0x087CC5BC
-	.incbin "baserom.gba", 0x7CC5BC, 0x20    @ 0x7CC5DC - 0x7CC5BC
+	.incbin "graphics/unsorted/Pal_087CC5BC.gbapal"
 
 	.global Pal_087CC5DC
 Pal_087CC5DC:  @ 0x087CC5DC
-	.incbin "baserom.gba", 0x7CC5DC, 0x20    @ 0x7CC5FC - 0x7CC5DC
+	.incbin "graphics/unsorted/Pal_087CC5DC.gbapal"
 
 	.global Tsa_087CC5FC
 Tsa_087CC5FC:  @ 0x087CC5FC
-	.incbin "baserom.gba", 0x7CC5FC, 0x138    @ 0x7CC734 - 0x7CC5FC
+	.incbin "graphics/unsorted/Tsa_087CC5FC.bin.lz"
 
 	.global Tsa_087CC734
 Tsa_087CC734:  @ 0x087CC734
-	.incbin "baserom.gba", 0x7CC734, 0x144    @ 0x7CC878 - 0x7CC734
+	.incbin "graphics/unsorted/Tsa_087CC734.bin.lz"
 
 	.global Tsa_087CC878
 Tsa_087CC878:  @ 0x087CC878
-	.incbin "baserom.gba", 0x7CC878, 0x140    @ 0x7CC9B8 - 0x7CC878
+	.incbin "graphics/unsorted/Tsa_087CC878.bin.lz"
 
 	.global Tsa_087CC9B8
 Tsa_087CC9B8:  @ 0x087CC9B8
-	.incbin "baserom.gba", 0x7CC9B8, 0x120    @ 0x7CCAD8 - 0x7CC9B8
+	.incbin "graphics/unsorted/Tsa_087CC9B8.bin.lz"
 
 	.global Tsa_087CCAD8
 Tsa_087CCAD8:  @ 0x087CCAD8
-	.incbin "baserom.gba", 0x7CCAD8, 0x120    @ 0x7CCBF8 - 0x7CCAD8
+	.incbin "graphics/unsorted/Tsa_087CCAD8.bin.lz"
 
     .global Img_DemonLightBg_Far_1
 Img_DemonLightBg_Far_1:
@@ -2285,195 +2285,195 @@ Tsa_DemonLightBg_Far_32:
 
 	.global Img_087EA72C
 Img_087EA72C:  @ 0x087EA72C
-	.incbin "baserom.gba", 0x7EA72C, 0x554    @ 0x7EAC80 - 0x7EA72C
+	.incbin "graphics/unsorted/Img_087EA72C.4bpp.lz"
 
 	.global Img_087EAC80
 Img_087EAC80:  @ 0x087EAC80
-	.incbin "baserom.gba", 0x7EAC80, 0xA84    @ 0x7EB704 - 0x7EAC80
+	.incbin "graphics/unsorted/Img_087EAC80.4bpp.lz"
 
 	.global Img_087EB704
 Img_087EB704:  @ 0x087EB704
-	.incbin "baserom.gba", 0x7EB704, 0x950    @ 0x7EC054 - 0x7EB704
+	.incbin "graphics/unsorted/Img_087EB704.4bpp.lz"
 
 	.global Img_087EC054
 Img_087EC054:  @ 0x087EC054
-	.incbin "baserom.gba", 0x7EC054, 0x8F0    @ 0x7EC944 - 0x7EC054
+	.incbin "graphics/unsorted/Img_087EC054.4bpp.lz"
 
 	.global Img_087EC944
 Img_087EC944:  @ 0x087EC944
-	.incbin "baserom.gba", 0x7EC944, 0x96C    @ 0x7ED2B0 - 0x7EC944
+	.incbin "graphics/unsorted/Img_087EC944.4bpp.lz"
 
 	.global Img_087ED2B0
 Img_087ED2B0:  @ 0x087ED2B0
-	.incbin "baserom.gba", 0x7ED2B0, 0x578    @ 0x7ED828 - 0x7ED2B0
+	.incbin "graphics/unsorted/Img_087ED2B0.4bpp.lz"
 
 	.global Img_087ED828
 Img_087ED828:  @ 0x087ED828
-	.incbin "baserom.gba", 0x7ED828, 0x598    @ 0x7EDDC0 - 0x7ED828
+	.incbin "graphics/unsorted/Img_087ED828.4bpp.lz"
 
 	.global Img_087EDDC0
 Img_087EDDC0:  @ 0x087EDDC0
-	.incbin "baserom.gba", 0x7EDDC0, 0x5E0    @ 0x7EE3A0 - 0x7EDDC0
+	.incbin "graphics/unsorted/Img_087EDDC0.4bpp.lz"
 
 	.global Pal_087EE3A0
 Pal_087EE3A0:  @ 0x087EE3A0
-	.incbin "baserom.gba", 0x7EE3A0, 0x20    @ 0x7EE3C0 - 0x7EE3A0
+	.incbin "graphics/unsorted/Pal_087EE3A0.gbapal"
 
 	.global Pal_087EE3C0
 Pal_087EE3C0:  @ 0x087EE3C0
-	.incbin "baserom.gba", 0x7EE3C0, 0x20    @ 0x7EE3E0 - 0x7EE3C0
+	.incbin "graphics/unsorted/Pal_087EE3C0.gbapal"
 
 	.global Pal_087EE3E0
 Pal_087EE3E0:  @ 0x087EE3E0
-	.incbin "baserom.gba", 0x7EE3E0, 0x20    @ 0x7EE400 - 0x7EE3E0
+	.incbin "graphics/unsorted/Pal_087EE3E0.gbapal"
 
 	.global Pal_087EE400
 Pal_087EE400:  @ 0x087EE400
-	.incbin "baserom.gba", 0x7EE400, 0x20    @ 0x7EE420 - 0x7EE400
+	.incbin "graphics/unsorted/Pal_087EE400.gbapal"
 
 	.global Pal_087EE420
 Pal_087EE420:  @ 0x087EE420
-	.incbin "baserom.gba", 0x7EE420, 0x20    @ 0x7EE440 - 0x7EE420
+	.incbin "graphics/unsorted/Pal_087EE420.gbapal"
 
 	.global Pal_087EE440
 Pal_087EE440:  @ 0x087EE440
-	.incbin "baserom.gba", 0x7EE440, 0x20    @ 0x7EE460 - 0x7EE440
+	.incbin "graphics/unsorted/Pal_087EE440.gbapal"
 
 	.global Pal_087EE460
 Pal_087EE460:  @ 0x087EE460
-	.incbin "baserom.gba", 0x7EE460, 0x20    @ 0x7EE480 - 0x7EE460
+	.incbin "graphics/unsorted/Pal_087EE460.gbapal"
 
 	.global Pal_087EE480
 Pal_087EE480:  @ 0x087EE480
-	.incbin "baserom.gba", 0x7EE480, 0x20    @ 0x7EE4A0 - 0x7EE480
+	.incbin "graphics/unsorted/Pal_087EE480.gbapal"
 
 	.global Tsa_087EE4A0
 Tsa_087EE4A0:  @ 0x087EE4A0
-	.incbin "baserom.gba", 0x7EE4A0, 0xD8    @ 0x7EE578 - 0x7EE4A0
+	.incbin "graphics/unsorted/Tsa_087EE4A0.bin.lz"
 
 	.global Tsa_087EE578
 Tsa_087EE578:  @ 0x087EE578
-	.incbin "baserom.gba", 0x7EE578, 0x198    @ 0x7EE710 - 0x7EE578
+	.incbin "graphics/unsorted/Tsa_087EE578.bin.lz"
 
 	.global Tsa_087EE710
 Tsa_087EE710:  @ 0x087EE710
-	.incbin "baserom.gba", 0x7EE710, 0x1E8    @ 0x7EE8F8 - 0x7EE710
+	.incbin "graphics/unsorted/Tsa_087EE710.bin.lz"
 
 	.global Tsa_087EE8F8
 Tsa_087EE8F8:  @ 0x087EE8F8
-	.incbin "baserom.gba", 0x7EE8F8, 0x1FC    @ 0x7EEAF4 - 0x7EE8F8
+	.incbin "graphics/unsorted/Tsa_087EE8F8.bin.lz"
 
 	.global Tsa_087EEAF4
 Tsa_087EEAF4:  @ 0x087EEAF4
-	.incbin "baserom.gba", 0x7EEAF4, 0x1B4    @ 0x7EECA8 - 0x7EEAF4
+	.incbin "graphics/unsorted/Tsa_087EEAF4.bin.lz"
 
 	.global Tsa_087EECA8
 Tsa_087EECA8:  @ 0x087EECA8
-	.incbin "baserom.gba", 0x7EECA8, 0x104    @ 0x7EEDAC - 0x7EECA8
+	.incbin "graphics/unsorted/Tsa_087EECA8.bin.lz"
 
 	.global Tsa_087EEDAC
 Tsa_087EEDAC:  @ 0x087EEDAC
-	.incbin "baserom.gba", 0x7EEDAC, 0x104    @ 0x7EEEB0 - 0x7EEDAC
+	.incbin "graphics/unsorted/Tsa_087EEDAC.bin.lz"
 
 	.global Tsa_087EEEB0
 Tsa_087EEEB0:  @ 0x087EEEB0
-	.incbin "baserom.gba", 0x7EEEB0, 0x10C    @ 0x7EEFBC - 0x7EEEB0
+	.incbin "graphics/unsorted/Tsa_087EEEB0.bin.lz"
 
 	.global Img_087EEFBC
 Img_087EEFBC:  @ 0x087EEFBC
-	.incbin "baserom.gba", 0x7EEFBC, 0x774    @ 0x7EF730 - 0x7EEFBC
+	.incbin "graphics/unsorted/Img_087EEFBC.4bpp.lz"
 
 	.global Img_087EF730
 Img_087EF730:  @ 0x087EF730
-	.incbin "baserom.gba", 0x7EF730, 0x7D4    @ 0x7EFF04 - 0x7EF730
+	.incbin "graphics/unsorted/Img_087EF730.4bpp.lz"
 
 	.global Img_087EFF04
 Img_087EFF04:  @ 0x087EFF04
-	.incbin "baserom.gba", 0x7EFF04, 0x7D0    @ 0x7F06D4 - 0x7EFF04
+	.incbin "graphics/unsorted/Img_087EFF04.4bpp.lz"
 
 	.global Img_087F06D4
 Img_087F06D4:  @ 0x087F06D4
-	.incbin "baserom.gba", 0x7F06D4, 0x7C4    @ 0x7F0E98 - 0x7F06D4
+	.incbin "graphics/unsorted/Img_087F06D4.4bpp.lz"
 
 	.global Img_087F0E98
 Img_087F0E98:  @ 0x087F0E98
-	.incbin "baserom.gba", 0x7F0E98, 0x768    @ 0x7F1600 - 0x7F0E98
+	.incbin "graphics/unsorted/Img_087F0E98.4bpp.lz"
 
 	.global Pal_087F1600
 Pal_087F1600:  @ 0x087F1600
-	.incbin "baserom.gba", 0x7F1600, 0x20    @ 0x7F1620 - 0x7F1600
+	.incbin "graphics/unsorted/Pal_087F1600.gbapal"
 
 	.global Pal_087F1620
 Pal_087F1620:  @ 0x087F1620
-	.incbin "baserom.gba", 0x7F1620, 0x20    @ 0x7F1640 - 0x7F1620
+	.incbin "graphics/unsorted/Pal_087F1620.gbapal"
 
 	.global Pal_087F1640
 Pal_087F1640:  @ 0x087F1640
-	.incbin "baserom.gba", 0x7F1640, 0x20    @ 0x7F1660 - 0x7F1640
+	.incbin "graphics/unsorted/Pal_087F1640.gbapal"
 
 	.global Pal_087F1660
 Pal_087F1660:  @ 0x087F1660
-	.incbin "baserom.gba", 0x7F1660, 0x20    @ 0x7F1680 - 0x7F1660
+	.incbin "graphics/unsorted/Pal_087F1660.gbapal"
 
 	.global Pal_087F1680
 Pal_087F1680:  @ 0x087F1680
-	.incbin "baserom.gba", 0x7F1680, 0x20    @ 0x7F16A0 - 0x7F1680
+	.incbin "graphics/unsorted/Pal_087F1680.gbapal"
 
 	.global Tsa_087F16A0
 Tsa_087F16A0:  @ 0x087F16A0
-	.incbin "baserom.gba", 0x7F16A0, 0x138    @ 0x7F17D8 - 0x7F16A0
+	.incbin "graphics/unsorted/Tsa_087F16A0.bin.lz"
 
 	.global Tsa_087F17D8
 Tsa_087F17D8:  @ 0x087F17D8
-	.incbin "baserom.gba", 0x7F17D8, 0x144    @ 0x7F191C - 0x7F17D8
+	.incbin "graphics/unsorted/Tsa_087F17D8.bin.lz"
 
 	.global Tsa_087F191C
 Tsa_087F191C:  @ 0x087F191C
-	.incbin "baserom.gba", 0x7F191C, 0x138    @ 0x7F1A54 - 0x7F191C
+	.incbin "graphics/unsorted/Tsa_087F191C.bin.lz"
 
 	.global Tsa_087F1A54
 Tsa_087F1A54:  @ 0x087F1A54
-	.incbin "baserom.gba", 0x7F1A54, 0x120    @ 0x7F1B74 - 0x7F1A54
+	.incbin "graphics/unsorted/Tsa_087F1A54.bin.lz"
 
 	.global Tsa_087F1B74
 Tsa_087F1B74:  @ 0x087F1B74
-	.incbin "baserom.gba", 0x7F1B74, 0x120    @ 0x7F1C94 - 0x7F1B74
+	.incbin "graphics/unsorted/Tsa_087F1B74.bin.lz"
 
 	.global Img_087F1C94
 Img_087F1C94:  @ 0x087F1C94
-	.incbin "baserom.gba", 0x7F1C94, 0x7D0    @ 0x7F2464 - 0x7F1C94
+	.incbin "graphics/unsorted/Img_087F1C94.4bpp.lz"
 
 	.global Img_087F2464
 Img_087F2464:  @ 0x087F2464
-	.incbin "baserom.gba", 0x7F2464, 0x9DC    @ 0x7F2E40 - 0x7F2464
+	.incbin "graphics/unsorted/Img_087F2464.4bpp.lz"
 
 	.global Img_087F2E40
 Img_087F2E40:  @ 0x087F2E40
-	.incbin "baserom.gba", 0x7F2E40, 0xDD4    @ 0x7F3C14 - 0x7F2E40
+	.incbin "graphics/unsorted/Img_087F2E40.4bpp.lz"
 
 	.global Pal_087F3C14
 Pal_087F3C14:  @ 0x087F3C14
-	.incbin "baserom.gba", 0x7F3C14, 0x20    @ 0x7F3C34 - 0x7F3C14
+	.incbin "graphics/unsorted/Pal_087F3C14.gbapal"
 
 	.global Pal_087F3C34
 Pal_087F3C34:  @ 0x087F3C34
-	.incbin "baserom.gba", 0x7F3C34, 0x20    @ 0x7F3C54 - 0x7F3C34
+	.incbin "graphics/unsorted/Pal_087F3C34.gbapal"
 
 	.global Pal_087F3C54
 Pal_087F3C54:  @ 0x087F3C54
-	.incbin "baserom.gba", 0x7F3C54, 0x20    @ 0x7F3C74 - 0x7F3C54
+	.incbin "graphics/unsorted/Pal_087F3C54.gbapal"
 
 	.global Tsa_087F3C74
 Tsa_087F3C74:  @ 0x087F3C74
-	.incbin "baserom.gba", 0x7F3C74, 0xEC    @ 0x7F3D60 - 0x7F3C74
+	.incbin "graphics/unsorted/Tsa_087F3C74.bin.lz"
 
 	.global Tsa_087F3D60
 Tsa_087F3D60:  @ 0x087F3D60
-	.incbin "baserom.gba", 0x7F3D60, 0x128    @ 0x7F3E88 - 0x7F3D60
+	.incbin "graphics/unsorted/Tsa_087F3D60.bin.lz"
 
 	.global Tsa_087F3E88
 Tsa_087F3E88:  @ 0x087F3E88
-	.incbin "baserom.gba", 0x7F3E88, 0x7F4040 - 0x7F3E88
+	.incbin "graphics/unsorted/Tsa_087F3E88.bin.lz"
 
 .global AnimSprite_DemoKingTunkFace_1
 AnimSprite_DemoKingTunkFace_1:  @ 0x7F4040

@@ -132,7 +132,7 @@ extern CONST_DATA struct ProcCmd ProcScr_OpAnimMergeBG[];
 // extern ??? gUnknown_08AA715C
 // extern ??? gUnknown_08AA7194
 
-extern CONST_DATA u16 * Pal_OpAnimShiningRing[];
+extern CONST_DATA u16 Pal_OpAnimShiningRing[];
 extern CONST_DATA u8 img_opanim1[];
 extern CONST_DATA u8 img_opanim2[];
 extern CONST_DATA u8 img_opanim3[];

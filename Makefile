@@ -29,6 +29,7 @@ CC1_OLD := tools/agbcc/bin/old_agbcc$(EXE)
 BIN2C      := tools/bin2c/bin2c$(EXE)
 GBAGFX     := tools/gbagfx/gbagfx$(EXE)
 SCANINC    := tools/scaninc/scaninc$(EXE)
+PREPROC    := tools/preproc/preproc$(EXE)
 AIF2PCM    := tools/aif2pcm/aif2pcm$(EXE)
 MID2AGB    := tools/mid2agb/mid2agb$(EXE)
 TEXTENCODE := tools/textencode/textencode$(EXE)
@@ -72,7 +73,7 @@ MAP          := $(ROM:.gba=.map)
 LDSCRIPT     := ldscript.txt
 SYM_FILES    := sym_iwram.txt
 CFILES_GENERATED := $(C_SUBDIR)/msg_data.c
-CFILES       := $(wildcard $(C_SUBDIR)/*.c)
+CFILES       := $(wildcard $(C_SUBDIR)/*.c) $(wildcard $(DATA_SRC_SUBDIR)/*.c)
 ifeq (,$(findstring $(CFILES_GENERATED),$(CFILES)))
 CFILES       += $(CFILES_GENERATED)
 endif
@@ -250,16 +251,8 @@ $(ELF): $(ALL_OBJECTS) $(OBJECTS_LST) $(LDSCRIPT) $(SYM_FILES)
 %.gba: %.elf
 	$(OBJCOPY) --strip-debug -O binary --pad-to 0x9000000 --gap-fill=0xff $< $@
 
-$(C_OBJECTS): %.o: %.c $(DEPS_DIR)/%.d
-	@$(MAKEDEP)
-	$(CPP) $(CPPFLAGS) $< | iconv -f UTF-8 -t CP932 | $(CC1) $(CC1FLAGS) -o $*.s
-	echo '.ALIGN 2, 0' >> $*.s
-ifeq ($(UNAME),Darwin)
-	$(SED) -f scripts/align_2_before_debug_section_for_osx.sed $*.s
-else
-	$(SED) '/.section	.debug_line/i\.align 2, 0' $*.s
-endif
-	$(AS) $(ASFLAGS) $*.s -o $@
+$(PREPROC): tools/preproc/preproc.cpp tools/preproc/Makefile
+	$(MAKE) -C tools/preproc
 
 ifeq ($(NODEP),1)
 asm/%.o:      data_dep :=
@@ -270,7 +263,13 @@ endif
 ifeq ($(NODEP),1)
 src/%.o:      data_dep :=
 else
-src/%.o:      data_dep = $(shell $(SCANINC) -I include -I "" $*.s)
+src/%.o:      data_dep = $(shell $(SCANINC) -I include -I "" $(if $(wildcard $*.c),$*.c,$*.s))
+endif
+
+ifeq ($(NODEP),1)
+src/data/%.o: data_dep :=
+else
+src/data/%.o: data_dep = $(shell $(SCANINC) -I include -I "" $(if $(wildcard $*.c),$*.c,$*.s))
 endif
 
 ifeq ($(NODEP),1)
@@ -294,6 +293,18 @@ endif
 .SECONDEXPANSION:
 $(ASM_OBJECTS): %.o: %.s $$(data_dep)
 	$(AS) $(ASFLAGS) -g $< -o $@
+
+$(C_OBJECTS): %.o: %.c $(DEPS_DIR)/%.d $(PREPROC) $$(data_dep)
+	@$(MAKEDEP)
+	$(CPP) $(CPPFLAGS) $< | $(PREPROC) -i $< | iconv -f UTF-8 -t CP932 | $(CC1) $(CC1FLAGS) -o $*.s
+	echo '.ALIGN 2, 0' >> $*.s
+ifeq ($(UNAME),Darwin)
+	$(SED) -f scripts/align_2_before_debug_section_for_osx.sed $*.s
+else
+	$(SED) '/.section	.debug_line/i\.align 2, 0' $*.s
+endif
+	$(AS) $(ASFLAGS) $*.s -o $@
+
 %.lz:$(MAP_LAYOUT_SUBDIR)/%.bin ; $(GBAGFX) $< $@
 
 # Don't delete intermediate files

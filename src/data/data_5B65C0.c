@@ -1,0 +1,21 @@
+#include "global.h"
+const u8 gUiFrameImage[] = INCBIN_U8("graphics/unsorted/gUiFrameImage.4bpp.lz");
+const u16 gUiFramePaletteA[] = INCBIN_U16("graphics/unsorted/gUiFramePaletteA.gbapal");
+const u16 gUiFramePaletteB[] = INCBIN_U16("graphics/unsorted/gUiFramePaletteB.gbapal");
+const u16 gUiFramePaletteC[] = INCBIN_U16("graphics/unsorted/gUiFramePaletteC.gbapal");
+const u16 gUiFramePaletteD[] = INCBIN_U16("graphics/unsorted/gUiFramePaletteD.gbapal");
+const u8 gLegacyUiFrameAImage[] = INCBIN_U8("graphics/unsorted/gLegacyUiFrameAImage.4bpp.lz");
+const u16 gLegacyUiFrameAPalette[] = INCBIN_U16("graphics/unsorted/gLegacyUiFrameAPalette.gbapal");
+const u16 gUiBarPaletteA[] = INCBIN_U16("graphics/unsorted/gUiBarPaletteA.gbapal");
+const u8 gLegacyUiFrameBImage[] = INCBIN_U8("graphics/unsorted/gLegacyUiFrameBImage.4bpp.lz");
+const u16 gLegacyUiFrameBPalette[] = INCBIN_U16("graphics/unsorted/gLegacyUiFrameBPalette.gbapal");
+const u16 gUiBarPaletteB[] = INCBIN_U16("graphics/unsorted/gUiBarPaletteB.gbapal");
+const u8 gLegacyUiFrameCImage[] = INCBIN_U8("graphics/unsorted/gLegacyUiFrameCImage.4bpp.lz");
+const u16 gLegacyUiFrameCPalette[] = INCBIN_U16("graphics/unsorted/gLegacyUiFrameCPalette.gbapal");
+const u16 gUiBarPaletteC[] = INCBIN_U16("graphics/unsorted/gUiBarPaletteC.gbapal");
+const u8 gLegacyUiFrameDImage[] = INCBIN_U8("graphics/unsorted/gLegacyUiFrameDImage.4bpp.lz");
+const u16 gLegacyUiFrameDPalette[] = INCBIN_U16("graphics/unsorted/gLegacyUiFrameDPalette.gbapal");
+const u16 gUiBarPaletteD[] = INCBIN_U16("graphics/unsorted/gUiBarPaletteD.gbapal");
+const u8 gUnkUiFrameImage[] = INCBIN_U8("graphics/unsorted/gUnkUiFrameImage.4bpp.lz");
+const u16 gUnkUiFramePalettes[] = INCBIN_U16("graphics/unsorted/gUnkUiFramePalettes.gbapal");
+u8 Img_SysGrayBox[] = INCBIN_U8("graphics/sysutils/Img_SysGrayBox.4bpp.lz");

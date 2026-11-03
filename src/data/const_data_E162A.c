@@ -1,0 +1,21 @@
+#include "global.h"
+const u16 Img_TriPegasusKnightBG[] = INCBIN_U16("graphics/efxbattle/Img_TriPegasusKnightBG.4bpp.lz");
+const u16 Img_TriFalconKnightLanceBG[] = INCBIN_U16("graphics/efxbattle/Img_TriFalconKnightLanceBG.4bpp.lz");
+const u16 Img_TriFalconKnightSwordBG[] = INCBIN_U16("graphics/efxbattle/Img_TriFalconKnightSwordBG.4bpp.lz");
+const u16 Tsa_EkrTriPegagusRightBG1[] = INCBIN_U16("graphics/unsorted/Tsa_EkrTriPegagusRightBG1.bin.lz");
+const u16 Tsa_EkrTriPegagusRightBG2[] = INCBIN_U16("graphics/unsorted/Tsa_EkrTriPegagusRightBG2.bin.lz");
+const u16 Tsa_EkrTriPegagusRightBG3[] = INCBIN_U16("graphics/unsorted/Tsa_EkrTriPegagusRightBG3.bin.lz");
+const u16 Tsa_EkrTriPegagusLeftBG1[] = INCBIN_U16("graphics/unsorted/Tsa_EkrTriPegagusLeftBG1.bin.lz");
+const u16 Tsa_EkrTriPegagusLeftBG2[] = INCBIN_U16("graphics/unsorted/Tsa_EkrTriPegagusLeftBG2.bin.lz");
+const u16 Tsa_EkrTriPegagusLeftBG3[] = INCBIN_U16("graphics/unsorted/Tsa_EkrTriPegagusLeftBG3.bin.lz");
+const u16 Img_TriPegasusKnightOBJ[] = INCBIN_U16("graphics/efxbattle/Img_TriPegasusKnightOBJ.4bpp.lz");
+const u16 Img_TriFalconKnightLanceOBJ[] = INCBIN_U16("graphics/efxbattle/Img_TriFalconKnightLanceOBJ.4bpp.lz");
+const u16 Img_TriFalconKnightSwordOBJ[] = INCBIN_U16("graphics/efxbattle/Img_TriFalconKnightSwordOBJ.4bpp.lz");
+const u16 Img_TriKnightOBJ[] = INCBIN_U16("graphics/efxbattle/Img_TriKnightOBJ.4bpp.lz");
+const u16 Img_TriGenerialLanceOBJ[] = INCBIN_U16("graphics/efxbattle/Img_TriGenerialLanceOBJ.4bpp.lz");
+const u16 Img_TriGenerialAxeOBJ[] = INCBIN_U16("graphics/efxbattle/Img_TriGenerialAxeOBJ.4bpp.lz");
+const u16 Img_TriGenerialHandAxeOBJ[] = INCBIN_U16("graphics/efxbattle/Img_TriGenerialHandAxeOBJ.4bpp.lz");
+const u16 Img_TriKnightAtkOBJ[] = INCBIN_U16("graphics/efxbattle/Img_TriKnightAtkOBJ.4bpp.lz");
+const u16 Img_TriGenerialLanceAtkOBJ[] = INCBIN_U16("graphics/efxbattle/Img_TriGenerialLanceAtkOBJ.4bpp.lz");
+const u16 Img_TriGenerialAxeAtkOBJ[] = INCBIN_U16("graphics/efxbattle/Img_TriGenerialAxeAtkOBJ.4bpp.lz");
+const u16 Img_TriGenerialHandAxeAtkOBJ[] = INCBIN_U16("graphics/efxbattle/Img_TriGenerialHandAxeAtkOBJ.4bpp.lz");

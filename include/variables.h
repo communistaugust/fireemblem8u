@@ -1396,5 +1396,9 @@ extern u16 Pal_ChapterIntro_LensFlare[]; // pal
 // extern ??? gUnknown_08C00008
 // extern ??? gUnknown_08EE0008
 // extern ??? gUnknown_08EF8008
-
+extern u16 gPal_Copyright[];
+extern u16 gPal_FireEmblemLogo[];
+extern u16 gPal_SacredStoneBanner[];
+extern u16 gPal_TitleUnkPalette2[];
+extern u16 gPal_TitleUnkPalette3[];
 #endif  // GUARD_VARIABLES_H

@@ -1235,7 +1235,7 @@ void PlayPhaseForceActiveUnitCanto(void)
 //! FE8U = 0x0801D89C
 void MoveLimitViewChange_OnInit(struct MoveLimitViewProc * proc)
 {
-    RegisterDataMove(gUnknown_08A02EB4, (u8 *)VRAM + 0x5080, 0x80);
+    RegisterDataMove(Img_LimitViewSquares + (5 * 4 * CHR_SIZE), (u8 *)VRAM + 0x5080, 0x80);
 
     if (!(gBmSt.gameStateBits & BM_FLAG_0))
     {
@@ -1243,7 +1243,7 @@ void MoveLimitViewChange_OnInit(struct MoveLimitViewProc * proc)
     }
     else
     {
-        RegisterDataMove(gUnknown_08A02EB4, (u8 *)VRAM + 0x5000, 0x80);
+        RegisterDataMove(Img_LimitViewSquares + (5 * 4 * CHR_SIZE), (u8 *)VRAM + 0x5000, 0x80);
         Proc_End(proc);
     }
 

@@ -16,6 +16,8 @@
 #include "constants/songs.h"
 #include "constants/chapters.h"     
 
+extern const u8 gUnused_08205958[];
+
 CONST_DATA EventListScr EventScr_Ch8_BeginningScene[] = {
     MUSC(SONG_TENSION)
     LOAD2(0x1, UnitDef_088B76FC)
@@ -492,7 +494,7 @@ void AutolevelSecondaryLord()
 
 CONST_DATA struct MenuItemDef MenuItemDef_RouteSplit[] = {
     {
-        .name = (const char *)0x8205958,
+        .name = (const char *)gUnused_08205958,
         .nameMsgId = 0xC15, /* Go with Eirika to Rausten. */
         .overrideId = 0,
         .color = TEXT_COLOR_SYSTEM_WHITE,
@@ -501,7 +503,7 @@ CONST_DATA struct MenuItemDef MenuItemDef_RouteSplit[] = {
         .onSelected = Command_EirikaMode,
     },
     {
-        .name = (const char *)0x8205958,
+        .name = (const char *)gUnused_08205958,
         .nameMsgId = 0xC16, /* Go with Ephraim to Grado. */
         .overrideId = 1,
         .color = TEXT_COLOR_SYSTEM_WHITE,

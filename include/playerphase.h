@@ -76,7 +76,6 @@ extern u16 gUnknown_08A02F34[];
 extern u16 gUnknown_08A02F94[];
 extern u16 gUnknown_08A02FF4[];
 
-extern u8 gUnknown_08A02EB4[];
 
 extern struct ProcCmd gProcScr_0859ACE8[];
 extern struct ProcCmd gProcScr_PlayerPhase[];

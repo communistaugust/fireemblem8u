@@ -1,0 +1,26 @@
+#### Makefile.png ####
+# The normal build (Makefile), with the graphics built from the editable sources in
+# graphics_png/ instead of the binaries extracted from baserom.gba.
+#
+# Make does not write the sources. Once (and again after a change of graphic_extract.yml
+# or graphic_png.yml):
+#
+#   python3 scripts/extract_file.py                       extract the binaries
+#   python3 scripts/gfx_png.py sources                    write graphics_png/ and gfx_png_rules.mk
+#   python3 scripts/gfx_png.py prune --kept-mk gfx_kept.mk
+#                                                         delete the binaries that have a source
+#
+# then `make -f Makefile.png`: edit a PNG/.pal in graphics_png/ and make rebuilds what
+# depends on it. Binaries without a source are used as extracted; if `make clean`
+# deletes them, gfx_kept.mk extracts them again from baserom.gba.
+
+include Makefile
+
+# not for clean/tag: those work without the sources
+ifeq (,$(filter clean clean_fast clean_common tag,$(MAKECMDGOALS)))
+ifeq (,$(wildcard gfx_png_rules.mk))
+$(error No graphics_png sources: run `python3 scripts/gfx_png.py sources` first (see Makefile.png))
+endif
+include gfx_png_rules.mk
+-include gfx_kept.mk
+endif

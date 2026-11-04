@@ -116,6 +116,11 @@ struct AnimSpriteData {
 
 #define ANIM_SPRITE_END {.header = 1}
 
+#define ANIM_SPRITE(_oam0, _oam1, _oam2, _x, _y) {.header = (_oam0)+((u32)(_oam1)<<16),.as = {.object = {.oam2 = _oam2, .x = _x, .y = _y} }}
+
+#define ANIM_SPRITE_AFFIN(_cnt, _pa, _pb, _pc, _pd) { .header = (u32)(_cnt) + ((u32)0xFFFF<<16),.as = {.affine = {.pa = _pa, .pb = _pb, .pc = _pc, .pd = _pd} }}
+
+#define ANIM_SPRITE_XFLIP(_oam0, _oam1, _oam2, _x, _y) {.header = (_oam0)+((u32)(_oam1+ATTR1_FLIP_X)<<16),.as = {.object = {.oam2 = _oam2, .x = _x, .y = _y} }}
 enum {
     ANIM_MAX_COUNT = 50,
 };
@@ -154,6 +159,14 @@ enum anim_inst_type {
 #define ANFMT_FORCESPRITE 0x00000000
 #define ANFMT_NOT_FORCESPRITE 0x80000000
 #define ANFMT_PTRINS 0x40000000
+#define ANFMT_INS_TYPE_STOP (ANIM_INS_TYPE_STOP << 24)
+#define ANFMT_INS_TYPE_END (ANIM_INS_TYPE_END << 24)
+#define ANFMT_INS_TYPE_LOOP (ANIM_INS_TYPE_LOOP << 24)
+#define ANFMT_INS_TYPE_MOVE (ANIM_INS_TYPE_MOVE    << 24)
+#define ANFMT_INS_TYPE_WAIT (ANIM_INS_TYPE_WAIT    << 24)
+#define ANFMT_INS_TYPE_COMMAND (ANIM_INS_TYPE_COMMAND    << 24)
+#define ANFMT_INS_TYPE_FRAME (ANIM_INS_TYPE_FRAME    << 24)
+
 #define ANFMT_INST_TYPE(type) (((type) & 0x3F) << 24)
 #define ANIMFMT_OAM_DURATION(duration) (((duration) & 3) + ((duration & 0x3C) << 26))
 
@@ -182,9 +195,16 @@ typedef u32 AnimScr;
 #define ANIMSCR_BLOCKED \
     (ANFMT_NOT_FORCESPRITE + ANFMT_INST_TYPE(ANIM_INS_TYPE_STOP))
 
+#define ANIMSCR_DISABLED \
+(ANFMT_NOT_FORCESPRITE + ANFMT_INS_TYPE_END)
+
 #define ANIMSCR_FORCE_SPRITE(anim_sprite, duration) \
     (ANFMT_FORCESPRITE + (AnimScr)(anim_sprite) + ANIMFMT_OAM_DURATION(duration))
 
+#define ANIMSCR_WAIT(time) (ANFMT_NOT_FORCESPRITE + ANFMT_INS_TYPE_WAIT + time)
+
+#define ANIMSCR_LOOP \
+    (ANFMT_NOT_FORCESPRITE + ANFMT_INS_TYPE_LOOP)
 void AnimUpdateAll(void);
 void AnimClearAll(void);
 struct Anim * AnimCreate_unused(const void * script);

@@ -1,5 +1,6 @@
 #ifndef GUARD_ICON_H
 #define GUARD_ICON_H
+#define MAX_ICON_COUNT 224
 
 struct IconStruct {
     u8 References; // Seems to count the number of references to that icon ID
@@ -19,6 +20,6 @@ void ClearIconGfx(u32 Index);
 void LoadIconObjectGraphics(int Index, int b);
 
 extern const u16 item_icon_palette[2][16]; // Item Icon Palette
-extern const u8 item_icon_tiles[]; // Item Icon GFX
+extern const u8 item_icon_tiles[MAX_ICON_COUNT][0x80]; // Item Icon GFX
 
 #endif  // GUARD_ICON_H

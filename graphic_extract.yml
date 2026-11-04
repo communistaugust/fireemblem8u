@@ -25625,8 +25625,7 @@ files:
   location: graphics/world_map/nations
   type: 4bpp.lz
   file_name: Gfx_WmNationFrecia
-- name: '@ 4th team [purple] ends up being unused as there is no way to have generics
-    in the arena, which is the only place where the 4th team exists.'
+- name: gPal_GenericIcon3
   address: '0x08599f94'
   size: 32
   location: graphics/generic_icon
@@ -35428,7 +35427,7 @@ files:
   address: '0x08a97a40'
   size: 32
   location: graphics/unsorted
-  type: bin
+  type: gbapal
   file_name: gUnknown_08A97A40
 - name: gPal_GMapPI_ShopIcons
   address: '0x08a97a60'
@@ -35470,7 +35469,7 @@ files:
   address: '0x08a97e48'
   size: 144
   location: graphics/unsorted
-  type: bin
+  type: gbapal
   file_name: gUnknown_08A97E48
 - name: Img_GmapPath
   address: '0x08a97ed8'
@@ -35482,7 +35481,7 @@ files:
   address: '0x08a97fa4'
   size: 32
   location: graphics/unsorted
-  type: bin
+  type: gbapal
   file_name: gUnknown_08A97FA4
 - name: gUnknown_08A97FC4
   address: '0x08a97fc4'
@@ -35530,7 +35529,7 @@ files:
   address: '0x08a980dc'
   size: 40
   location: graphics/unsorted
-  type: bin
+  type: gbapal
   file_name: gUnknown_08A980DC
 - name: gUnknown_08A98104
   address: '0x08a98104'
@@ -35722,7 +35721,7 @@ files:
   address: '0x08a98dcc'
   size: 96
   location: graphics/unsorted
-  type: bin
+  type: gbapal
   file_name: gUnknown_08A98DCC
 - name: gUnknown_08A98E2C
   address: '0x08a98e2c'
@@ -40388,22 +40387,10 @@ files:
   file_name: Img_DemonLightSprites_EyeFlash
 - name: Pal_DemonLightSprites_EyeFlash
   address: '0x087a5118'
-  size: 296
+  size: 32
   location: graphics/unsorted
   type: gbapal
   file_name: Pal_DemonLightSprites_EyeFlash
-- name: gUnknown_087A5240
-  address: '0x087a5240'
-  size: 300
-  location: graphics/unsorted
-  type: bin
-  file_name: gUnknown_087A5240
-- name: gUnknown_087A536C
-  address: '0x087a536c'
-  size: 36
-  location: graphics/unsorted
-  type: bin
-  file_name: gUnknown_087A536C
 - name: Img_DemonLightSprites
   address: '0x087a5390'
   size: 956

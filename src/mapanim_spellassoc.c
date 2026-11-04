@@ -1007,3 +1007,9 @@ CONST_DATA struct ProcCmd ProcScr_SpellAssocWarp[] = {
     PROC_SLEEP(0x1E),
     PROC_END
 };
+
+CONST_DATA struct ProcCmd ProcScr_ManimShiftingSineWaveScanlineBuf[] = {
+    PROC_CALL(sub_80825B0),
+    PROC_REPEAT(sub_80825B8),
+    PROC_END
+};

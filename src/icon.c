@@ -2,7 +2,6 @@
 #include "icon.h"
 #include "hardware.h"
 
-#define MAX_ICON_COUNT 224
 #define MAX_ICON_GFX_COUNT 32
 
 EWRAM_DATA static struct IconStruct DrawnIconLookupTable[MAX_ICON_COUNT] = {0};
@@ -74,7 +73,7 @@ u16 GetIconTileIndex(int Index)
         DrawnIconLookupTable[Index].Index = GetIconGfxIndex(Index) + 1;
 
         RegisterDataMove(
-            item_icon_tiles + (Index * 0x80),
+            item_icon_tiles[Index],
             (void*)(VRAM + (0x1FFE0 & (VRAM + 0x20 * GetIconGfxTileIndex(DrawnIconLookupTable[Index].Index)))),
             0x80
         );

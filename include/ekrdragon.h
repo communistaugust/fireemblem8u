@@ -690,8 +690,6 @@ void EkrWhiteINOUT_Loop3(struct ProcEkrDragonScreenFlashing * proc);
 void EkrWhiteINOUT_RefrainPalette(struct ProcEkrDragonScreenFlashing * proc);
 
 // ??? sub_8070710(???);
-// ??? sub_80707C0(???);
-// ??? sub_80707FC(???);
 void sub_8070874(void);
 void sub_80708A0(void);
 void NewEkrDragonManakete(struct Anim *anim);

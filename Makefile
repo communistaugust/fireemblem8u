@@ -73,7 +73,7 @@ MAP          := $(ROM:.gba=.map)
 LDSCRIPT     := ldscript.txt
 SYM_FILES    := sym_iwram.txt
 CFILES_GENERATED := $(C_SUBDIR)/msg_data.c
-CFILES       := $(wildcard $(C_SUBDIR)/*.c) $(wildcard $(DATA_SRC_SUBDIR)/*.c)
+CFILES       := $(wildcard $(C_SUBDIR)/*.c) $(wildcard $(DATA_SRC_SUBDIR)/*.c) $(wildcard $(DATA_SRC_SUBDIR)/*/*.c)
 ifeq (,$(findstring $(CFILES_GENERATED),$(CFILES)))
 CFILES       += $(CFILES_GENERATED)
 endif

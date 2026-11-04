@@ -119,3 +119,12 @@ void sub_80708A0(void)
         proc->unk38 = gUnknown_08758740;
     }
 }
+
+struct ProcCmd ProcScr_EkrDragon_08758720[] = {
+    PROC_YIELD,
+    PROC_CALL(sub_80707C0),
+    PROC_REPEAT(sub_80707FC),
+    PROC_END,
+    };
+
+u16 gUnknown_08758740[] = INCBIN_U16("graphics/unsorted/gUnknown_08758740.bin");

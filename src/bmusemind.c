@@ -225,8 +225,8 @@ void ExecRescueStaff(ProcPtr proc) {
     GetUnit(gActionData.targetIndex)->yPos = y;
 
     gBattleTarget.changeHP = x;
-    gBattleTarget.changePow = y;
-
+    //gBattleTarget.changePow = y;
+    gBattleTarget.changeStr = y;
     BattleApplyItemEffect(proc);
     BeginBattleAnimations();
 
@@ -258,7 +258,7 @@ void ExecWarpStaff(ProcPtr proc) {
     GetUnit(gActionData.targetIndex)->yPos = gActionData.yOther;
 
     gBattleTarget.changeHP = gActionData.xOther;
-    gBattleTarget.changePow = gActionData.yOther;
+    gBattleTarget.changeStr = gActionData.yOther;
 
     BattleApplyItemEffect(proc);
     BeginBattleAnimations();
@@ -408,7 +408,7 @@ void ExecUnlockStaff(ProcPtr proc) {
     gBattleTarget.unit.yPos = gActionData.yOther;
 
     gBattleTarget.changeHP = gActionData.xOther;
-    gBattleTarget.changePow = gActionData.yOther;
+    gBattleTarget.changeStr = gActionData.yOther;
 
     BattleApplyItemEffect(proc);
     BeginBattleAnimations();
@@ -685,12 +685,14 @@ int ApplyStatBoostItem(struct Unit* unit, int itemIdx) {
 
     unit->maxHP += statBonuses->hpBonus;
     unit->curHP += statBonuses->hpBonus;
-    unit->pow += statBonuses->powBonus;
+    //unit->pow += statBonuses->powBonus;
+	unit->str += statBonuses->strBonus;
     unit->skl += statBonuses->sklBonus;
     unit->spd += statBonuses->spdBonus;
     unit->def += statBonuses->defBonus;
     unit->res += statBonuses->resBonus;
     unit->lck += statBonuses->lckBonus;
+	unit->mag += statBonuses->magBonus;
     unit->movBonus += statBonuses->movBonus;
     unit->conBonus += statBonuses->conBonus;
 

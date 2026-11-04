@@ -47,9 +47,9 @@ enum
     STATSCREEN_TEXT_CHARANAME, // 0
     STATSCREEN_TEXT_CLASSNAME, // 1
 
-    STATSCREEN_TEXT_UNUSUED, // 2 (was Exp?)
+    STATSCREEN_TEXT_STRLABEL, // 2 (was Exp?)
 
-    STATSCREEN_TEXT_POWLABEL, // 3
+    STATSCREEN_TEXT_MAGLABEL, // 3
     STATSCREEN_TEXT_SKLLABEL, // 4
     STATSCREEN_TEXT_SPDLABEL, // 5
     STATSCREEN_TEXT_LCKLABEL, // 6
@@ -87,7 +87,9 @@ enum
 
     STATSCREEN_TEXT_BWL, // 34
 
-    STATSCREEN_TEXT_MAX
+    STATSCREEN_TEXT_SKILLS,
+    STATSCREEN_TEXT_MAX,
+
 };
 
 struct HelpBoxInfo;
@@ -177,6 +179,8 @@ void HbPopulate_SSWExp(struct HelpBoxProc* proc);
 void HbPopulate_SSCharacter(struct HelpBoxProc* proc);
 void HbPopulate_SSClass(struct HelpBoxProc* proc);
 void HbRedirect_SSSupports(struct HelpBoxProc* proc);
+void HbRedirect_SSSkill(struct HelpBoxProc* proc);
+void HbPopulate_SSSkill(struct HelpBoxProc* proc);
 
 void UpdateHelpBoxDisplay(struct HelpBoxProc* proc, int interpolateMethod);
 
@@ -340,7 +344,7 @@ void HelpPrompt_OnIdle(struct HelpPromptSprProc* proc);
 // (It's in the weird EWRAM overlay area)
 
 extern struct StatScreenSt gStatScreen;
-extern u16 gUiTmScratchA[0x280];
+extern u16 gUiTmScratchA[0x380];
 extern u16 gUiTmScratchB[0x280];
 extern u16 gUiTmScratchC[0x240];
 
@@ -388,7 +392,8 @@ extern DECL_INFO sHelpInfo_Class;
 extern DECL_INFO sHelpInfo_Level;
 extern DECL_INFO sHelpInfo_Exp;
 extern DECL_INFO sHelpInfo_HP;
-extern DECL_INFO gHelpInfo_Ss0Pow;
+extern DECL_INFO sHelpInfo_Ss0Str;
+extern DECL_INFO sHelpInfo_Ss0Mag;
 extern DECL_INFO sHelpInfo_Ss0Skl;
 extern DECL_INFO sHelpInfo_Ss0Spd;
 extern DECL_INFO sHelpInfo_Ss0Lck;
@@ -400,5 +405,11 @@ extern DECL_INFO sHelpInfo_Ss0Aid;
 extern DECL_INFO sHelpInfo_Ss0Traveler;
 extern DECL_INFO sHelpInfo_Ss0Affinity;
 extern DECL_INFO sHelpInfo_Ss0Status;
-
+extern DECL_INFO sHelpInfo_Ss0Skill1;
+extern DECL_INFO sHelpInfo_Ss0Skill2;
+extern DECL_INFO sHelpInfo_Ss0Skill3;
+extern DECL_INFO sHelpInfo_Ss0Skill4;
+extern DECL_INFO sHelpInfo_Ss0Skill5;
+extern DECL_INFO sHelpInfo_Ss0Skill6;
+extern DECL_INFO sHelpInfo_Ss0Skills;
 #endif // GUARD_STATSCREEN_H

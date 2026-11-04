@@ -325,7 +325,9 @@ void WriteGameSavePackedUnit(struct Unit *unit, void *sram_dest)
     unitp.yPos = unit->yPos;
 
     unitp.max_hp = unit->maxHP;
-    unitp.pow = unit->pow;
+    //unitp.pow = unit->pow;
+    unitp.str = unit->str;
+    unitp.mag = unit->mag;
     unitp.skl = unit->skl;
     unitp.spd = unit->spd;
     unitp.def = unit->def;
@@ -339,7 +341,10 @@ void WriteGameSavePackedUnit(struct Unit *unit, void *sram_dest)
     unitp.item3 = unit->items[2];
     unitp.item4 = unit->items[3];
     unitp.item5 = unit->items[4];
-
+    unitp.skill1 = unit->unit_skill[0];
+    unitp.skill2 = unit->unit_skill[1];
+    unitp.skill3 = unit->unit_skill[2];
+    unitp.skill4 = unit->unit_skill[3];
     unitp.flag = 0;
 
     if (US_DEAD & unit->state)
@@ -390,7 +395,9 @@ void LoadSavedUnit(const void *sram_src, struct Unit *unit)
     unit->yPos = unitp.yPos;
 
     unit->maxHP = unitp.max_hp;
-    unit->pow = unitp.pow;
+    //unit->pow = unitp.pow;
+    unit->str = unitp.str;
+    unit->mag = unitp.mag;
     unit->skl = unitp.skl;
     unit->spd = unitp.spd;
     unit->def = unitp.def;
@@ -404,6 +411,10 @@ void LoadSavedUnit(const void *sram_src, struct Unit *unit)
     unit->items[2] = unitp.item3;
     unit->items[3] = unitp.item4;
     unit->items[4] = unitp.item5;
+    unit->unit_skill[0] = unitp.skill1;
+    unit->unit_skill[1] = unitp.skill2;
+    unit->unit_skill[2] = unitp.skill3;
+    unit->unit_skill[3] = unitp.skill4;
 
     if (unit->exp > 99)
         unit->exp = -1;
@@ -640,7 +651,9 @@ void EncodeSuspendSavePackedUnit(struct Unit *unit, void *buf)
     unit_su->yPos = unit->yPos;
     unit_su->maxHP = unit->maxHP;
     unit_su->curHP = unit->curHP;
-    unit_su->pow = unit->pow;
+    //unit_su->pow = unit->pow;
+    unit_su->str = unit->str;
+    unit_su->mag = unit->mag;
     unit_su->skl = unit->skl;
     unit_su->spd = unit->spd;
     unit_su->def = unit->def;
@@ -661,6 +674,10 @@ void EncodeSuspendSavePackedUnit(struct Unit *unit, void *buf)
     unit_su->item3 = (0x3FFF & unit->items[2]) | (0x60 & unit->supportBits) << 0x09;
     unit_su->item4 = unit->items[3];
     unit_su->item5 = unit->items[4];
+    unit_su->skill1 = unit->unit_skill[0];
+    unit_su->skill2 = unit->unit_skill[1];
+    unit_su->skill3 = unit->unit_skill[2];
+    unit_su->skill4 = unit->unit_skill[3];
 
     for (i = 0; i < 8; i++)
         unit_su->ranks[i] = unit->ranks[i];
@@ -701,7 +718,9 @@ void ReadSuspendSavePackedUnit(const void *sram_src, struct Unit *unit)
 
     unit->maxHP = unit_su.maxHP;
     unit->curHP = unit_su.curHP;
-    unit->pow = unit_su.pow;
+    //unit->pow = unit_su.pow;
+    unit->str = unit_su.str;
+    unit->mag = unit_su.mag;
     unit->skl = unit_su.skl;
     unit->spd = unit_su.spd;
     unit->def = unit_su.def;
@@ -724,6 +743,10 @@ void ReadSuspendSavePackedUnit(const void *sram_src, struct Unit *unit)
     unit->items[2] = unit_su.item3 & 0x3FFF;
     unit->items[3] = unit_su.item4;
     unit->items[4] = unit_su.item5;
+    unit->unit_skill[0] = unit_su.skill1;
+    unit->unit_skill[1] = unit_su.skill2;
+    unit->unit_skill[2] = unit_su.skill3;
+    unit->unit_skill[3] = unit_su.skill4;
 
     unit->supportBits = (unit_su.ballistaIndex & 0x80) >> 7 |
                         (unit_su.item1 & 0xC000) >> 0x0D |

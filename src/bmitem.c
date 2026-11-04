@@ -213,7 +213,7 @@ int GetItemHpBonus(int item) {
     return 0;
 }
 
-int GetItemPowBonus(int item) {
+/*int GetItemPowBonus(int item) {
     if (!item)
         return 0;
     else {
@@ -224,8 +224,31 @@ int GetItemPowBonus(int item) {
     }
 
     return 0;
-}
+}*/
+int GetItemStrBonus(int item) {
+    if (!item)
+        return 0;
+    else {
+        const struct ItemStatBonuses* statBonuses = GetItemStatBonuses(item);
 
+        if (statBonuses)
+            return statBonuses->strBonus;
+    }
+
+    return 0;
+}
+int GetItemMagBonus(int item) {
+    if (!item)
+        return 0;
+    else {
+        const struct ItemStatBonuses* statBonuses = GetItemStatBonuses(item);
+
+        if (statBonuses)
+            return statBonuses->magBonus;
+    }
+
+    return 0;
+}
 int GetItemSklBonus(int item) {
     if (!item)
         return 0;
@@ -413,7 +436,7 @@ void DrawItemMenuLine(struct Text* text, int item, s8 isUsable, u16* mapOut) {
 
     PutNumberOrBlank(mapOut + 11, isUsable ? TEXT_COLOR_SYSTEM_BLUE : TEXT_COLOR_SYSTEM_GRAY, GetItemUses(item));
 
-    DrawIcon(mapOut, GetItemIconId(item), 0x4000);
+    DrawIcon(mapOut, ITEM_ICON(GetItemIconId(item)), 0x4000);
 }
 
 void DrawItemMenuLineLong(struct Text* text, int item, s8 isUsable, u16* mapOut) {
@@ -426,7 +449,7 @@ void DrawItemMenuLineLong(struct Text* text, int item, s8 isUsable, u16* mapOut)
     PutNumberOrBlank(mapOut + 13, isUsable ? TEXT_COLOR_SYSTEM_BLUE : TEXT_COLOR_SYSTEM_GRAY, GetItemMaxUses(item));
     PutSpecialChar(mapOut + 11, isUsable ? TEXT_COLOR_SYSTEM_WHITE : TEXT_COLOR_SYSTEM_GRAY, TEXT_SPECIAL_SLASH);
 
-    DrawIcon(mapOut, GetItemIconId(item), 0x4000);
+    DrawIcon(mapOut,ITEM_ICON(GetItemIconId(item)), 0x4000);
 }
 
 void DrawItemMenuLineNoColor(struct Text* text, int item, u16* mapOut) {
@@ -437,7 +460,7 @@ void DrawItemMenuLineNoColor(struct Text* text, int item, u16* mapOut) {
 
     PutNumberOrBlank(mapOut + 11, Text_GetColor(text), GetItemUses(item));
 
-    DrawIcon(mapOut, GetItemIconId(item), 0x4000);
+    DrawIcon(mapOut, ITEM_ICON(GetItemIconId(item)), 0x4000);
 }
 
 void DrawItemStatScreenLine(struct Text* text, int item, int nameColor, u16* mapOut) {
@@ -459,7 +482,7 @@ void DrawItemStatScreenLine(struct Text* text, int item, int nameColor, u16* map
 
     PutText(text, mapOut + 2);
 
-    DrawIcon(mapOut, GetItemIconId(item), 0x4000);
+    DrawIcon(mapOut, ITEM_ICON(GetItemIconId(item)), 0x4000);
 }
 
 u16 GetItemAfterUse(int item) {
@@ -802,7 +825,7 @@ int GetUnitItemHealAmount(struct Unit* unit, int item) {
     } // switch (GetItemIndex(item))
 
     if (GetItemAttributes(item) & IA_STAFF) {
-        result += GetUnitPower(unit);
+        result += GetUnitMagic(unit);
 
         if (result > 80)
             result = 80;
@@ -1024,4 +1047,8 @@ void SetItemUnsealedForCharacter(int item, u8 unk) {
 
 s8 IsItemUnsealedForUnit(struct Unit* unit, int item) {
     return (GetChapterUnk1C(GetItemType(item)) == unit->pCharacterData->number) ? TRUE : FALSE;
+}
+
+inline bool IsItemMagic(int item) {
+    return GetItemData(ITEM_INDEX(item))->attributes & IA_MAGIC;
 }

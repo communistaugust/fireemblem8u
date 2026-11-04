@@ -138,7 +138,7 @@ void PrepUnit_InitTexts()
 
 void PrepUnit_InitGfx()
 {
-    ResetIconGraphics_();
+    ResetIconGraphics();
     LoadUiFrameGraphics();
     LoadObjUIGfx();
     LoadIconPalettes(BGPAL_ICONS);
@@ -195,7 +195,7 @@ void PrepUnit_DrawUnitItems(struct Unit *unit)
 {
     int i, cnt;
 
-    ResetIconGraphics_();
+    ResetIconGraphics();
     TileMap_FillRect(TILEMAP_LOCATED(gBG0TilemapBuffer, 1, 5), 0xB, 0xA, 0);
 
     cnt = GetUnitItemCount(unit);
@@ -204,7 +204,7 @@ void PrepUnit_DrawUnitItems(struct Unit *unit)
 
         DrawIcon(
             TILEMAP_LOCATED(gBG0TilemapBuffer, 1, 5 + 2 * i),
-            GetItemIconId(item),
+            ITEM_ICON(GetItemIconId(item)),
             TILEREF(0, BGPAL_ICONS)
         );
 

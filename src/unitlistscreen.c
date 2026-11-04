@@ -325,7 +325,7 @@ void sub_8090238(u8 key)
                 if ((i == 5) && (j != 0))
                 {
                     PutText(&gUnknown_0200E150, TILEMAP_LOCATED(gBG2TilemapBuffer, 21, 1));
-                    DrawIcon(TILEMAP_LOCATED(gBG2TilemapBuffer, 25, 1), j + 111, OAM2_PAL(5));
+                    DrawIcon(TILEMAP_LOCATED(gBG2TilemapBuffer, 25, 1), WTYPE_ICON(j - 1), OAM2_PAL(5));
                 }
                 else
                 {
@@ -946,7 +946,7 @@ void sub_8090D80(struct UnitListScreenProc * proc)
     BG_Fill(gBG1TilemapBuffer, 0);
     BG_Fill(gBG2TilemapBuffer, 0);
 
-    ResetIconGraphics_();
+    ResetIconGraphics();
     LoadIconPalettes(4);
     LoadUiFrameGraphics();
 
@@ -2091,7 +2091,7 @@ void UnitList_DrawColumnNames(u16 * tm, u8 page)
     {
         for (i = 0; i < 8; i++)
         {
-            DrawIcon(tm + 9 + 2 * i, i + 112, OAM2_PAL(5));
+            DrawIcon(tm + 9 + 2 * i, WTYPE_ICON(i), OAM2_PAL(5));
         }
     }
     else
@@ -2193,7 +2193,7 @@ void UnitList_PutRow(struct UnitListScreenProc * proc, u8 unitNum, u16 * tm, u8 
                     inactive ? TEXT_COLOR_SYSTEM_GRAY : TEXT_COLOR_SYSTEM_WHITE, 0, 0,
                     GetItemName(GetUnitEquippedWeapon(gSortedUnits[unitNum]->unit)));
                 DrawIcon(
-                    tm + y * 0x20 + 15, GetItemIconId(GetUnitEquippedWeapon(gSortedUnits[unitNum]->unit)),
+                    tm + y * 0x20 + 15, ITEM_ICON(GetItemIconId(GetUnitEquippedWeapon(gSortedUnits[unitNum]->unit))),
                     TILEREF(0, 4));
                 sub_8090324(GetItemIconId(GetUnitEquippedWeapon(gSortedUnits[unitNum]->unit)));
             }
@@ -2245,11 +2245,11 @@ void UnitList_PutRow(struct UnitListScreenProc * proc, u8 unitNum, u16 * tm, u8 
 
             break;
 
-        case UNITLIST_PAGE_2:
+        case UNITLIST_PAGE_2    :
             PutNumberOrBlank(
                 tm + y * 0x20 + 9,
-                UNIT_POW_MAX(gSortedUnits[unitNum]->unit) == gSortedUnits[unitNum]->unit->pow ? 4 : 2,
-                GetUnitPower(gSortedUnits[unitNum]->unit));
+                UNIT_STR_MAX(gSortedUnits[unitNum]->unit) == gSortedUnits[unitNum]->unit->str ? 4 : 2,
+                GetUnitStrength(gSortedUnits[unitNum]->unit));
             PutNumberOrBlank(
                 tm + y * 0x20 + 12,
                 UNIT_SKL_MAX(gSortedUnits[unitNum]->unit) == gSortedUnits[unitNum]->unit->skl ? 4 : 2,
@@ -2270,16 +2270,13 @@ void UnitList_PutRow(struct UnitListScreenProc * proc, u8 unitNum, u16 * tm, u8 
                 tm + y * 0x20 + 24,
                 UNIT_RES_MAX(gSortedUnits[unitNum]->unit) == gSortedUnits[unitNum]->unit->res ? 4 : 2,
                 GetUnitResistance(gSortedUnits[unitNum]->unit));
-
-            icon = GetUnitAffinityIcon(gSortedUnits[unitNum]->unit);
-
             if (icon == -1)
             {
                 PutSpecialChar(tm + y * 0x20 + 26, 2, TEXT_SPECIAL_DASH);
             }
             else
             {
-                DrawIcon(tm + y * 0x20 + 26, icon, TILEREF(0, 4 + 1));
+                DrawIcon(tm + y * 0x20 + 26, GetUnitAffinityIcon(gSortedUnits[unitNum]->unit), TILEREF(0, 4 + 1));
             }
 
             break;
@@ -2300,7 +2297,7 @@ void UnitList_PutRow(struct UnitListScreenProc * proc, u8 unitNum, u16 * tm, u8 
                     inactive ? TEXT_COLOR_SYSTEM_GRAY : TEXT_COLOR_SYSTEM_WHITE, 0, 0, name);
 
                 DrawIcon(
-                    tm + y * 0x20 + 8, GetItemIconId(GetUnitEquippedWeapon(gSortedUnits[unitNum]->unit)),
+                    tm + y * 0x20 + 8, ITEM_ICON(GetItemIconId(GetUnitEquippedWeapon(gSortedUnits[unitNum]->unit))),
                     TILEREF(0, 4));
                 sub_8090324(GetItemIconId(GetUnitEquippedWeapon(gSortedUnits[unitNum]->unit)));
             }
@@ -2621,7 +2618,7 @@ bool SortUnitList(u8 key, u8 order)
             break;
 
         case UNITLIST_SORTKEY_7:
-            SORT_BY_FUNC(GetUnitPower)
+            SORT_BY_FUNC(GetUnitStrength)
             break;
 
         case UNITLIST_SORTKEY_8:
@@ -2653,7 +2650,7 @@ bool SortUnitList(u8 key, u8 order)
             break;
 
         case UNITLIST_SORTKEY_13:
-            #define KEY(i) (GetUnitAffinityIcon(gSortedUnits[(i)]->unit))
+            #define KEY(i) (GetUnitAffinityIcon(gSortedUnits[(i)]->unit).Index)
             SORT_MAIN(SORT_CORE_KEY(KEY, <, SWAP), SORT_CORE_KEY(KEY, >, SWAP))
             #undef KEY
 

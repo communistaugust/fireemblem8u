@@ -122,7 +122,7 @@ void PrepItemList_InitGfx(struct PrepItemListProc * proc)
 
     ResetFaces();
     ResetText();
-    ResetIconGraphics_();
+    ResetIconGraphics();
     LoadUiFrameGraphics();
     LoadObjUIGfx();
 
@@ -259,7 +259,7 @@ void PrepItemList_OnEnd(struct PrepItemListProc * proc)
 //! FE8U = 0x0809F150
 void sub_809F150(struct PrepItemListProc * proc)
 {
-    ResetIconGraphics_();
+    ResetIconGraphics();
     SomethingPrepListRelated(proc->unit, proc->currentPage, 3);
     sub_809F370(proc);
 
@@ -394,7 +394,7 @@ void sub_809F370(struct PrepItemListProc* proc) {
 //! FE8U = 0x0809F3F4
 void PrepItemList_ScrollVertical(struct PrepItemListProc * proc, int amount)
 {
-    ResetIconGraphics_();
+    ResetIconGraphics();
 
     sub_809D418(gBG2TilemapBuffer + 0xF, proc->yOffsetPerPage[proc->currentPage] >> 4);
     DrawPrepScreenItemIcons(gBG0TilemapBuffer + 0x122, proc->unit);
@@ -436,7 +436,7 @@ void sub_809F498(struct PrepItemListProc * proc)
 
     SomethingPrepListRelated(proc->unit, proc->currentPage, 3);
     sub_809F370(proc);
-    ResetIconGraphics_();
+    ResetIconGraphics();
 
     DrawPrepScreenItems(gBG0TilemapBuffer + 0x122, PrepItemSuppyTexts.th + 2, proc->unit, 0);
     sub_809D300(

@@ -24,6 +24,7 @@
 #include "muctrl.h"
 #include "bmmind.h"
 #include "eventcall.h"
+#include "skill_system.h"
 
 EWRAM_DATA u8 gActiveUnitId = 0;
 EWRAM_DATA struct Vec2 gActiveUnitMoveOrigin = {};
@@ -269,6 +270,11 @@ struct Unit* GetFreeBlueUnit(const struct UnitDefinition* uDef) {
 }
 
 inline int GetUnitMaxHp(struct Unit* unit) {
+    #if (defined(SID_HpBonus))
+    if(CheckUnitSkills(unit,SID_StrBonus))
+        return unit->maxHP + GetItemHpBonus((u16) GetUnitEquippedWeapon(unit))+5;
+    #endif
+
     return unit->maxHP + GetItemHpBonus((u16) GetUnitEquippedWeapon(unit));
 }
 
@@ -279,9 +285,13 @@ inline int GetUnitCurrentHp(struct Unit* unit) {
     return unit->curHP;
 }
 
-inline int GetUnitPower(struct Unit* unit) {
+/*inline int GetUnitPower(struct Unit* unit) {
+    #if (defined(SID_StrBonus))
+    if(CheckUnitSkills(unit,SID_StrBonus))
+        return unit->pow + GetItemPowBonus((u16) GetUnitEquippedWeapon(unit))+2;
+    #endif
     return unit->pow + GetItemPowBonus((u16) GetUnitEquippedWeapon(unit));
-}
+}*/
 
 inline int GetUnitSkill(struct Unit* unit) {
     u16 item = GetUnitEquippedWeapon(unit);
@@ -342,6 +352,19 @@ inline int GetUnitLeaderCharId(struct Unit* unit) {
     return UNIT_LEADER_CHARACTER(unit);
 }
 
+inline u8* GetUnitSkills(struct Unit* unit) {
+
+    return unit->unit_skill;
+}
+
+bool CheckUnitSkills(struct Unit* unit, u8 skid) {
+    int i;
+    for(i = 0;i <4;i++){
+        if(unit->unit_skill[i] == skid)
+            return true;
+        }
+    return false;
+}
 inline void SetUnitLeaderCharId(struct Unit* unit, int charId) {
     UNIT_LEADER_CHARACTER(unit) = charId;
 }
@@ -503,9 +526,16 @@ int LoadUnits(const struct UnitDefinition* uDef) {
     return count;
 }
 
-void sub_8017A54(struct Unit* unit) { // unused
-    if (unit->pow >= 4)
-        unit->pow /= 2;
+
+void Halve_Power_Defense(struct Unit* unit) { // unused
+    //if (unit->pow >= 4)
+    //    unit->pow /= 2;
+
+    if (unit->str >= 4)
+        unit->str /= 2;
+
+    if (unit->mag >= 4)
+        unit->mag /= 2;
 
     if (unit->def >= 4)
         unit->def /= 2;
@@ -523,7 +553,7 @@ s8 CanClassWieldWeaponType(u8 classId, u8 wpnType) {
 
 struct Unit* LoadUnit(const struct UnitDefinition* uDef) {
     struct UnitDefinition buf;
-
+    int i;
     struct Unit* unit = NULL;
 
     if (uDef->genMonster) {
@@ -653,11 +683,15 @@ struct Unit* LoadUnit(const struct UnitDefinition* uDef) {
 
     UnitCheckStatCaps(unit);
 
-    unit->curHP = GetUnitMaxHp(unit);
-
     if (UNIT_IS_GORGON_EGG(unit))
         SetUnitHp(unit, 5);
 
+    for (i = 0; i < 4; ++i)
+    {
+    unit->unit_skill[i] = unit->pCharacterData->unit_skill[i];
+    }
+
+    unit->curHP = GetUnitMaxHp(unit);
     return unit;
 }
 
@@ -706,7 +740,9 @@ void UnitLoadStatsFromChracter(struct Unit* unit, const struct CharacterData* ch
     int i;
 
     unit->maxHP = character->baseHP + unit->pClassData->baseHP;
-    unit->pow   = character->basePow + unit->pClassData->basePow;
+    //unit->pow   = character->basePow + unit->pClassData->basePow;
+    unit->str   = character->baseStr + unit->pClassData->baseStr;
+    unit->mag   = character->baseMag + unit->pClassData->baseMag;
     unit->skl   = character->baseSkl + unit->pClassData->baseSkl;
     unit->spd   = character->baseSpd + unit->pClassData->baseSpd;
     unit->def   = character->baseDef + unit->pClassData->baseDef;
@@ -776,7 +812,9 @@ void UnitAutolevelWExp(struct Unit* unit, const struct UnitDefinition* uDef) {
 void UnitAutolevelCore(struct Unit* unit, u8 classId, int levelCount) {
     if (levelCount) {
         unit->maxHP += GetAutoleveledStatIncrease(unit->pClassData->growthHP,  levelCount);
-        unit->pow   += GetAutoleveledStatIncrease(unit->pClassData->growthPow, levelCount);
+        //unit->pow   += GetAutoleveledStatIncrease(unit->pClassData->growthPow, levelCount);
+        unit->str   += GetAutoleveledStatIncrease(unit->pClassData->growthStr, levelCount);
+        unit->mag   += GetAutoleveledStatIncrease(unit->pClassData->growthMag, levelCount);
         unit->skl   += GetAutoleveledStatIncrease(unit->pClassData->growthSkl, levelCount);
         unit->spd   += GetAutoleveledStatIncrease(unit->pClassData->growthSpd, levelCount);
         unit->def   += GetAutoleveledStatIncrease(unit->pClassData->growthDef, levelCount);
@@ -792,7 +830,9 @@ void UnitAutolevelPenalty(struct Unit* unit, u8 classId, int levelCount) {
         levelCount = level - levelCount;
 
         unit->maxHP = unit->pCharacterData->baseHP  + unit->pClassData->baseHP;
-        unit->pow   = unit->pCharacterData->basePow + unit->pClassData->basePow;
+        //unit->pow   = unit->pCharacterData->basePow + unit->pClassData->basePow;
+        unit->str   = unit->pCharacterData->baseStr + unit->pClassData->baseStr;
+        unit->mag   = unit->pCharacterData->baseMag + unit->pClassData->baseMag;
         unit->skl   = unit->pCharacterData->baseSkl + unit->pClassData->baseSkl;
         unit->spd   = unit->pCharacterData->baseSpd + unit->pClassData->baseSpd;
         unit->def   = unit->pCharacterData->baseDef + unit->pClassData->baseDef;
@@ -851,8 +891,14 @@ void UnitCheckStatCaps(struct Unit* unit) {
     if (unit->maxHP > UNIT_MHP_MAX(unit))
         unit->maxHP = UNIT_MHP_MAX(unit);
 
-    if (unit->pow > UNIT_POW_MAX(unit))
-        unit->pow = UNIT_POW_MAX(unit);
+    /*if (unit->pow > UNIT_POW_MAX(unit))
+        unit->pow = UNIT_POW_MAX(unit);*/
+
+    if (unit->str > UNIT_STR_MAX(unit))
+        unit->str = UNIT_STR_MAX(unit);
+
+    if (unit->mag > UNIT_MAG_MAX(unit))
+        unit->mag = UNIT_MAG_MAX(unit);
 
     if (unit->skl > UNIT_SKL_MAX(unit))
         unit->skl = UNIT_SKL_MAX(unit);
@@ -1207,7 +1253,8 @@ int GetUnitMagBy2Range(struct Unit* unit) {
     if (unit->pCharacterData->number == CHARACTER_FOMORTIIS) {
         return GetItemMaxRange(ITEM_NIGHTMARE);
     } else {
-        int result = GetUnitPower(unit) / 2;
+
+        int result = GetUnitMagic(unit) / 2;
 
         if (result < 5)
             result = 5;
@@ -1265,19 +1312,19 @@ int GetUnitKeyItemSlotForTerrain(struct Unit* unit, int terrain) {
     return GetUnitItemSlot(unit, item);
 }
 
-int GetUnitAidIconId(u32 attributes) {
+struct IconStruct GetUnitAidIconId(u32 attributes) {
     // TODO: use icon id constants
 
     if (attributes & CA_MOUNTED)
-        return 0x81;
+        return MOUNT_ICON(1);
 
     if (attributes & CA_PEGASUS)
-        return 0x82;
+        return MOUNT_ICON(2);
 
     if (attributes & CA_WYVERN)
-        return 0x83;
+        return MOUNT_ICON(3);
 
-    return (-1);
+    return EMPTY_ICON;
 }
 
 int GetUnitWeaponUsabilityBits(struct Unit* unit) {
@@ -1623,4 +1670,25 @@ void RefreshAllies(void) {
 
     RefreshEntityBmMaps();
     RefreshUnitSprites();
+}
+
+int GetUnitStrength(struct Unit* unit) {
+    u16 item = GetUnitEquippedWeapon(unit);
+    #if (defined(SID_StrBonus))
+    if(CheckUnitSkills(unit,SID_StrBonus))
+        return unit->str + GetItemStrBonus((u16) GetUnitEquippedWeapon(unit))+2;
+    #endif
+    return unit->str + GetItemStrBonus(item);
+}
+
+int GetUnitMagic(struct Unit* unit) {
+    u16 item = GetUnitEquippedWeapon(unit);
+    return unit->mag + GetItemMagBonus(item);
+}
+
+int GetUnitDamageStat(u16 item,struct Unit* unit)
+{
+   if(IsItemMagic(item))
+   return GetUnitMagic(unit);
+   return GetUnitStrength(unit);
 }

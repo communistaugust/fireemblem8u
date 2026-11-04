@@ -1,5 +1,5 @@
 #include "global.h"
-u8 gGfx_PlayerInterfaceFontTiles[] = INCBIN_U8("graphics/player_interface/player_interface_font_tiles.4bpp.lz");
+//u8 gGfx_PlayerInterfaceFontTiles[] = INCBIN_U8("graphics/player_interface/player_interface_font_tiles.4bpp.lz");
 u8 gGfx_PlayerInterfaceNumbers[] = INCBIN_U8("graphics/player_interface/player_interface_numbers.4bpp.lz");
 u8 gGfx_StatusText[] = INCBIN_U8("graphics/player_interface/status_text.4bpp");
 u16 gPal_PlayerInterface_Blue[] = INCBIN_U16("graphics/player_interface/player_interface_blue.gbapal");
@@ -8,7 +8,7 @@ u16 gPal_PlayerInterface_Green[] = INCBIN_U16("graphics/player_interface/player_
 u8 gUnknown_08A173EC[] = INCBIN_U8("graphics/player_interface/gUnknown_08A173EC.gbapal");
 u16 gUnknown_08A1740C[] = INCBIN_U16("graphics/player_interface/gUnknown_08A1740C.gbapal");
 u16 gTSA_TerrainBox[] = INCBIN_U16("graphics/unsorted/gTSA_TerrainBox.bin");
-u16 gTSA_MinimugBox[] = INCBIN_U16("graphics/unsorted/gTSA_MinimugBox.bin");
+//u16 gTSA_MinimugBox[] = INCBIN_U16("graphics/unsorted/gTSA_MinimugBox.bin");
 u16 gUnknown_08A175B4[] = INCBIN_U16("graphics/unsorted/gUnknown_08A175B4.bin");
 u16 gUnknown_08A175C8[] = INCBIN_U16("graphics/unsorted/gUnknown_08A175C8.bin");
 u16 gUnknown_08A175DC[] = INCBIN_U16("graphics/unsorted/gUnknown_08A175DC.bin");

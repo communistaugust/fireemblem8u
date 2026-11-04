@@ -18,7 +18,7 @@ void PrepItemUseBooster_OnDraw(struct ProcPrepItemUseBooster *proc, int x, int y
     int width = GetStringTextLen(str);
 
     if (icon != 0)
-        DrawIcon(TILEMAP_LOCATED(gBG2TilemapBuffer, x, y), GetItemIconId(item), 0x4000);
+        DrawIcon(TILEMAP_LOCATED(gBG2TilemapBuffer, x, y), ITEM_ICON(GetItemIconId(item)), 0x4000);
 
     ClearText(&gPrepItemTexts[TEXT_PREPITEM_POPUP]);
 
@@ -51,13 +51,16 @@ void PrepItemUseBooster_OnInit(struct ProcPrepItemUseBooster * proc)
     StartManimLevelUpStatGainLabels(0x1C0, 3, 0, proc);
 
     proc->status_pre[EKRLVUP_STAT_HP] = GetUnitCurrentHp(parent->unit);
-    proc->status_pre[EKRLVUP_STAT_POW] = GetUnitPower(parent->unit);
+    //proc->status_pre[EKRLVUP_STAT_POW] = GetUnitPower(parent->unit);
+    proc->status_pre[EKRLVUP_STAT_STR] = GetUnitStrength(parent->unit);
+    proc->status_pre[EKRLVUP_STAT_MAG] = GetUnitMagic(parent->unit);
     proc->status_pre[EKRLVUP_STAT_SKL] = GetUnitSkill(parent->unit);
     proc->status_pre[EKRLVUP_STAT_SPD] = GetUnitSpeed(parent->unit);
     proc->status_pre[EKRLVUP_STAT_LCK] = GetUnitLuck(parent->unit);
     proc->status_pre[EKRLVUP_STAT_DEF] = GetUnitDefense(parent->unit);
     proc->status_pre[EKRLVUP_STAT_RES] = GetUnitResistance(parent->unit);
-    proc->status_pre[EKRLVUP_STAT_CON] = UNIT_CON(parent->unit);
+    proc->status_pre[EKRLVUP_STAT_CON-1] = UNIT_CON(parent->unit);
+    proc->status_pre[EKRLVUP_STAT_MOV-1] = UNIT_MOV(parent->unit);
 
     item = parent->unit->items[parent->slot];
 
@@ -67,23 +70,25 @@ void PrepItemUseBooster_OnInit(struct ProcPrepItemUseBooster * proc)
     DrawPrepScreenItemUseStatValues(parent->unit);
 
     proc->status_pst[EKRLVUP_STAT_HP] = GetUnitCurrentHp(parent->unit);
-    proc->status_pst[EKRLVUP_STAT_POW] = GetUnitPower(parent->unit);
+    //proc->status_pst[EKRLVUP_STAT_POW] = GetUnitPower(parent->unit);
+    proc->status_pst[EKRLVUP_STAT_STR] = GetUnitStrength(parent->unit);
+    proc->status_pst[EKRLVUP_STAT_MAG] = GetUnitMagic(parent->unit);
     proc->status_pst[EKRLVUP_STAT_SKL] = GetUnitSkill(parent->unit);
     proc->status_pst[EKRLVUP_STAT_SPD] = GetUnitSpeed(parent->unit);
     proc->status_pst[EKRLVUP_STAT_LCK] = GetUnitLuck(parent->unit);
     proc->status_pst[EKRLVUP_STAT_DEF] = GetUnitDefense(parent->unit);
     proc->status_pst[EKRLVUP_STAT_RES] = GetUnitResistance(parent->unit);
-    proc->status_pst[EKRLVUP_STAT_CON] = UNIT_CON(parent->unit);
+    proc->status_pst[EKRLVUP_STAT_CON-1] = UNIT_CON(parent->unit);
+    proc->status_pst[EKRLVUP_STAT_MOV-1] = UNIT_MOV(parent->unit);
 
     PrepItemUseBooster_OnDraw(proc, 0xE, 0xE, msg, item);
 
     for (i = 0; i < EKRLVUP_STAT_MAX; i++) {
         if (proc->status_pre[i] == proc->status_pst[i])
             continue;
-
         StartPrepItemBoostStatGainLabelAnim(
-            (i >> 2) * 56 + 0xB0,
-            (i  & 3) * 16 + 0x2A,
+            (i / 5) * 56 + 0xB0,
+            (i  % 5) * 16 + 0x2A,
             proc->status_pst[i] - proc->status_pre[i]
         );
     }
@@ -141,7 +146,7 @@ void PrepItemUseJuna_OnDraw(struct ProcPrepItemUseJunaFruit *proc, int x, int y,
     int width = GetStringTextLen(str);
 
     if (icon != 0)
-        DrawIcon(TILEMAP_LOCATED(gBG2TilemapBuffer, x, y), GetItemIconId(item), 0x4000);
+        DrawIcon(TILEMAP_LOCATED(gBG2TilemapBuffer, x, y), ITEM_ICON(GetItemIconId(item)), 0x4000);
 
     ClearText(&gPrepItemTexts[TEXT_PREPITEM_POPUP]);
 

@@ -500,7 +500,7 @@ u8 GetAiSilenceEffectivenessScore(struct Unit* unit) {
         return 0;
     }
 
-    score += GetUnitPower(unit);
+    score += GetUnitMagic(unit);
 
     item = GetUnitEquippedWeapon(unit);
     if ((item != 0) && (GetItemAttributes(item) & IA_MAGIC)) {

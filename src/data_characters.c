@@ -5,6 +5,7 @@
 #include "constants/characters.h"
 #include "constants/classes.h"
 #include "constants/items.h"
+#include "skill_system.h"
 
 CONST_DATA struct CharacterData gCharacterData[] = {
     [CHARACTER_EIRIKA - 1] = {
@@ -18,7 +19,8 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
+        .baseMag = 2,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -31,7 +33,8 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 70,
-        .growthPow = 40,
+        .growthStr = 40,
+        .growthMag = 100,
         .growthSkl = 60,
         .growthSpd = 60,
         .growthDef = 30,
@@ -40,6 +43,10 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .attributes = CA_FEMALE,
         .pSupportData = &SupportData_Eirika,
         .visit_group = 0x7,
+        .unit_skill = {
+        [0] = SID_HpBonus,
+        [1] = SID_StrBonus
+        },
     },
     [CHARACTER_SETH - 1] = {
         .nameTextId = 0x213,
@@ -52,7 +59,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 7,
-        .basePow = 7,
+        .baseStr = 7,
         .baseSkl = 9,
         .baseSpd = 5,
         .baseDef = 3,
@@ -66,7 +73,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 90,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 45,
         .growthSpd = 45,
         .growthDef = 40,
@@ -86,7 +93,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 4,
 
         .baseHP  = 8,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 4,
         .baseSpd = 3,
         .baseDef = 0,
@@ -99,7 +106,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 90,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 35,
         .growthSpd = 30,
         .growthDef = 55,
@@ -119,7 +126,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 2,
+        .baseStr = 2,
         .baseSkl = 3,
         .baseSpd = 2,
         .baseDef = 0,
@@ -133,7 +140,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 80,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 40,
         .growthSpd = 50,
         .growthDef = 25,
@@ -153,7 +160,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 3,
 
         .baseHP  = 2,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 5,
         .baseSpd = 7,
         .baseDef = 1,
@@ -166,7 +173,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 70,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 50,
         .growthSpd = 40,
         .growthDef = 25,
@@ -186,7 +193,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 3,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 2,
         .baseSpd = 6,
         .baseDef = 3,
@@ -199,7 +206,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 50,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 55,
         .growthSpd = 60,
         .growthDef = 20,
@@ -220,7 +227,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 1,
-        .basePow = 2,
+        .baseStr = 2,
         .baseSkl = 2,
         .baseSpd = 2,
         .baseDef = 2,
@@ -233,7 +240,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 70,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 35,
         .growthSpd = 30,
         .growthDef = 25,
@@ -253,7 +260,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 2,
         .baseSpd = 2,
         .baseDef = 0,
@@ -266,7 +273,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 55,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 50,
         .growthSpd = 60,
         .growthDef = 15,
@@ -287,7 +294,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 2,
 
         .baseHP  = 2,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 3,
         .baseSpd = 1,
         .baseDef = 1,
@@ -300,7 +307,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 75,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 40,
         .growthSpd = 65,
         .growthDef = 25,
@@ -319,7 +326,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 4,
 
         .baseHP  = 8,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 5,
         .baseSpd = 3,
         .baseDef = 3,
@@ -332,7 +339,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 80,
-        .growthPow = 65,
+        .growthStr = 65,
         .growthSkl = 40,
         .growthSpd = 20,
         .growthDef = 25,
@@ -352,7 +359,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 10,
-        .basePow = 7,
+        .baseStr = 7,
         .baseSkl = 7,
         .baseSpd = 10,
         .baseDef = 5,
@@ -365,7 +372,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 75,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 40,
         .growthSpd = 45,
         .growthDef = 20,
@@ -384,7 +391,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 1,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 3,
         .baseSpd = 5,
         .baseDef = 1,
@@ -397,7 +404,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 45,
-        .growthPow = 65,
+        .growthStr = 65,
         .growthSkl = 30,
         .growthSpd = 45,
         .growthDef = 15,
@@ -418,7 +425,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 2,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 2,
         .baseSpd = 6,
         .baseDef = 2,
@@ -431,7 +438,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 50,
-        .growthPow = 60,
+        .growthStr = 60,
         .growthSkl = 25,
         .growthSpd = 40,
         .growthDef = 15,
@@ -452,7 +459,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 9,
 
         .baseHP  = 10,
-        .basePow = 7,
+        .baseStr = 7,
         .baseSkl = 6,
         .baseSpd = 5,
         .baseDef = 4,
@@ -465,7 +472,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 40,
         .growthSpd = 45,
         .growthDef = 25,
@@ -484,7 +491,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 4,
 
         .baseHP  = 5,
-        .basePow = 2,
+        .baseStr = 2,
         .baseSkl = 3,
         .baseSpd = 4,
         .baseDef = 1,
@@ -497,7 +504,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 80,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 55,
         .growthSpd = 45,
         .growthDef = 35,
@@ -517,7 +524,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 5,
 
         .baseHP  = 4,
-        .basePow = 2,
+        .baseStr = 2,
         .baseSkl = 6,
         .baseSpd = 3,
         .baseDef = 2,
@@ -531,7 +538,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 50,
         .growthSpd = 45,
         .growthDef = 20,
@@ -551,7 +558,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 6,
 
         .baseHP  = 5,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 4,
         .baseSpd = 2,
         .baseDef = 3,
@@ -565,7 +572,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 90,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 40,
         .growthSpd = 40,
         .growthDef = 25,
@@ -585,7 +592,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 3,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 3,
         .baseSpd = 3,
         .baseDef = 2,
@@ -598,7 +605,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 60,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 40,
         .growthSpd = 40,
         .growthDef = 30,
@@ -619,7 +626,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 2,
 
         .baseHP  = 1,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 5,
         .baseSpd = 6,
         .baseDef = 1,
@@ -632,7 +639,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 55,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 50,
         .growthSpd = 40,
         .growthDef = 15,
@@ -651,7 +658,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 10,
 
         .baseHP  = 14,
-        .basePow = 10,
+        .baseStr = 10,
         .baseSkl = 5,
         .baseSpd = 5,
         .baseDef = 6,
@@ -664,7 +671,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 90,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 40,
         .growthSpd = 30,
         .growthDef = 35,
@@ -684,7 +691,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 4,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 5,
         .baseDef = 5,
@@ -693,7 +700,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 1,
 
         .growthHP  = 85,
-        .growthPow = 5,
+        .growthStr = 5,
         .growthSkl = 10,
         .growthSpd = 70,
         .growthDef = 30,
@@ -714,7 +721,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 5,
 
         .baseHP  = 8,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 3,
         .baseSpd = 3,
         .baseDef = 3,
@@ -727,7 +734,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 75,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 55,
         .growthSpd = 60,
         .growthDef = 15,
@@ -748,7 +755,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 2,
 
         .baseHP  = 10,
-        .basePow = 11,
+        .baseStr = 11,
         .baseSkl = 14,
         .baseSpd = 10,
         .baseDef = 3,
@@ -763,7 +770,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 50,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 25,
         .growthSpd = 40,
         .growthDef = 30,
@@ -783,7 +790,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 2,
 
         .baseHP  = 2,
-        .basePow = 2,
+        .baseStr = 2,
         .baseSkl = 2,
         .baseSpd = 4,
         .baseDef = 0,
@@ -796,7 +803,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 50,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 40,
         .growthSpd = 35,
         .growthDef = 15,
@@ -816,7 +823,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 3,
 
         .baseHP  = 3,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 5,
         .baseSpd = 7,
         .baseDef = 3,
@@ -829,7 +836,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 45,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 45,
         .growthSpd = 45,
         .growthDef = 15,
@@ -850,7 +857,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 19,
-        .basePow = 9,
+        .baseStr = 9,
         .baseSkl = 5,
         .baseSpd = 2,
         .baseDef = 5,
@@ -863,7 +870,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 35,
         .growthSpd = 40,
         .growthDef = 30,
@@ -878,7 +885,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -887,7 +894,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -905,7 +912,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 12,
-        .basePow = 7,
+        .baseStr = 7,
         .baseSkl = 15,
         .baseSpd = 8,
         .baseDef = 7,
@@ -918,7 +925,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 65,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 45,
         .growthSpd = 60,
         .growthDef = 25,
@@ -937,7 +944,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 8,
 
         .baseHP  = 20,
-        .basePow = 9,
+        .baseStr = 9,
         .baseSkl = 8,
         .baseSpd = 6,
         .baseDef = 6,
@@ -952,7 +959,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 40,
         .growthSpd = 30,
         .growthDef = 45,
@@ -972,7 +979,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 3,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 1,
         .baseSpd = 3,
         .baseDef = 0,
@@ -981,7 +988,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 130,
-        .growthPow = 90,
+        .growthStr = 90,
         .growthSkl = 85,
         .growthSpd = 65,
         .growthDef = 150,
@@ -1002,7 +1009,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 9,
 
         .baseHP  = 5,
-        .basePow = 10,
+        .baseStr = 10,
         .baseSkl = 8,
         .baseSpd = 6,
         .baseDef = 0,
@@ -1015,7 +1022,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 70,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 40,
         .growthSpd = 35,
         .growthDef = 10,
@@ -1035,7 +1042,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 5,
 
         .baseHP  = 8,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 4,
         .baseSpd = 5,
         .baseDef = 3,
@@ -1048,7 +1055,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 80,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 55,
         .growthSpd = 55,
         .growthDef = 20,
@@ -1068,7 +1075,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 7,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 6,
         .baseSpd = 8,
         .baseDef = 5,
@@ -1082,7 +1089,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 70,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 50,
         .growthSpd = 60,
         .growthDef = 20,
@@ -1103,7 +1110,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 4,
 
         .baseHP  = 6,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 4,
         .baseSpd = 8,
         .baseDef = 3,
@@ -1116,7 +1123,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 65,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 40,
         .growthSpd = 65,
         .growthDef = 20,
@@ -1137,7 +1144,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 14,
 
         .baseHP  = 26,
-        .basePow = 13,
+        .baseStr = 13,
         .baseSkl = 9,
         .baseSpd = 6,
         .baseDef = 14,
@@ -1151,7 +1158,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 55,
         .growthSpd = 55,
         .growthDef = 45,
@@ -1169,7 +1176,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 13,
 
         .baseHP  = 25,
-        .basePow = 11,
+        .baseStr = 11,
         .baseSkl = 11,
         .baseSpd = 7,
         .baseDef = 6,
@@ -1183,7 +1190,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 80,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 45,
         .growthSpd = 40,
         .growthDef = 45,
@@ -1201,7 +1208,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 12,
 
         .baseHP  = 21,
-        .basePow = 11,
+        .baseStr = 11,
         .baseSkl = 12,
         .baseSpd = 6,
         .baseDef = 8,
@@ -1215,7 +1222,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 50,
         .growthSpd = 45,
         .growthDef = 35,
@@ -1233,7 +1240,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 11,
 
         .baseHP  = 19,
-        .basePow = 10,
+        .baseStr = 10,
         .baseSkl = 8,
         .baseSpd = 10,
         .baseDef = 8,
@@ -1247,7 +1254,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 55,
         .growthSpd = 40,
         .growthDef = 20,
@@ -1266,7 +1273,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 13,
 
         .baseHP  = 25,
-        .basePow = 12,
+        .baseStr = 12,
         .baseSkl = 10,
         .baseSpd = 9,
         .baseDef = 6,
@@ -1279,7 +1286,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 80,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 55,
         .growthSpd = 50,
         .growthDef = 20,
@@ -1297,7 +1304,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 16,
 
         .baseHP  = 28,
-        .basePow = 10,
+        .baseStr = 10,
         .baseSkl = 17,
         .baseSpd = 15,
         .baseDef = 13,
@@ -1311,7 +1318,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 75,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 50,
         .growthSpd = 40,
         .growthDef = 20,
@@ -1329,7 +1336,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 12,
 
         .baseHP  = 25,
-        .basePow = 13,
+        .baseStr = 13,
         .baseSkl = 5,
         .baseSpd = 3,
         .baseDef = 7,
@@ -1343,7 +1350,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 45,
         .growthSpd = 45,
         .growthDef = 30,
@@ -1361,7 +1368,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 11,
 
         .baseHP  = 25,
-        .basePow = 12,
+        .baseStr = 12,
         .baseSkl = 10,
         .baseSpd = 9,
         .baseDef = 5,
@@ -1376,7 +1383,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 40,
         .growthSpd = 30,
         .growthDef = 45,
@@ -1394,7 +1401,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 9,
 
         .baseHP  = 14,
-        .basePow = 10,
+        .baseStr = 10,
         .baseSkl = 9,
         .baseSpd = 11,
         .baseDef = 4,
@@ -1407,7 +1414,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 75,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 60,
         .growthSpd = 55,
         .growthDef = 20,
@@ -1426,7 +1433,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 10,
 
         .baseHP  = 16,
-        .basePow = 10,
+        .baseStr = 10,
         .baseSkl = 8,
         .baseSpd = 8,
         .baseDef = 6,
@@ -1440,7 +1447,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 70,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 45,
         .growthSpd = 45,
         .growthDef = 25,
@@ -1453,7 +1460,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -1462,7 +1469,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -1475,7 +1482,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -1484,7 +1491,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -1497,7 +1504,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -1506,7 +1513,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -1519,7 +1526,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -1528,7 +1535,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -1541,7 +1548,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -1550,7 +1557,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -1563,7 +1570,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -1572,7 +1579,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -1585,7 +1592,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -1594,7 +1601,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -1607,7 +1614,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -1616,7 +1623,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -1629,7 +1636,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -1638,7 +1645,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -1651,7 +1658,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -1660,7 +1667,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -1673,7 +1680,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -1682,7 +1689,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -1695,7 +1702,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -1704,7 +1711,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -1717,7 +1724,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -1726,7 +1733,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -1739,7 +1746,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -1748,7 +1755,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -1766,7 +1773,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 2,
         .baseSpd = 3,
         .baseDef = 0,
@@ -1779,7 +1786,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 0,
-        .growthPow = 60,
+        .growthStr = 60,
         .growthSkl = 45,
         .growthSpd = 30,
         .growthDef = 0,
@@ -1794,7 +1801,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 18,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -1808,7 +1815,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 50,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 35,
         .growthSpd = 32,
         .growthDef = 8,
@@ -1823,7 +1830,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 9,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -1837,7 +1844,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 50,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 35,
         .growthSpd = 32,
         .growthDef = 8,
@@ -1855,7 +1862,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 2,
+        .baseStr = 2,
         .baseSkl = 1,
         .baseSpd = 2,
         .baseDef = 0,
@@ -1868,7 +1875,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 0,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 50,
         .growthSpd = 40,
         .growthDef = 0,
@@ -1886,7 +1893,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 2,
         .baseSpd = 1,
         .baseDef = 0,
@@ -1899,7 +1906,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 0,
-        .growthPow = 70,
+        .growthStr = 70,
         .growthSkl = 40,
         .growthSpd = 20,
         .growthDef = 0,
@@ -1916,7 +1923,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 14,
 
         .baseHP  = 26,
-        .basePow = 13,
+        .baseStr = 13,
         .baseSkl = 9,
         .baseSpd = 6,
         .baseDef = 14,
@@ -1930,7 +1937,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 55,
         .growthSpd = 55,
         .growthDef = 45,
@@ -1948,7 +1955,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 18,
 
         .baseHP  = 42,
-        .basePow = 16,
+        .baseStr = 16,
         .baseSkl = 10,
         .baseSpd = 11,
         .baseDef = 3,
@@ -1957,7 +1964,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 150,
-        .growthPow = 100,
+        .growthStr = 100,
         .growthSkl = 90,
         .growthSpd = 70,
         .growthDef = 160,
@@ -1975,7 +1982,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 3,
 
         .baseHP  = 11,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 9,
         .baseSpd = 4,
         .baseDef = 5,
@@ -1989,7 +1996,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 80,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 45,
         .growthSpd = 40,
         .growthDef = 45,
@@ -2007,7 +2014,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 13,
 
         .baseHP  = 25,
-        .basePow = 12,
+        .baseStr = 12,
         .baseSkl = 10,
         .baseSpd = 9,
         .baseDef = 6,
@@ -2020,7 +2027,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 80,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 55,
         .growthSpd = 50,
         .growthDef = 20,
@@ -2038,7 +2045,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 11,
 
         .baseHP  = 19,
-        .basePow = 10,
+        .baseStr = 10,
         .baseSkl = 8,
         .baseSpd = 10,
         .baseDef = 8,
@@ -2052,7 +2059,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 55,
         .growthSpd = 40,
         .growthDef = 20,
@@ -2070,7 +2077,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 5,
 
         .baseHP  = 14,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 7,
         .baseSpd = 6,
         .baseDef = 3,
@@ -2083,7 +2090,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2101,7 +2108,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 4,
 
         .baseHP  = 3,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 0,
         .baseSpd = 1,
         .baseDef = 0,
@@ -2114,7 +2121,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2132,7 +2139,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 4,
 
         .baseHP  = 3,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 3,
         .baseSpd = 0,
         .baseDef = 1,
@@ -2145,7 +2152,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2163,7 +2170,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 6,
 
         .baseHP  = 5,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 4,
         .baseSpd = 2,
         .baseDef = 2,
@@ -2176,7 +2183,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2194,7 +2201,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 6,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -2203,7 +2210,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2221,7 +2228,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 8,
 
         .baseHP  = 13,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 5,
         .baseSpd = 3,
         .baseDef = 2,
@@ -2234,7 +2241,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2252,7 +2259,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 10,
 
         .baseHP  = 12,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 7,
         .baseSpd = 4,
         .baseDef = 3,
@@ -2265,7 +2272,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2283,7 +2290,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 12,
 
         .baseHP  = 12,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 7,
         .baseSpd = 5,
         .baseDef = 1,
@@ -2297,7 +2304,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2315,7 +2322,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 19,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 4,
         .baseSpd = 2,
         .baseDef = 1,
@@ -2330,7 +2337,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2348,7 +2355,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 5,
 
         .baseHP  = 14,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 5,
         .baseSpd = 2,
         .baseDef = 7,
@@ -2362,7 +2369,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2380,7 +2387,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 7,
 
         .baseHP  = 16,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 5,
         .baseSpd = 8,
         .baseDef = 2,
@@ -2395,7 +2402,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 25,
         .growthSpd = 35,
         .growthDef = 15,
@@ -2413,7 +2420,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 9,
 
         .baseHP  = 15,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 6,
         .baseSpd = 2,
         .baseDef = 4,
@@ -2422,7 +2429,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2440,7 +2447,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 10,
 
         .baseHP  = 25,
-        .basePow = 10,
+        .baseStr = 10,
         .baseSkl = 7,
         .baseSpd = 4,
         .baseDef = 8,
@@ -2455,7 +2462,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 35,
         .growthSpd = 35,
         .growthDef = 25,
@@ -2473,7 +2480,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 11,
 
         .baseHP  = 20,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 6,
         .baseSpd = 8,
         .baseDef = 4,
@@ -2486,7 +2493,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 65,
+        .growthStr = 65,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 20,
@@ -2504,7 +2511,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 12,
 
         .baseHP  = 25,
-        .basePow = 13,
+        .baseStr = 13,
         .baseSkl = 5,
         .baseSpd = 3,
         .baseDef = 7,
@@ -2518,7 +2525,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 45,
         .growthSpd = 45,
         .growthDef = 30,
@@ -2536,7 +2543,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 7,
 
         .baseHP  = 14,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 5,
         .baseSpd = 8,
         .baseDef = 2,
@@ -2551,7 +2558,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2566,7 +2573,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -2575,7 +2582,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2593,7 +2600,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 15,
 
         .baseHP  = 25,
-        .basePow = 10,
+        .baseStr = 10,
         .baseSkl = 11,
         .baseSpd = 7,
         .baseDef = 5,
@@ -2606,7 +2613,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 65,
+        .growthStr = 65,
         .growthSkl = 20,
         .growthSpd = 40,
         .growthDef = 15,
@@ -2624,7 +2631,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 16,
 
         .baseHP  = 28,
-        .basePow = 10,
+        .baseStr = 10,
         .baseSkl = 17,
         .baseSpd = 15,
         .baseDef = 13,
@@ -2638,7 +2645,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 75,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 50,
         .growthSpd = 40,
         .growthDef = 20,
@@ -2654,7 +2661,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -2663,7 +2670,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2679,7 +2686,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -2688,7 +2695,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2706,7 +2713,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 5,
 
         .baseHP  = 17,
-        .basePow = 10,
+        .baseStr = 10,
         .baseSkl = 3,
         .baseSpd = 0,
         .baseDef = 8,
@@ -2720,7 +2727,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2738,7 +2745,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 7,
 
         .baseHP  = 22,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 7,
         .baseSpd = 7,
         .baseDef = 8,
@@ -2752,7 +2759,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 35,
         .growthSpd = 35,
         .growthDef = 25,
@@ -2770,7 +2777,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 9,
 
         .baseHP  = 18,
-        .basePow = 7,
+        .baseStr = 7,
         .baseSkl = 3,
         .baseSpd = 3,
         .baseDef = 2,
@@ -2779,7 +2786,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 35,
         .growthSpd = 35,
         .growthDef = 25,
@@ -2797,7 +2804,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 8,
 
         .baseHP  = 15,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 10,
         .baseSpd = 7,
         .baseDef = 4,
@@ -2806,7 +2813,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2824,7 +2831,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 8,
 
         .baseHP  = 14,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 9,
         .baseSpd = 6,
         .baseDef = 4,
@@ -2833,7 +2840,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2851,7 +2858,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 7,
-        .basePow = 2,
+        .baseStr = 2,
         .baseSkl = 2,
         .baseSpd = 1,
         .baseDef = 2,
@@ -2860,7 +2867,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 35,
         .growthSpd = 35,
         .growthDef = 15,
@@ -2876,7 +2883,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -2885,7 +2892,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2901,7 +2908,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -2910,7 +2917,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2926,7 +2933,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -2935,7 +2942,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2951,7 +2958,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -2960,7 +2967,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -2977,7 +2984,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -2986,7 +2993,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -3002,7 +3009,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3011,7 +3018,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3029,7 +3036,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 2,
-        .basePow = 2,
+        .baseStr = 2,
         .baseSkl = 2,
         .baseSpd = 2,
         .baseDef = 2,
@@ -3038,7 +3045,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3055,7 +3062,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3064,7 +3071,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3081,7 +3088,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 4,
 
         .baseHP  = 3,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 2,
         .baseSpd = 3,
         .baseDef = 0,
@@ -3094,7 +3101,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -3112,7 +3119,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 12,
 
         .baseHP  = 21,
-        .basePow = 11,
+        .baseStr = 11,
         .baseSkl = 12,
         .baseSpd = 6,
         .baseDef = 8,
@@ -3126,7 +3133,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -3144,7 +3151,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 8,
 
         .baseHP  = 7,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 0,
         .baseSpd = 1,
         .baseDef = 2,
@@ -3157,7 +3164,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -3175,7 +3182,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 13,
 
         .baseHP  = 31,
-        .basePow = 13,
+        .baseStr = 13,
         .baseSkl = 10,
         .baseSpd = 8,
         .baseDef = 7,
@@ -3190,7 +3197,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 10,
         .growthSpd = 10,
         .growthDef = 10,
@@ -3208,7 +3215,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 18,
 
         .baseHP  = 55,
-        .basePow = 20,
+        .baseStr = 20,
         .baseSkl = 15,
         .baseSpd = 10,
         .baseDef = 23,
@@ -3222,7 +3229,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3240,7 +3247,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 13,
 
         .baseHP  = 25,
-        .basePow = 11,
+        .baseStr = 11,
         .baseSkl = 11,
         .baseSpd = 7,
         .baseDef = 6,
@@ -3254,7 +3261,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3268,7 +3275,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3277,7 +3284,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3290,7 +3297,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3299,7 +3306,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3312,7 +3319,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3321,7 +3328,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3334,7 +3341,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3343,7 +3350,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3356,7 +3363,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3365,7 +3372,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3378,7 +3385,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3387,7 +3394,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3400,7 +3407,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3409,7 +3416,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3422,7 +3429,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3431,7 +3438,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3444,7 +3451,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3453,7 +3460,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3466,7 +3473,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3475,7 +3482,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3488,7 +3495,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3497,7 +3504,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3510,7 +3517,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3519,7 +3526,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3532,7 +3539,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3541,7 +3548,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3554,7 +3561,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3563,7 +3570,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3576,7 +3583,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3585,7 +3592,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3598,7 +3605,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3607,7 +3614,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3620,7 +3627,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3629,7 +3636,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3645,7 +3652,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 3,
-        .basePow = 2,
+        .baseStr = 2,
         .baseSkl = 1,
         .baseSpd = 2,
         .baseDef = 2,
@@ -3654,7 +3661,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3670,7 +3677,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3679,7 +3686,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3695,7 +3702,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3704,7 +3711,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3720,7 +3727,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 2,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 255,
         .baseSpd = 253,
         .baseDef = 3,
@@ -3729,7 +3736,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3745,7 +3752,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3754,7 +3761,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3770,7 +3777,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3779,7 +3786,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3795,7 +3802,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3804,7 +3811,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3820,7 +3827,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3829,7 +3836,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3845,7 +3852,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3854,7 +3861,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3870,7 +3877,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3879,7 +3886,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3895,7 +3902,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3904,7 +3911,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3920,7 +3927,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3929,7 +3936,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3945,7 +3952,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3954,7 +3961,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3970,7 +3977,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -3979,7 +3986,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -3996,7 +4003,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4005,7 +4012,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4021,7 +4028,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4030,7 +4037,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4046,7 +4053,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4055,7 +4062,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4071,7 +4078,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4080,7 +4087,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4096,7 +4103,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4105,7 +4112,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4119,7 +4126,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4128,7 +4135,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4142,7 +4149,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4151,7 +4158,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4165,7 +4172,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4174,7 +4181,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4188,7 +4195,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4197,7 +4204,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4211,7 +4218,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4220,7 +4227,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4234,7 +4241,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4243,7 +4250,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4257,7 +4264,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4266,7 +4273,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4280,7 +4287,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4289,7 +4296,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4303,7 +4310,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4312,7 +4319,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4326,7 +4333,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4335,7 +4342,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4349,7 +4356,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4358,7 +4365,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4372,7 +4379,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4381,7 +4388,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4395,7 +4402,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4404,7 +4411,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4418,7 +4425,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4427,7 +4434,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4441,7 +4448,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4450,7 +4457,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4464,7 +4471,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4473,7 +4480,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4487,7 +4494,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4496,7 +4503,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4510,7 +4517,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4519,7 +4526,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4533,7 +4540,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4542,7 +4549,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4556,7 +4563,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4565,7 +4572,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4579,7 +4586,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .miniPortrait = 0x3,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4588,7 +4595,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -4604,7 +4611,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4613,7 +4620,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4629,7 +4636,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4638,7 +4645,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4654,7 +4661,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4663,7 +4670,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4680,7 +4687,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4689,7 +4696,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4706,7 +4713,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4715,7 +4722,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4732,7 +4739,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4741,7 +4748,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4758,7 +4765,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4767,7 +4774,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4784,7 +4791,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4793,7 +4800,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4810,7 +4817,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4819,7 +4826,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4836,7 +4843,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4845,7 +4852,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4862,7 +4869,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4871,7 +4878,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4888,7 +4895,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4897,7 +4904,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4914,7 +4921,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4923,7 +4930,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4940,7 +4947,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4949,7 +4956,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4966,7 +4973,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4975,7 +4982,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -4992,7 +4999,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5001,7 +5008,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -5018,7 +5025,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5027,7 +5034,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -5044,7 +5051,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5053,7 +5060,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -5070,7 +5077,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5079,7 +5086,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -5096,7 +5103,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5105,7 +5112,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 100,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5122,7 +5129,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5131,7 +5138,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -5148,7 +5155,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5157,7 +5164,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -5174,7 +5181,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5183,7 +5190,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -5200,7 +5207,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 20,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5209,7 +5216,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -5224,7 +5231,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5233,7 +5240,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5249,7 +5256,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5258,7 +5265,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 50,
         .growthSpd = 45,
         .growthDef = 25,
@@ -5274,7 +5281,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5283,7 +5290,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 50,
         .growthSpd = 45,
         .growthDef = 25,
@@ -5297,7 +5304,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5306,7 +5313,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5320,7 +5327,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5329,7 +5336,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5343,7 +5350,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5352,7 +5359,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5369,7 +5376,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 5,
 
         .baseHP  = 13,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 6,
         .baseSpd = 8,
         .baseDef = 2,
@@ -5378,7 +5385,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 3,
 
         .growthHP  = 85,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 50,
         .growthSpd = 45,
         .growthDef = 25,
@@ -5392,7 +5399,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5401,7 +5408,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5418,7 +5425,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5427,7 +5434,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 1,
 
         .growthHP  = 85,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 50,
         .growthSpd = 45,
         .growthDef = 25,
@@ -5444,7 +5451,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 17,
 
         .baseHP  = 11,
-        .basePow = 11,
+        .baseStr = 11,
         .baseSkl = 3,
         .baseSpd = 2,
         .baseDef = 5,
@@ -5453,7 +5460,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 50,
         .growthSpd = 45,
         .growthDef = 25,
@@ -5470,7 +5477,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5479,7 +5486,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 50,
         .growthSpd = 45,
         .growthDef = 25,
@@ -5496,7 +5503,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5505,7 +5512,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 50,
         .growthSpd = 45,
         .growthDef = 25,
@@ -5522,7 +5529,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 4,
 
         .baseHP  = 14,
-        .basePow = 10,
+        .baseStr = 10,
         .baseSkl = 9,
         .baseSpd = 11,
         .baseDef = 4,
@@ -5535,7 +5542,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 75,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 60,
         .growthSpd = 55,
         .growthDef = 20,
@@ -5553,7 +5560,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 3,
-        .basePow = 2,
+        .baseStr = 2,
         .baseSkl = 2,
         .baseSpd = 5,
         .baseDef = 0,
@@ -5566,7 +5573,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 85,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 50,
         .growthSpd = 45,
         .growthDef = 25,
@@ -5583,7 +5590,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5592,7 +5599,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 50,
         .growthSpd = 45,
         .growthDef = 25,
@@ -5608,7 +5615,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5617,7 +5624,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 50,
         .growthSpd = 45,
         .growthDef = 25,
@@ -5630,7 +5637,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5639,7 +5646,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5652,7 +5659,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5661,7 +5668,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5674,7 +5681,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5683,7 +5690,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5696,7 +5703,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5705,7 +5712,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5718,7 +5725,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5727,7 +5734,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5740,7 +5747,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5749,7 +5756,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5762,7 +5769,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5771,7 +5778,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5784,7 +5791,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5793,7 +5800,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5806,7 +5813,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5815,7 +5822,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5828,7 +5835,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5837,7 +5844,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5850,7 +5857,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5859,7 +5866,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5872,7 +5879,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5881,7 +5888,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5894,7 +5901,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5903,7 +5910,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5916,7 +5923,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5925,7 +5932,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5938,7 +5945,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5947,7 +5954,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5960,7 +5967,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5969,7 +5976,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5982,7 +5989,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5991,7 +5998,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6004,7 +6011,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6013,7 +6020,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6026,7 +6033,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6035,7 +6042,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6048,7 +6055,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6057,7 +6064,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6070,7 +6077,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6079,7 +6086,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6092,7 +6099,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6101,7 +6108,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6114,7 +6121,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6123,7 +6130,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6136,7 +6143,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6145,7 +6152,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6158,7 +6165,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6167,7 +6174,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6180,7 +6187,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6189,7 +6196,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6202,7 +6209,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6211,7 +6218,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6224,7 +6231,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6233,7 +6240,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6246,7 +6253,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6255,7 +6262,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6268,7 +6275,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6277,7 +6284,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6290,7 +6297,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6299,7 +6306,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6312,7 +6319,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6321,7 +6328,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6334,7 +6341,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6343,7 +6350,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6356,7 +6363,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6365,7 +6372,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6378,7 +6385,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6387,7 +6394,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6400,7 +6407,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6409,7 +6416,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6422,7 +6429,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6431,7 +6438,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6447,7 +6454,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 2,
@@ -6456,7 +6463,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 60,
         .growthSpd = 10,
         .growthDef = 15,
@@ -6472,7 +6479,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 2,
@@ -6481,7 +6488,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 60,
         .growthSpd = 10,
         .growthDef = 15,
@@ -6498,7 +6505,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 2,
@@ -6507,7 +6514,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 60,
         .growthSpd = 10,
         .growthDef = 15,
@@ -6523,7 +6530,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 2,
@@ -6532,7 +6539,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 60,
         .growthSpd = 10,
         .growthDef = 15,
@@ -6549,7 +6556,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 2,
@@ -6558,7 +6565,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 60,
         .growthSpd = 10,
         .growthDef = 15,
@@ -6574,7 +6581,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 2,
@@ -6583,7 +6590,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 60,
         .growthSpd = 10,
         .growthDef = 15,
@@ -6600,7 +6607,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 2,
@@ -6609,7 +6616,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 60,
         .growthSpd = 10,
         .growthDef = 15,
@@ -6625,7 +6632,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 2,
@@ -6634,7 +6641,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 60,
         .growthSpd = 10,
         .growthDef = 15,
@@ -6650,7 +6657,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 2,
@@ -6659,7 +6666,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 85,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 60,
         .growthSpd = 10,
         .growthDef = 15,
@@ -6673,7 +6680,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6682,7 +6689,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6695,7 +6702,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6704,7 +6711,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6717,7 +6724,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .defaultClass = CLASS_BRIGAND,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6726,7 +6733,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6742,7 +6749,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         .baseLevel = 1,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6755,7 +6762,7 @@ CONST_DATA struct CharacterData gCharacterData[] = {
         },
 
         .growthHP  = 60,
-        .growthPow = 20,
+        .growthStr = 20,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,

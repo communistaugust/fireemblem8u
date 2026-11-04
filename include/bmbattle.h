@@ -56,7 +56,9 @@ struct BattleUnit {
     /* 72 */ s8 hpInitial;
 
     /* 73 */ s8 changeHP;
-    /* 74 */ s8 changePow;
+    /* 74 */ //s8 changePow;
+             s8 changeStr;
+             s8 changeMag;
     /* 75 */ s8 changeSkl;
     /* 76 */ s8 changeSpd;
     /* 77 */ s8 changeDef;
@@ -283,7 +285,7 @@ void BattlePrintDebugHitInfo(void);
 
 void BattleGenerateHitScriptedDamage(struct BattleUnit* bu);
 void BattleUnwindScripted(void);
-
+bool IsMagicAttack(struct BattleUnit *bu);
 #define BUNIT_IS_OBSTACLE(aBu) (((aBu)->terrainId == TERRAIN_WALL_DAMAGED) || ((aBu)->terrainId == TERRAIN_SNAG))
 
 #endif // GUARD_BMBATTLE_H

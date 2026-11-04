@@ -3407,7 +3407,12 @@
 #define MSG_D49 0x0D49
 #define MSG_D4A 0x0D4A
 #define MSG_D4B 0x0D4B
+#define MSG_SKILL_StrBonus_NAME 0x0D4C
+#define MSG_SKILL_StrBonus 0x0D4D
+#define MSG_SKILL_HpBonus_NAME 0x0D4E
+#define MSG_SKILL_HpBonus 0x0D4F
+#define MSG_SKILLS 0x0D50
 
-#define MSG_COUNT 0x0D4C
+#define MSG_COUNT 0x0D51
 
 #endif /* MSG_H */

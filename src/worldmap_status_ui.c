@@ -292,7 +292,7 @@ void WorldmapStatus_InitDetails(struct WorldmapStatusProc * proc)
     }
 
     ResetText();
-    ResetIconGraphics_();
+    ResetIconGraphics();
 
     WorldmapStatus_InitText(proc);
 

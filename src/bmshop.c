@@ -1226,7 +1226,7 @@ void InitShopScreenConfig(void)
 
     ResetText();
     LoadUiFrameGraphics();
-    ResetIconGraphics_();
+    ResetIconGraphics();
     LoadIconPalettes(BGPAL_SHOP_4);
     LoadHelpBoxGfx(0, -1);
 }

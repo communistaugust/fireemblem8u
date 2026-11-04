@@ -78,7 +78,7 @@ void DrawPrepScreenItemUseStatLabels(struct Unit *unit)
     char *str;
     struct Text *text = gPrepItemTexts;
 
-    for (i = 0; i < 8; i++)
+    for (i = 0; i < 10; i++)
         ClearText(&text[i]);
 
     /* HP */
@@ -89,31 +89,27 @@ void DrawPrepScreenItemUseStatLabels(struct Unit *unit)
         0, 0,
         GetStringFromIndex(0x4E9)
     );
-
-    if (UnitHasMagicRank(unit)) {
-        /* Mag[.] */
+    PutDrawText(
+        text++,
+        TILEMAP_LOCATED(gBG2TilemapBuffer, 16, 5),
+        TEXT_COLOR_SYSTEM_GOLD,
+        0, 0,
+        GetStringFromIndex(0x4FE)
+    );
         PutDrawText(
             text++,
-            TILEMAP_LOCATED(gBG2TilemapBuffer, 16, 5),
+            TILEMAP_LOCATED(gBG2TilemapBuffer, 16, 7),
             TEXT_COLOR_SYSTEM_GOLD,
             0, 0,
             GetStringFromIndex(0x4FF)
         );
-    } else {
         /* Str[.] */
-        PutDrawText(
-            text++,
-            TILEMAP_LOCATED(gBG2TilemapBuffer, 16, 5),
-            TEXT_COLOR_SYSTEM_GOLD,
-            0, 0,
-            GetStringFromIndex(0x4FE)
-        );
-    }
+
 
     /* Skill[.] */
     PutDrawText(
         text++,
-        TILEMAP_LOCATED(gBG2TilemapBuffer, 16, 7),
+        TILEMAP_LOCATED(gBG2TilemapBuffer, 16, 9),
         TEXT_COLOR_SYSTEM_GOLD,
         0, 0,
         GetStringFromIndex(0x4EC)
@@ -122,7 +118,7 @@ void DrawPrepScreenItemUseStatLabels(struct Unit *unit)
     /* Spd[.] */
     PutDrawText(
         text++,
-        TILEMAP_LOCATED(gBG2TilemapBuffer, 16, 9),
+        TILEMAP_LOCATED(gBG2TilemapBuffer, 16, 11),
         TEXT_COLOR_SYSTEM_GOLD,
         0, 0,
         GetStringFromIndex(0x4ED)
@@ -161,13 +157,21 @@ void DrawPrepScreenItemUseStatLabels(struct Unit *unit)
         TILEMAP_LOCATED(gBG2TilemapBuffer, 23, 9),
         TEXT_COLOR_SYSTEM_GOLD,
         0, 0,
-        GetStringFromIndex(0x4F7)
+        GetStringFromIndex(gMid_Con)
+    );
+
+    PutDrawText(
+        text++,
+        TILEMAP_LOCATED(gBG2TilemapBuffer, 23, 11),
+        TEXT_COLOR_SYSTEM_GOLD,
+        0, 0,
+        GetStringFromIndex(0x4F6)
     );
 
     str = GetStringFromIndex(unit->pClassData->nameTextId);
     PutDrawText(
         text++,
-        TILEMAP_LOCATED(gBG2TilemapBuffer, 21, 1),
+        TILEMAP_LOCATED(gBG2TilemapBuffer, 20, 1),
         TEXT_COLOR_SYSTEM_WHITE,
         GetStringTextCenteredPos(0x40, str),
         0, str
@@ -180,28 +184,37 @@ void DrawPrepScreenItemUseStatLabels(struct Unit *unit)
 void DrawPrepScreenItemUseStatBars(struct Unit* unit, int mask)
 {
     s32 i;
-    int stat_pack[8];
+    int stat_pack[10];
     UnpackUiBarPalette(2);
 
     stat_pack[0] = GetUnitCurrentHp(unit) * 24 / UNIT_MHP_MAX(unit);
-    stat_pack[1] = GetUnitPower(unit) * 24 / UNIT_POW_MAX(unit);
-    stat_pack[2] = GetUnitSkill(unit) * 24 / UNIT_SKL_MAX(unit);
-    stat_pack[3] = GetUnitSpeed(unit) * 24 / UNIT_SPD_MAX(unit);
-    stat_pack[4] = GetUnitLuck(unit) * 24 / UNIT_LCK_MAX(unit);
-	stat_pack[5] = GetUnitDefense(unit) * 24 / UNIT_DEF_MAX(unit);
-	stat_pack[6] = GetUnitResistance(unit) * 24 / UNIT_RES_MAX(unit);
-	stat_pack[7] = UNIT_CON(unit) * 24 / UNIT_CON_MAX(unit);
+    //stat_pack[1] = GetUnitPower(unit) * 24 / UNIT_POW_MAX(unit);
+    stat_pack[1] = GetUnitStrength(unit) * 24 / UNIT_STR_MAX(unit);
+    stat_pack[2] = GetUnitMagic(unit) * 24 / UNIT_MAG_MAX(unit);
+    stat_pack[3] = GetUnitSkill(unit) * 24 / UNIT_SKL_MAX(unit);
+    stat_pack[4] = GetUnitSpeed(unit) * 24 / UNIT_SPD_MAX(unit);
+    stat_pack[5] = GetUnitLuck(unit) * 24 / UNIT_LCK_MAX(unit);
+	stat_pack[6] = GetUnitDefense(unit) * 24 / UNIT_DEF_MAX(unit);
+	stat_pack[7] = GetUnitResistance(unit) * 24 / UNIT_RES_MAX(unit);
+    stat_pack[8] = UNIT_CON(unit) * 24 / UNIT_CON_MAX(unit);
+    stat_pack[9] = UNIT_MOV(unit) * 24 / UNIT_MOV_MAX(unit);
 
-    for (i = 0; i < 8; i++) {
+    for (i = 0; i < 10; i++) {
         u32 var = 0x100 * i + 0x7000;
 
-        if ((mask >> i) & 1) {
+        if(i == 4)
+            DrawStatBarGfx(
+               var << 15 >> 20,
+               4,
+               gBG0TilemapBuffer + TILEMAP_INDEX(18, 12),
+               0x2000, 0x18, stat_pack[i], 0);
+        else if ((mask >> i) & 1) {
             u32 x = var << 15;
             if (x) { ++x; --x; }
             DrawStatBarGfx(
                 x >> 20,
                 4,
-                TILEMAP_LOCATED(gBG0TilemapBuffer, (i >> 2) * 7 + 0x12, (i & 3) * 2 + 4),
+                TILEMAP_LOCATED(gBG0TilemapBuffer, (i / 5) * 7 + 0x12, (i % 5) * 2 + 4),
                 0x3000, 0x18, stat_pack[i], 0);
         } else {
             u32 x = var << 15;
@@ -209,7 +222,7 @@ void DrawPrepScreenItemUseStatBars(struct Unit* unit, int mask)
             DrawStatBarGfx(
                 x >> 20,
                 4,
-                TILEMAP_LOCATED(gBG0TilemapBuffer, (i >> 2) * 7 + 0x12, (i & 3) * 2 + 4),
+                TILEMAP_LOCATED(gBG0TilemapBuffer, (i  / 5) * 7 + 0x12, (i % 5) * 2 + 4),
                 0x2000, 0x18, stat_pack[i], 0);
         }
     }
@@ -231,15 +244,25 @@ void DrawPrepScreenItemUseStatValues(struct Unit* unit)
     // POW
     PutNumberOrBlank(
         TILEMAP_LOCATED(gBG2TilemapBuffer, 20, 5),
-        (GetUnitPower(unit) == UNIT_POW_MAX(unit)) 
+        //(GetUnitPower(unit) == UNIT_POW_MAX(unit))
+        (GetUnitStrength(unit) == UNIT_STR_MAX(unit))
             ? TEXT_COLOR_SYSTEM_GREEN
             : TEXT_COLOR_SYSTEM_BLUE,
-        GetUnitPower(unit)
+       // GetUnitPower(unit)
+       GetUnitStrength(unit)
     );
 
-    // SKL
+    //MAG
     PutNumberOrBlank(
         TILEMAP_LOCATED(gBG2TilemapBuffer, 20, 7),
+        (GetUnitMagic(unit) == UNIT_MAG_MAX(unit))
+            ? TEXT_COLOR_SYSTEM_GREEN
+            : TEXT_COLOR_SYSTEM_BLUE,
+        GetUnitMagic(unit)
+    );
+    //SKL
+    PutNumberOrBlank(
+        TILEMAP_LOCATED(gBG2TilemapBuffer, 20, 9),
         (GetUnitSkill(unit) == UNIT_SKL_MAX(unit)) 
             ? TEXT_COLOR_SYSTEM_GREEN
             : TEXT_COLOR_SYSTEM_BLUE,
@@ -248,7 +271,7 @@ void DrawPrepScreenItemUseStatValues(struct Unit* unit)
 
     // SPD
     PutNumberOrBlank(
-        TILEMAP_LOCATED(gBG2TilemapBuffer, 20, 9),
+        TILEMAP_LOCATED(gBG2TilemapBuffer, 20, 11),
         (GetUnitSpeed(unit) == UNIT_SPD_MAX(unit)) 
             ? TEXT_COLOR_SYSTEM_GREEN
             : TEXT_COLOR_SYSTEM_BLUE,
@@ -291,6 +314,14 @@ void DrawPrepScreenItemUseStatValues(struct Unit* unit)
         UNIT_CON(unit)
     );
 
+    PutNumberOrBlank(
+        TILEMAP_LOCATED(gBG2TilemapBuffer, 27, 11),
+        (UNIT_MOV(unit) == UNIT_MOV_MAX(unit))
+            ? TEXT_COLOR_SYSTEM_GREEN
+            : TEXT_COLOR_SYSTEM_BLUE,
+        UNIT_MOV(unit)
+    );
+
     TileMap_FillRect(
         TILEMAP_LOCATED(gBG2TilemapBuffer, 19, 1),
         1, 1, 0
@@ -328,13 +359,13 @@ void DrawPrepScreenItemUseDesc(struct Unit *unit, int slot)
                 Text_SetColor(thlut[1], TEXT_COLOR_SYSTEM_WHITE);
                 Text_SetColor(thlut[2], TEXT_COLOR_SYSTEM_WHITE);
     
-                PrintStringToTexts(thlut, GetStringFromIndex(msg), TILEMAP_LOCATED(gBG0TilemapBuffer, 15, 12), 3);
+                PrintStringToTexts(thlut, GetStringFromIndex(msg), TILEMAP_LOCATED(gBG0TilemapBuffer, 15, 14), 3);
             } else {
                 Text_SetColor(thlut[0], TEXT_COLOR_SYSTEM_GRAY);
                 Text_SetColor(thlut[1], TEXT_COLOR_SYSTEM_GRAY);
                 Text_SetColor(thlut[2], TEXT_COLOR_SYSTEM_GRAY);
     
-                PrintStringToTexts(thlut, GetStringFromIndex(msg), TILEMAP_LOCATED(gBG0TilemapBuffer, 15, 12), 3);
+                PrintStringToTexts(thlut, GetStringFromIndex(msg), TILEMAP_LOCATED(gBG0TilemapBuffer, 15, 14), 3);
             }
         }
     }
@@ -382,7 +413,7 @@ void PrepItemUse_InitDisplay(struct ProcPrepItemUse *proc)
     gLCDControlBuffer.bg3cnt.priority = 3;
 
     ResetText();
-    ResetIconGraphics_();
+    ResetIconGraphics();
     LoadUiFrameGraphics();
     LoadObjUIGfx();
     ApplyUnitSpritePalettes();
@@ -398,7 +429,7 @@ void PrepItemUse_InitDisplay(struct ProcPrepItemUse *proc)
     for (i = 0; i < 5; i++)
         InitTextDb(&gPrepItemTexts[0xF + i], 7);
 
-    for (i = 0; i < 8; i++)
+    for (i = 0; i < 10; i++)
         InitText(&gPrepItemTexts[TEXT_PREPITEM_HP + i], 3);
 
     texts = gPrepItemTexts;
@@ -419,8 +450,8 @@ void PrepItemUse_InitDisplay(struct ProcPrepItemUse *proc)
     PutImg_PrepPopupWindow(0x800, 0xA);
 
     Decompress(Img_PrepItemUseScreen, (void *)BG_VRAM + 0x440);
-    Decompress(Tsa_PrepItemUseScreen, gGenericBuffer);
-    CallARM_FillTileRect(gBG1TilemapBuffer, gGenericBuffer, 0x1000);
+    //Decompress(Tsa_PrepItemUseScreen, gGenericBuffer);
+    CallARM_FillTileRect(gBG1TilemapBuffer, Tsa_PrepItemUseScreen, 0x1000);
     BG_EnableSyncByMask(BG0_SYNC_BIT | BG1_SYNC_BIT | BG2_SYNC_BIT);
 
     StartSysBrownBox(0xD, 0xE00, 0xF, 0xC00, 0, proc);
@@ -442,7 +473,7 @@ void PrepItemUse_InitDisplay(struct ProcPrepItemUse *proc)
     StartParallelWorker(PrepItemUseParallel_UpdateSMS, proc);
 
     SetWinEnable(1, 0, 0);
-    SetWin0Box(0x68, 0x5E, 0xF0, 0x92);
+    SetWin0Box(0x68, 0x70, 0xF0, 0x92);
     SetWin0Layers(1, 1, 1, 1, 1);
     SetWOutLayers(1, 1, 1, 1, 1);
 

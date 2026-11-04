@@ -172,7 +172,7 @@ void DrawPrepScreenItems(u16 * tm, struct Text* th, struct Unit* unit, u8 checkP
         );
 
         PutNumberOrBlank(tm + i * 0x40 + 0xB, isUsable ? TEXT_COLOR_SYSTEM_BLUE : TEXT_COLOR_SYSTEM_GRAY, GetItemUses(item));
-        DrawIcon(tm + i * 0x40, GetItemIconId(item), 0x4000);
+        DrawIcon(tm + i * 0x40, ITEM_ICON(GetItemIconId(item)), 0x4000);
 
         th++;
     }
@@ -187,7 +187,7 @@ void DrawPrepScreenItemIcons(u16 * tm, struct Unit* unit) {
     int itemCount = GetUnitItemCount(unit);
 
     for (i = 0; i < itemCount; i++) {
-        DrawIcon(tm + i * 0x40, GetItemIconId(unit->items[i]), 0x4000);
+        DrawIcon(tm + i * 0x40, ITEM_ICON(GetItemIconId(unit->items[i])), 0x4000);
     }
 
     return;
@@ -221,7 +221,7 @@ void PrepItemTrade_Init(struct PrepMenuTradeProc * proc)
     BG_Fill(BG_GetMapBuffer(2), 0);
 
     ResetText();
-    ResetIconGraphics_();
+    ResetIconGraphics();
     LoadUiFrameGraphics();
     LoadObjUIGfx();
 

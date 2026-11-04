@@ -236,7 +236,7 @@ void DrawBonusClaimItemText(int idx) {
                 GetItemMaxUses(itemId)
             );
 
-            DrawIcon(gBG2TilemapBuffer + (unk1 * 0x20), GetItemIconId(itemId), 0x4000);
+            DrawIcon(gBG2TilemapBuffer + (unk1 * 0x20), ITEM_ICON(GetItemIconId(itemId)), 0x4000);
 
             break;
 
@@ -250,7 +250,7 @@ void DrawBonusClaimItemText(int idx) {
                 GetItemName(itemId)
             );
 
-            DrawIcon(gBG2TilemapBuffer + (unk1 * 0x20), GetItemIconId(itemId), 0x4000);
+            DrawIcon(gBG2TilemapBuffer + (unk1 * 0x20), ITEM_ICON(GetItemIconId(itemId)), 0x4000);
 
             break;
     }
@@ -340,7 +340,7 @@ void BonusClaim_Init(struct BonusClaimProc * proc)
 
     LoadUiFrameGraphics();
     ResetText();
-    ResetIconGraphics_();
+    ResetIconGraphics();
     LoadIconPalettes(4);
     LoadObjUIGfx();
 
@@ -795,7 +795,7 @@ void BonusClaim_DrawItemSentPopup(struct BonusClaimProc * proc)
 
     PutText(th, gBG0TilemapBuffer + x + 0x143);
 
-    DrawIcon(gBG0TilemapBuffer + x + 0x141, GetItemIconId(itemId), 0x4000);
+    DrawIcon(gBG0TilemapBuffer + x + 0x141, ITEM_ICON(GetItemIconId(itemId)), 0x4000);
 
     ent2 = gpBonusClaimData;
     ent2 += idx;

@@ -177,14 +177,14 @@ int ParsePopupInstAndGetLen(struct PopupProc * proc)
 
         case POPUP_OP_ITEM_ICON:
             proc->iconX = len;
-            proc->iconId = GetItemIconId(gPopupItem);
+            proc->iconId = ITEM_ICON(GetItemIconId(gPopupItem));
             LoadIconPalette(0, proc->iconPalId);
             len += 0x10;
             break;
 
         case POPUP_OP_WTYPE_ICON:
             proc->iconX = len;
-            proc->iconId = gPopupItem + 0x70;
+            proc->iconId = WTYPE_ICON(gPopupItem);
             LoadIconPalette(1, proc->iconPalId);
             len += 0x10;
             break;
@@ -292,7 +292,7 @@ void PopupProc_Init(struct PopupProc * proc)
     proc->xTileParam = -1;
     proc->yTileParam = -1;
     proc->textColorId = TEXT_COLOR_SYSTEM_WHITE;
-    proc->iconId = -1;
+    proc->iconId = EMPTY_ICON;
     proc->iconX = 0;
     proc->soundId = 0;
 }
@@ -383,13 +383,13 @@ void PopupProc_GfxDraw(struct PopupProc * proc)
     Text_SetCursor(&th, icon_pos);
     GeneratePopupText(proc->pDefinition, th);
 
-    if (0xFFFF != proc->iconId)
+    if (0xFF != proc->iconId.Index)
         LoadIconObjectGraphics(proc->iconId, proc->iconObjTileId);
 
     PutText(&th, TILEMAP_LOCATED(gBG0TilemapBuffer, x_pos + 1, y_pos + 1));
     ResetText();
 
-    if (0xFFFF != proc->iconId) {
+    if (0xFF != proc->iconId.Index) {
         struct PopupIconUpdateProc *child =
             Proc_Start(ProcScr_PopupUpdateIcon, proc);
 

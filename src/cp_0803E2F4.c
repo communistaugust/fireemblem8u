@@ -97,8 +97,9 @@ void AiFillDangerMap(void) {
                 if (gMapRangeSigned[iy][ix] == 0) {
                     continue;
                 }
+               //gBmMapOther[iy][ix] += (GetUnitPower(unit) + might) >> 1;
+                gBmMapOther[iy][ix] += (GetUnitDamageStat(item,unit) + might) >> 1;
 
-                gBmMapOther[iy][ix] += (GetUnitPower(unit) + might) >> 1;
             }
         }
     }
@@ -542,7 +543,8 @@ s8 AiIsWithinFlyingDistance(struct Unit* unit, int x, int y) {
 int StoreItemAndGetUnitAttack(struct Unit* unit, u16* itemOut) {
     u16 item = GetUnitEquippedWeapon(unit);
     *itemOut = item;
-    return GetUnitPower(unit) + GetItemMight(item);
+    //return GetUnitPower(unit) + GetItemMight(item);
+    return GetUnitDamageStat(item,unit) + GetItemMight(item);
 }
 
 //! FE8U = 0x0803ECC4

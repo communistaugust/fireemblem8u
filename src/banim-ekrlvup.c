@@ -25,8 +25,8 @@ EWRAM_OVERLAY(banim) struct Unit * gpEkrLvupUnit = NULL;
 EWRAM_OVERLAY(banim) struct BattleUnit * gpEkrLvupBattleUnit = NULL;
 EWRAM_OVERLAY(banim) u16 gEkrLvupPreLevel = 0;
 EWRAM_OVERLAY(banim) u16 gEkrLvupPostLevel = 0;
-EWRAM_OVERLAY(banim) u16 gEkrLvupBaseStatus[EKRLVUP_STAT_MAX] = {0};
-EWRAM_OVERLAY(banim) u16 gEkrLvupPostStatus[EKRLVUP_STAT_MAX] = {0};
+EWRAM_OVERLAY(banim) u16 gEkrLvupBaseStatus[EKRLVUP_STAT_LEVEL_MAX] = {0};
+EWRAM_OVERLAY(banim) u16 gEkrLvupPostStatus[EKRLVUP_STAT_LEVEL_MAX] = {0};
 EWRAM_OVERLAY(banim) u16 gEkrLvupScrollPos1 = 0;
 EWRAM_OVERLAY(banim) u16 gEkrLvupScrollPos2 = 0;
 EWRAM_OVERLAY(banim) int gEkrLvupApfxUnexist = false;
@@ -58,7 +58,7 @@ CONST_DATA struct FaceVramEntry gUnknown_087592CC[4] = {
     [3] = {0},
 };
 
-CONST_DATA unsigned *EkrLvupMsgsStr[] = {
+/*CONST_DATA unsigned *EkrLvupMsgsStr[] = {
     &gMid_Hp,
     &gMid_Str,
     &gMid_Skl,
@@ -78,6 +78,17 @@ CONST_DATA unsigned *EkrLvupMsgsMag[] = {
     &gMid_Def,
     &gMid_Res,
     &gMid_Con
+};*/
+
+CONST_DATA unsigned *EkrLvupMsgsCombined[] = {
+    &gMid_Hp,
+    &gMid_Str,
+    &gMid_Mag,
+    &gMid_Skl,
+    &gMid_Spd,
+    &gMid_Lck,
+    &gMid_Def,
+    &gMid_Res,
 };
 
 CONST_DATA struct ProcCmd ProcScr_EkrLevelup[] = {
@@ -148,54 +159,63 @@ void EkrLvup_InitStatusText(struct ProcEkrLevelup *proc)
 
         gEkrLvupPreLevel = bunit2->levelPrevious;
         gEkrLvupBaseStatus[EKRLVUP_STAT_HP] = unit->maxHP;
-        gEkrLvupBaseStatus[EKRLVUP_STAT_POW] = unit->pow;
+        //gEkrLvupBaseStatus[EKRLVUP_STAT_POW] = unit->pow;
+        gEkrLvupBaseStatus[EKRLVUP_STAT_STR] = unit->str;
+        gEkrLvupBaseStatus[EKRLVUP_STAT_MAG] = unit->mag;
         gEkrLvupBaseStatus[EKRLVUP_STAT_SKL] = unit->skl;
         gEkrLvupBaseStatus[EKRLVUP_STAT_LCK] = unit->lck;
         gEkrLvupBaseStatus[EKRLVUP_STAT_SPD] = unit->spd;
         gEkrLvupBaseStatus[EKRLVUP_STAT_DEF] = unit->def;
         gEkrLvupBaseStatus[EKRLVUP_STAT_RES] = unit->res;
-        gEkrLvupBaseStatus[EKRLVUP_STAT_CON] = unit->pClassData->baseCon + unit->pCharacterData->baseCon;
+        //
+        // gEkrLvupBaseStatus[EKRLVUP_STAT_CON] = unit->pClassData->baseCon + unit->pCharacterData->baseCon;
         gEkrLvupPostLevel = bunit2->levelPrevious + 1;
 
         gEkrLvupPostStatus[EKRLVUP_STAT_HP] = unit->maxHP + bunit2->changeHP;
-        gEkrLvupPostStatus[EKRLVUP_STAT_POW] = unit->pow + bunit2->changePow;
+        //gEkrLvupPostStatus[EKRLVUP_STAT_POW] = unit->pow + bunit2->changePow;
+        gEkrLvupPostStatus[EKRLVUP_STAT_STR] = unit->str + bunit2->changeStr;
+        gEkrLvupPostStatus[EKRLVUP_STAT_MAG] = unit->mag + bunit2->changeMag;
         gEkrLvupPostStatus[EKRLVUP_STAT_SKL] = unit->skl + bunit2->changeSkl;
         gEkrLvupPostStatus[EKRLVUP_STAT_LCK] = unit->lck + bunit2->changeLck;
         gEkrLvupPostStatus[EKRLVUP_STAT_SPD] = unit->spd + bunit2->changeSpd;
         gEkrLvupPostStatus[EKRLVUP_STAT_DEF] = unit->def + bunit2->changeDef;
         gEkrLvupPostStatus[EKRLVUP_STAT_RES] = unit->res + bunit2->changeRes;
-        gEkrLvupPostStatus[EKRLVUP_STAT_CON] = unit->pClassData->baseCon + unit->pCharacterData->baseCon + bunit2->changeCon;
+        //gEkrLvupPostStatus[EKRLVUP_STAT_CON] = unit->pClassData->baseCon + unit->pCharacterData->baseCon + bunit2->changeCon;
     } else {
         gEkrLvupPreLevel = unit->level;
         gEkrLvupBaseStatus[EKRLVUP_STAT_HP] = unit->maxHP;
-        gEkrLvupBaseStatus[EKRLVUP_STAT_POW] = unit->pow;
+        //gEkrLvupBaseStatus[EKRLVUP_STAT_POW] = unit->pow;
+        gEkrLvupBaseStatus[EKRLVUP_STAT_STR] = unit->str;
+        gEkrLvupBaseStatus[EKRLVUP_STAT_MAG] = unit->mag;
         gEkrLvupBaseStatus[EKRLVUP_STAT_SKL] = unit->skl;
         gEkrLvupBaseStatus[EKRLVUP_STAT_LCK] = unit->lck;
         gEkrLvupBaseStatus[EKRLVUP_STAT_SPD] = unit->spd;
         gEkrLvupBaseStatus[EKRLVUP_STAT_DEF] = unit->def;
         gEkrLvupBaseStatus[EKRLVUP_STAT_RES] = unit->res;
-        gEkrLvupBaseStatus[EKRLVUP_STAT_CON] = unit->pClassData->baseCon + unit->pCharacterData->baseCon;
+        //gEkrLvupBaseStatus[EKRLVUP_STAT_CON] = unit->pClassData->baseCon + unit->pCharacterData->baseCon;
         gEkrLvupPostLevel = 1;
 
         gEkrLvupPostStatus[EKRLVUP_STAT_HP] = bunit->unit.maxHP;
-        gEkrLvupPostStatus[EKRLVUP_STAT_POW] = bunit->unit.pow;
+        //gEkrLvupPostStatus[EKRLVUP_STAT_POW] = bunit->unit.pow;
+        gEkrLvupPostStatus[EKRLVUP_STAT_STR] = bunit->unit.str;
+        gEkrLvupPostStatus[EKRLVUP_STAT_MAG] = bunit->unit.mag;
         gEkrLvupPostStatus[EKRLVUP_STAT_SKL] = bunit->unit.skl;
         gEkrLvupPostStatus[EKRLVUP_STAT_LCK] = bunit->unit.lck;
         gEkrLvupPostStatus[EKRLVUP_STAT_SPD] = bunit->unit.spd;
         gEkrLvupPostStatus[EKRLVUP_STAT_DEF] = bunit->unit.def;
         gEkrLvupPostStatus[EKRLVUP_STAT_RES] = bunit->unit.res;
-        gEkrLvupPostStatus[EKRLVUP_STAT_CON] = bunit->unit.pClassData->baseCon + bunit->unit.pCharacterData->baseCon;
+        //gEkrLvupPostStatus[EKRLVUP_STAT_CON] = bunit->unit.pClassData->baseCon + bunit->unit.pCharacterData->baseCon;
     }
 
     InitTextFont(&gBanimFont, BG_CHR_ADDR(0x146), 0x146, 0);
 
-    for (i = 0; i < EKRLVUP_STAT_MAX; i++) {
+    for (i = 0; i < EKRLVUP_STAT_LEVEL_MAX; i++) {
         const char *str;
-        if (!UnitHasMagicRank(unit))
+        /*if (!UnitHasMagicRank(unit))
             str = GetStringFromIndex(*EkrLvupMsgsStr[i]);
         else
-            str = GetStringFromIndex(*EkrLvupMsgsMag[i]);
-
+            str = GetStringFromIndex(*EkrLvupMsgsMag[i]);*/
+        str = GetStringFromIndex(*EkrLvupMsgsCombined[i]);
         InitText(&gBanimText[i], 3);
         Text_SetCursor(&gBanimText[i], 0);
         Text_SetColor(&gBanimText[i], TEXT_COLOR_SYSTEM_GOLD);
@@ -203,30 +223,30 @@ void EkrLvup_InitStatusText(struct ProcEkrLevelup *proc)
         PutText(&gBanimText[i], gBG2TilemapBuffer + sEfxLvupPartsPos[i]);
     }
 
-    for (i = 0; i < EKRLVUP_STAT_MAX; i++) {
-        InitText(&gBanimText[EKRLVUP_STAT_MAX + i], 2);
-        Text_SetCursor(&gBanimText[EKRLVUP_STAT_MAX + i], 8);
-        Text_SetColor(&gBanimText[EKRLVUP_STAT_MAX + i], TEXT_COLOR_SYSTEM_BLUE);
-        Text_DrawNumber(&gBanimText[EKRLVUP_STAT_MAX + i], gEkrLvupBaseStatus[i]);
-        PutText(&gBanimText[EKRLVUP_STAT_MAX + i], gBG2TilemapBuffer + 3 + sEfxLvupPartsPos[i]);
+    for (i = 0; i < EKRLVUP_STAT_LEVEL_MAX; i++) {
+        InitText(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + i], 2);
+        Text_SetCursor(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + i], 8);
+        Text_SetColor(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + i], TEXT_COLOR_SYSTEM_BLUE);
+        Text_DrawNumber(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + i], gEkrLvupBaseStatus[i]);
+        PutText(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + i], gBG2TilemapBuffer + 3 + sEfxLvupPartsPos[i]);
     }
 
     /* class */
-    th = &gBanimText[EKRLVUP_STAT_MAX + EKRLVUP_STAT_CLASS];
+    th = &gBanimText[EKRLVUP_STAT_LEVEL_MAX + EKRLVUP_STAT_CLASS];
     InitText(th, 8);
     Text_DrawString(th,
         GetStringFromIndex(gpEkrLvupUnit->pClassData->nameTextId));
     PutText(th, TILEMAP_LOCATED(gBG2TilemapBuffer, 3, 7));
 
     /* level msg */
-    th = &gBanimText[EKRLVUP_STAT_MAX + EKRLVUP_STAT_LV_MSG];
+    th = &gBanimText[EKRLVUP_STAT_LEVEL_MAX + EKRLVUP_STAT_LV_MSG];
     InitText(th, 3);
     Text_SetColor(th, TEXT_COLOR_SYSTEM_GOLD);
     Text_DrawString(th, GetStringFromIndex(gMid_Lv));
     PutText(th, TILEMAP_LOCATED(gBG2TilemapBuffer, 10, 7));
 
     /* level value */
-    th = &gBanimText[EKRLVUP_STAT_MAX + EKRLVUP_STAT_LV_VAL];
+    th = &gBanimText[EKRLVUP_STAT_LEVEL_MAX + EKRLVUP_STAT_LV_VAL];
     InitText(th, 2);
     Text_SetCursor(th, 8);
     Text_SetColor(th, TEXT_COLOR_SYSTEM_BLUE);
@@ -236,27 +256,27 @@ void EkrLvup_InitStatusText(struct ProcEkrLevelup *proc)
 
 void EkrLvup_DrawUpdatedStatus(struct ProcEkrLevelup *proc, int index)
 {
-    ClearText(&gBanimText[EKRLVUP_STAT_MAX + index]);
-    Text_SetCursor(&gBanimText[EKRLVUP_STAT_MAX + index], 8);
-    Text_SetColor(&gBanimText[EKRLVUP_STAT_MAX + index], TEXT_COLOR_SYSTEM_BLUE);
-    Text_DrawNumber(&gBanimText[EKRLVUP_STAT_MAX + index], gEkrLvupBaseStatus[index]);
-    PutText(&gBanimText[EKRLVUP_STAT_MAX + index], gBG2TilemapBuffer + 3 + sEfxLvupPartsPos[index]);
+    ClearText(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + index]);
+    Text_SetCursor(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + index], 8);
+    Text_SetColor(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + index], TEXT_COLOR_SYSTEM_BLUE);
+    Text_DrawNumber(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + index], gEkrLvupBaseStatus[index]);
+    PutText(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + index], gBG2TilemapBuffer + 3 + sEfxLvupPartsPos[index]);
 }
 
 void EkrLvup_DrawUnitName(struct ProcEkrLevelup *proc)
 {
-    ClearText(&gBanimText[EKRLVUP_STAT_MAX + EKRLVUP_STAT_PNAME]);
-    Text_DrawString(&gBanimText[EKRLVUP_STAT_MAX + EKRLVUP_STAT_PNAME], GetStringFromIndex(gpEkrLvupUnit->pClassData->nameTextId));
-    PutText(&gBanimText[EKRLVUP_STAT_MAX + EKRLVUP_STAT_PNAME], TILEMAP_LOCATED(gBG2TilemapBuffer, 2, 7));
+    ClearText(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + EKRLVUP_STAT_PNAME]);
+    Text_DrawString(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + EKRLVUP_STAT_PNAME], GetStringFromIndex(gpEkrLvupUnit->pClassData->nameTextId));
+    PutText(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + EKRLVUP_STAT_PNAME], TILEMAP_LOCATED(gBG2TilemapBuffer, 2, 7));
 }
 
 void EkrLvup_DrawPreLevelValue(struct ProcEkrLevelup *proc)
 {
-    ClearText(&gBanimText[EKRLVUP_STAT_MAX + EKRLVUP_STAT_LVPRE_VAL]);
-    Text_SetCursor(&gBanimText[EKRLVUP_STAT_MAX + EKRLVUP_STAT_LVPRE_VAL], 8);
-    Text_SetColor(&gBanimText[EKRLVUP_STAT_MAX + EKRLVUP_STAT_LVPRE_VAL], TEXT_COLOR_SYSTEM_BLUE);
-    Text_DrawNumber(&gBanimText[EKRLVUP_STAT_MAX + EKRLVUP_STAT_LVPRE_VAL], gEkrLvupPreLevel);
-    PutText(&gBanimText[EKRLVUP_STAT_MAX + EKRLVUP_STAT_LVPRE_VAL], TILEMAP_LOCATED(gBG2TilemapBuffer, 13, 7));
+    ClearText(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + EKRLVUP_STAT_LVPRE_VAL]);
+    Text_SetCursor(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + EKRLVUP_STAT_LVPRE_VAL], 8);
+    Text_SetColor(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + EKRLVUP_STAT_LVPRE_VAL], TEXT_COLOR_SYSTEM_BLUE);
+    Text_DrawNumber(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + EKRLVUP_STAT_LVPRE_VAL], gEkrLvupPreLevel);
+    PutText(&gBanimText[EKRLVUP_STAT_LEVEL_MAX + EKRLVUP_STAT_LVPRE_VAL], TILEMAP_LOCATED(gBG2TilemapBuffer, 13, 7));
 }
 
 void NewEkrLevelup(struct Anim *ais)
@@ -617,7 +637,7 @@ void EkrLvup_MainAnime(struct ProcEkrLevelup *proc)
     if (++proc->timer == 0x14) {
         proc->timer = 0;
 
-        for (; proc->index != EKRLVUP_STAT_MAX; proc->index++) {
+        for (; proc->index != EKRLVUP_STAT_LEVEL_MAX; proc->index++) {
             base = gEkrLvupBaseStatus[proc->index];
             diff = gEkrLvupPostStatus[proc->index] - base;
 
@@ -643,7 +663,7 @@ void EkrLvup_MainAnime(struct ProcEkrLevelup *proc)
         }
     }
 
-    if (proc->index == EKRLVUP_STAT_MAX) {
+    if (proc->index == EKRLVUP_STAT_LEVEL_MAX) {
         proc->timer = 0;
         Proc_Break(proc);
     }

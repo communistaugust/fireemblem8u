@@ -53,7 +53,7 @@ int GetManimLevelUpStatGain(int actor_id, int stat_num)
         return gManimSt.actor[actor_id].bu->changeHP;
 
     case 2:
-        return gManimSt.actor[actor_id].bu->changePow;
+        //return gManimSt.actor[actor_id].bu->changePow;
 
     case 3:
         return gManimSt.actor[actor_id].bu->changeSkl;
@@ -89,27 +89,31 @@ int GetManimLevelUpBaseStat(int actor_id, int stat_num)
 
         case 1:
             return unit->maxHP;
-
+        /*case 2:
+            return unit->pow;*/
         case 2:
-            return unit->pow;
+            return unit->str;
 
         case 3:
-            return unit->skl;
+            return unit->mag;
 
         case 4:
-            return unit->spd;
+            return unit->skl;
 
         case 5:
-            return unit->lck;
+            return unit->spd;
 
         case 6:
-            return unit->def;
+            return unit->lck;
 
         case 7:
-            return unit->res;
+            return unit->def;
 
         case 8:
-            return UNIT_CON_BASE(unit);
+            return unit->res;
+
+        /*case 8:
+            return UNIT_CON_BASE(unit);*/
 
         default:
             return 0;

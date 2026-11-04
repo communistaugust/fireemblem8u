@@ -81,7 +81,7 @@ void sub_8054F10(struct ProcEfxWeaponIcon *proc)
     if (true == proc->invalid)
         return;
     
-    ResetIconGraphics_();
+    ResetIconGraphics();
     ret = EfxAdvanceFrameLut(&proc->timer, (s16 *)&proc->frame, proc->frame_lut);
     if (ret >= 0)
         proc->unk4C = ret;
@@ -101,7 +101,7 @@ void sub_8054F10(struct ProcEfxWeaponIcon *proc)
 
 void sub_8054F78(struct ProcEfxWeaponIcon *proc)
 {
-    ResetIconGraphics_();
+    ResetIconGraphics();
 
     if (proc->eff1 != 0)
         LoadIconPalette(0, 0x1D);

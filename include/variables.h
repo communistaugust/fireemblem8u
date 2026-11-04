@@ -5,7 +5,7 @@
 #include "types.h"
 #include "prelude.h"
 #include "proc.h"
-
+#include "modular_player_interface_variable.h"
 extern u8 __ewram_start[];
 // extern ??? gUnknown_020007E0
 // extern ??? gSaveMenuSubBoxFont
@@ -775,6 +775,7 @@ extern unsigned CONST_DATA gMid_Staff;
 extern unsigned CONST_DATA gMid_Anima;
 extern unsigned CONST_DATA gMid_Light;
 extern unsigned CONST_DATA gMid_Dark;
+extern unsigned CONST_DATA gMid_Skills;
 // extern ??? gUnknown_08A01208
 // extern ??? gProcScr_HelpBoxTextScroll
 // extern ??? ProcScr_HelpBoxIntro
@@ -866,7 +867,6 @@ extern u16 Tsa_TerrainMapUi_ObstacleLabels[];
 extern u16 Tsa_TerrainMapUi_ObstacleFullHp[];
 extern u16 gTSA_GoalBox_TwoLines[];
 extern u16 gTSA_GoalBox_OneLine[];
-
 extern u8 CONST_DATA gUnknown_08A17B30[];
 extern u8 CONST_DATA gUnknown_08A17B36[];
 extern u16 CONST_DATA Sprite_08A17B40[];
@@ -878,12 +878,17 @@ extern u16 * gSpriteArray_08A17B58[];
 extern u16 Sprite_08A17B64[];
 extern u16 Sprite_08A17B6C[];
 extern u16 * gSpriteArray_08A17C20[];
-// extern ??? gUnitListScreenFields
-
-// extern ??? gSram
-// extern ??? sSupportUnkLut
-// extern ??? sArenaCpTeamNameLut
-// extern ??? gpSramExtraData
+extern u8 CONST_DATA gUnitlistscreen_10[];
+extern u8 CONST_DATA gUnitlistscreen_11[];
+extern u16 CONST_DATA Sprite_Unitlistscreen_0[];
+extern u16 CONST_DATA Sprite_Unitlistscreen_1[];
+extern u16 CONST_DATA Sprite_Unitlistscreen_2[];
+extern u16 * CONST_DATA gSpriteArray_Unitlistscreen_0[];
+extern u8 gUnitlistscreen_11[];
+extern u16 * gSpriteArray_Unitlistscreen_0[];
+extern u16 Sprite_Unitlistscreen_3[];
+extern u16 Sprite_Unitlistscreen_4[];
+extern u16 * gSpriteArray_Unitlistscreen_1[];
 
 struct Unknown_08A209FC
 {

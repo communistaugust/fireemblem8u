@@ -97,7 +97,7 @@ void sub_809D300(struct Text * textBase, u16 * tm, int yLines, struct Unit * uni
             GetItemName(item)
         );
 
-        DrawIcon(tm + TILEMAP_INDEX(1, i*2 & 0x1f), GetItemIconId(item), 0x4000);
+        DrawIcon(tm + TILEMAP_INDEX(1, i*2 & 0x1f), ITEM_ICON(GetItemIconId(item)), 0x4000);
 
         PutText(th, tm + TILEMAP_INDEX(3, i*2 & 0x1f));
 
@@ -113,7 +113,7 @@ void sub_809D418(u16 * tm, int yLines) {
 
     for (i = yLines; i < yLines + 7 && i < gUnknown_02012F56; i++) {
         int item = gPrepScreenItemList[i].item;
-        DrawIcon(tm + TILEMAP_INDEX(1, i * 2 & 0x1f), GetItemIconId(item), 0x4000);
+        DrawIcon(tm + TILEMAP_INDEX(1, i * 2 & 0x1f), ITEM_ICON(GetItemIconId(item)), 0x4000);
     }
 
     return;
@@ -133,7 +133,7 @@ void sub_809D47C(struct Text * textBase, u16 * tm, int yLines, struct Unit * uni
 
         ClearText(th);
         Text_InsertDrawString(th, 0, unusable, GetItemName(item));
-        DrawIcon(tm + offset + 1, GetItemIconId(item), 0x4000);
+        DrawIcon(tm + offset + 1, ITEM_ICON(GetItemIconId(item)), 0x4000);
         PutText(th, tm + offset + 3);
 
         PutNumberOrBlank(tm + offset + 12, !unusable ? 2 : 1,  GetItemUses(item));
@@ -346,7 +346,7 @@ void sub_809D914(struct PrepItemSupplyProc * proc)
 
     ResetFaces();
     ResetText();
-    ResetIconGraphics_();
+    ResetIconGraphics();
     LoadUiFrameGraphics();
     LoadObjUIGfx();
 
@@ -574,7 +574,7 @@ void PrepItemSupply_Loop_GiveTakeKeyHandler(struct PrepItemSupplyProc * proc)
 //! FE8U = 0x0809DEFC
 void sub_809DEFC(struct PrepItemSupplyProc * proc)
 {
-    ResetIconGraphics_();
+    ResetIconGraphics();
     SomethingPrepListRelated(proc->unit, proc->currentPage, 1);
     sub_809D300(&PrepItemSuppyTexts.th[7], gBG2TilemapBuffer + 0xF, proc->yOffsetPerPage[proc->currentPage] >> 4, proc->unit);
     DrawPrepScreenItemIcons(gBG0TilemapBuffer + 0x122, proc->unit);
@@ -726,7 +726,7 @@ void sub_809E184(struct PrepItemSupplyProc * proc)
 //! FE8U = 0x0809E218
 void PrepItemSupply_ScrollVertical(struct PrepItemSupplyProc * proc, int amount)
 {
-    ResetIconGraphics_();
+    ResetIconGraphics();
 
     sub_809D418(gBG2TilemapBuffer + 0xF, proc->yOffsetPerPage[proc->currentPage] >> 4);
     DrawPrepScreenItemIcons(gBG0TilemapBuffer + 0x122, proc->unit);
@@ -775,7 +775,7 @@ void sub_809E2C8(struct PrepItemSupplyProc * proc)
 
     SomethingPrepListRelated(proc->unit, proc->currentPage, 1);
     sub_809E100(proc);
-    ResetIconGraphics_();
+    ResetIconGraphics();
 
     DrawPrepScreenItems(gBG0TilemapBuffer + 0x122, &PrepItemSuppyTexts.th[2], proc->unit, 0);
     sub_809D300(
@@ -1009,7 +1009,7 @@ void PrepItemSupply_GiveItemToSupply(struct PrepItemSupplyProc * proc)
     SomethingPrepListRelated(proc->unit, proc->currentPage, 1);
     sub_809E100(proc);
 
-    ResetIconGraphics_();
+    ResetIconGraphics();
     DrawPrepScreenItems(gBG0TilemapBuffer + 0x122, &PrepItemSuppyTexts.th[2], proc->unit, 0);
     sub_809D300(&PrepItemSuppyTexts.th[7], gBG2TilemapBuffer + 0xF, proc->yOffsetPerPage[proc->currentPage] >> 4, proc->unit);
     StartParallelFiniteLoop(sub_809E2BC, 1, proc);

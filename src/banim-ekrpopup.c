@@ -209,19 +209,19 @@ void DrawBattlePopup(struct ProcEkrPopup *proc, int type, u32 priv)
     width5 = (0xE0 - (width_popupbox + 2) * 8) / 2;
     BG_SetPosition(BG_1, -width5, 0xFFD0);
     BG_EnableSyncByMask(BG1_SYNC_BIT);
-    ResetIconGraphics_();
+    ResetIconGraphics();
 
     if (type == 0) {
         LoadIconPalette(1, 0x12);
-        LoadIconObjectGraphics(GetItemType(priv) + 0x70, 0x40);
+        LoadIconObjectGraphics(WTYPE_ICON(GetItemType(priv)), 0x40);
     } else if (type == 1) {
         LoadIconPalette(0, 0x12);
-        LoadIconObjectGraphics(GetItemIconId(priv), 0x40);
+        LoadIconObjectGraphics(ITEM_ICON(GetItemIconId(priv)), 0x40);
         tmpr0 = width5 - 0xE;
         width5 = tmpr0 + width2;
     } else {
         LoadIconPalette(1, 0x12);
-        LoadIconObjectGraphics(priv + 0x70, 0x40);
+        LoadIconObjectGraphics(WTYPE_ICON(priv), 0x40);
         tmpr0 = width5 -0x10;
         width5 = tmpr0 + width3;
     }

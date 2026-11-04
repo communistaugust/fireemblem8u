@@ -91,7 +91,7 @@ u16 * CONST_DATA gUnknown_08A01884[6] =
     gUnknown_08A17678
 };
 
-s8 CONST_DATA sMMBSlideInWidthLut[4] =
+/*s8 CONST_DATA sMMBSlideInWidthLut[4] =
 {
     5, 9, 11, 13
 };
@@ -99,7 +99,7 @@ s8 CONST_DATA sMMBSlideInWidthLut[4] =
 s8 CONST_DATA sMMBSlideOutWidthLut[3] =
 {
     11, 7, 0
-};
+};*/
 
 s8 CONST_DATA sTerrainSlideInWidthLut[3] =
 {
@@ -380,7 +380,7 @@ void DrawHpBar(u16 * buffer, struct Unit * unit, int tileBase)
 }
 
 //! FE8U = 0x0808BCF8
-void MMB_Loop_SlideIn(struct PlayerInterfaceProc * proc)
+/*void MMB_Loop_SlideIn(struct PlayerInterfaceProc * proc)
 {
     int tmIndex;
     int width;
@@ -488,7 +488,7 @@ void MMB_Loop_SlideOut(struct PlayerInterfaceProc * proc)
     }
 
     return;
-}
+}*/
 
 //! FE8U = 0x0808BFD4
 void TerrainDisplay_Loop_SlideIn(struct PlayerInterfaceProc * proc)
@@ -590,7 +590,7 @@ void TerrainDisplay_Loop_SlideOut(struct PlayerInterfaceProc * proc)
 }
 
 //! FE8U = 0x0808C234
-void sub_808C234(struct PlayerInterfaceProc * proc)
+/*void PutUnitMapUiWindow(struct PlayerInterfaceProc * proc)
 {
     int x;
     int y;
@@ -617,7 +617,7 @@ void sub_808C234(struct PlayerInterfaceProc * proc)
     BG_EnableSyncByMask(BG0_SYNC_BIT | BG1_SYNC_BIT);
 
     return;
-}
+}*/
 
 //! FE8U = 0x0808C288
 void sub_808C288(struct PlayerInterfaceProc * proc)
@@ -782,7 +782,7 @@ void PutUnitMapUiStatus(u16 * buffer, struct Unit * unit)
 }
 
 //! FE8U = 0x0808C45C
-void UnitMapUiUpdate(struct PlayerInterfaceProc * proc, struct Unit * unit)
+/*void UnitMapUiUpdate(struct PlayerInterfaceProc * proc, struct Unit * unit)
 {
     s16 frameCount = proc->unitClock;
 
@@ -914,7 +914,7 @@ void DrawUnitMapUi(struct PlayerInterfaceProc * proc, struct Unit * unit)
     ApplyUnitMapUiFramePal(UNIT_FACTION(unit), 3);
 
     return;
-}
+}*/
 
 //! FE8U = 0x0808C710
 int GetUnitBurstMapUiOrientationAt(int x, int y)
@@ -1244,7 +1244,7 @@ void MMB_Loop_Display(struct PlayerInterfaceProc * proc)
 
     if ((proc->unitClock & 63) == 0)
     {
-        sub_808C234(proc);
+        PutUnitMapUiWindow(proc);
     }
 
     proc->xCursorPrev = proc->xCursor;
@@ -1292,7 +1292,7 @@ void MMB_CheckForUnit(struct PlayerInterfaceProc * proc)
     else
     {
         DrawUnitMapUi(proc, unit);
-        sub_808C234(proc);
+        PutUnitMapUiWindow(proc);
     }
 
     return;

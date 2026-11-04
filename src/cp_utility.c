@@ -813,7 +813,7 @@ void AiMakeMoveRangeUnitPowerMaps(struct Unit* unit) {
     int ix;
     int iy;
 
-    int power = GetUnitPower(unit) > 20 ? 20 : GetUnitPower(unit);
+    int power = GetUnitStrength(unit) > 20 ? 20 : GetUnitStrength(unit);
 
     GenerateUnitMovementMap(unit);
     BmMapFill(gBmMapRange, 0);

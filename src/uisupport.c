@@ -501,7 +501,7 @@ void SupportScreen_SetupGraphics(struct SupportScreenProc* proc) {
     ResetFaces();
 
     ResetText();
-    ResetIconGraphics_();
+    ResetIconGraphics();
     LoadUiFrameGraphicsTo(0x4000, -1);
     LoadObjUIGfx();
     LoadIconPalettes(0xe);
@@ -1054,7 +1054,7 @@ void DrawSupportSubScreenUnitPartnerText(struct SubScreenProc* proc, int idx) {
 
         DrawIcon(
             gBG2TilemapBuffer + TILEMAP_INDEX(16, 0) + TILEMAP_INDEX(6, (idx * 2) + 3),
-            gCharacterData[GetSupportScreenPartnerCharId(proc->unitIdx, idx) - 1].affinity + 0x79,
+            AFFIN_ICON(gCharacterData[GetSupportScreenPartnerCharId(proc->unitIdx, idx) - 1].affinity),
             0xe000
         );
 
@@ -1309,7 +1309,7 @@ void SupportSubScreen_SetupGraphics(struct SubScreenProc* proc) {
     gLCDControlBuffer.bg3cnt.priority = 3;
 
     ResetText();
-    ResetIconGraphics_();
+    ResetIconGraphics();
 
     LoadUiFrameGraphics();
     LoadObjUIGfx();
@@ -1469,7 +1469,7 @@ void sub_80A25F8(struct SubScreenProc* proc) {
     ResetFaces();
 
     ResetText();
-    ResetIconGraphics_();
+    ResetIconGraphics();
     LoadLegacyUiFrameGraphics();
     LoadObjUIGfx();
 
@@ -1640,7 +1640,7 @@ void SupportSubScreen_SwapPageIn_FromLeft(struct SubScreenProc* proc) {
 void SupportSubScreen_ReinitAfterSwapPage(struct SubScreenProc* proc) {
     ResetFaces();
     ResetText();
-    ResetIconGraphics_();
+    ResetIconGraphics();
 
     BG_Fill(gBG0TilemapBuffer, 0);
     BG_Fill(gBG1TilemapBuffer, 0);

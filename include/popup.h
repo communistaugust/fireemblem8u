@@ -2,6 +2,7 @@
 #define GUARD_POPUP_H
 
 #include "global.h"
+#include "icon.h"
 
 enum popup_opcode_index {
     POPUP_OP_END,              /* 00 */
@@ -59,7 +60,7 @@ struct PopupProc {
 
 	/* 3C */ u16 _pad3C;
 
-	/* 3E */ u16 iconId;
+	/* 3E */ struct IconStruct iconId;
 	/* 40 */ u16 iconObjTileId;
 	/* 42 */ u8  iconPalId;
 	/* 43 */ u8  _pad43;

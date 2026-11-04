@@ -554,7 +554,8 @@ s8 CanUnitUseStatGainItem(struct Unit* unit, int item)
     gStatGainSimUnit.pClassData     = unit->pClassData;
 
     gStatGainSimUnit.maxHP = unit->maxHP + bonuses->hpBonus;
-    gStatGainSimUnit.pow = unit->pow + bonuses->powBonus;
+    //gStatGainSimUnit.pow = unit->pow + bonuses->powBonus;
+    gStatGainSimUnit.str = unit->str + bonuses->strBonus;
     gStatGainSimUnit.skl = unit->skl + bonuses->sklBonus;
     gStatGainSimUnit.spd = unit->spd + bonuses->spdBonus;
     gStatGainSimUnit.def = unit->def + bonuses->defBonus;
@@ -567,7 +568,9 @@ s8 CanUnitUseStatGainItem(struct Unit* unit, int item)
 
     result = gStatGainSimUnit.maxHP != unit->maxHP;
 
-    if (gStatGainSimUnit.pow != unit->pow)
+    /*if (gStatGainSimUnit.pow != unit->pow)
+        result = TRUE;*/
+    if (gStatGainSimUnit.str != unit->str)
         result = TRUE;
 
     if (gStatGainSimUnit.skl != unit->skl)

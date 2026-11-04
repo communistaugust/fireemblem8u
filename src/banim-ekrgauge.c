@@ -118,11 +118,11 @@ void NewEkrGauge(void)
     /* right side of hit & dmg & crit */
     RegisterDataMove(gObjBuf_EkrSideHitDmgCrit + 0xC0, (void *)0x6013E00, 0xC0 * sizeof(u16));
 
-    ResetIconGraphics_();
+    ResetIconGraphics();
     LoadIconPalette(0, 0x1D);
     LoadIconPalette(0, 0x1E);
-    LoadIconObjectGraphics(GetItemIconId(gpEkrBattleUnitLeft->weaponBefore), 0x1DC);
-    LoadIconObjectGraphics(GetItemIconId(gpEkrBattleUnitRight->weaponBefore), 0x1DE);
+    LoadIconObjectGraphics(ITEM_ICON(GetItemIconId(gpEkrBattleUnitLeft->weaponBefore)), 0x1DC);
+    LoadIconObjectGraphics(ITEM_ICON(GetItemIconId(gpEkrBattleUnitRight->weaponBefore)), 0x1DE);
     ApplyPalette(gPal_MiscUiGraphics, 0x10);
 }
 

@@ -229,7 +229,7 @@ void BattleGenerateUiStats(struct Unit* unit, s8 itemSlot) {
     ComputeBattleUnitStats(&gBattleActor, &gBattleTarget);
 
     if (GetItemIndex(gBattleActor.weapon) == ITEM_SWORD_RUNESWORD) {
-        gBattleActor.battleAttack -= gBattleActor.unit.pow / 2;
+        gBattleActor.battleAttack -= gBattleActor.unit.str / 2;
 
         gBattleActor.battleCritRate = 0;
         gBattleActor.battleEffectiveCritRate = 0;
@@ -271,7 +271,9 @@ void InitBattleUnit(struct BattleUnit* bu, struct Unit* unit) {
     bu->unit = *unit;
 
     bu->unit.maxHP = GetUnitMaxHp(unit);
-    bu->unit.pow = GetUnitPower(unit);
+    //bu->unit.pow = GetUnitPower(unit);
+    bu->unit.str = GetUnitStrength(unit);
+    bu->unit.mag = GetUnitMagic(unit);
     bu->unit.skl = GetUnitSkill(unit);
     bu->unit.spd = GetUnitSpeed(unit);
     bu->unit.def = GetUnitDefense(unit);
@@ -287,7 +289,9 @@ void InitBattleUnit(struct BattleUnit* bu, struct Unit* unit) {
     bu->statusOut = -1;
 
     bu->changeHP = 0;
-    bu->changePow = 0;
+    //bu->changePow = 0;
+    bu->changeStr = 0;
+    bu->changeMag = 0;
     bu->changeSkl = 0;
     bu->changeSpd = 0;
     bu->changeDef = 0;
@@ -314,7 +318,9 @@ void InitBattleUnitWithoutBonuses(struct BattleUnit* bu, struct Unit* unit) {
     InitBattleUnit(bu, unit);
 
     bu->unit.maxHP = unit->maxHP;
-    bu->unit.pow = unit->pow;
+    //bu->unit.pow = unit->pow;
+    bu->unit.str = unit->str;
+    bu->unit.mag = unit->mag;
     bu->unit.skl = unit->skl;
     bu->unit.spd = unit->spd;
     bu->unit.def = unit->def;
@@ -554,8 +560,10 @@ void ComputeBattleUnitAttack(struct BattleUnit* attacker, struct BattleUnit* def
     }
 
     attacker->battleAttack = attack;
-    attacker->battleAttack += attacker->unit.pow;
-
+    if(!IsMagicAttack(attacker))
+        attacker->battleAttack += attacker->unit.str;
+    else
+        attacker->battleAttack += attacker->unit.mag;
     if (GetItemIndex(attacker->weapon) == ITEM_MONSTER_STONE)
         attacker->battleAttack = 0;
 }
@@ -679,7 +687,7 @@ void ComputeBattleUnitSpecialWeaponStats(struct BattleUnit* attacker, struct Bat
         case ITEM_SWORD_LIGHTBRAND:
         case ITEM_SWORD_RUNESWORD:
         case ITEM_SWORD_WINDSWORD:
-            attacker->battleAttack -= attacker->unit.pow / 2;
+            attacker->battleAttack -= attacker->unit.mag;
 
             attacker->battleCritRate = 0;
             attacker->battleEffectiveCritRate = 0;
@@ -1278,8 +1286,14 @@ void CheckBattleUnitLevelUp(struct BattleUnit* bu) {
         bu->changeHP  = GetStatIncrease(bu->unit.pCharacterData->growthHP + growthBonus);
         statGainTotal += bu->changeHP;
 
-        bu->changePow = GetStatIncrease(bu->unit.pCharacterData->growthPow + growthBonus);
-        statGainTotal += bu->changePow;
+        /*bu->changePow = GetStatIncrease(bu->unit.pCharacterData->growthPow + growthBonus);
+        statGainTotal += bu->changePow;*/
+
+        bu->changeStr = GetStatIncrease(bu->unit.pCharacterData->growthStr + growthBonus);
+        statGainTotal += bu->changeStr;
+
+        bu->changeMag = GetStatIncrease(bu->unit.pCharacterData->growthMag + growthBonus);
+        statGainTotal += bu->changeMag;
 
         bu->changeSkl = GetStatIncrease(bu->unit.pCharacterData->growthSkl + growthBonus);
         statGainTotal += bu->changeSkl;
@@ -1303,9 +1317,19 @@ void CheckBattleUnitLevelUp(struct BattleUnit* bu) {
                 if (bu->changeHP)
                     break;
 
-                bu->changePow = GetStatIncrease(bu->unit.pCharacterData->growthPow);
+                /*bu->changePow = GetStatIncrease(bu->unit.pCharacterData->growthPow);
 
                 if (bu->changePow)
+                break;*/
+
+                bu->changeStr = GetStatIncrease(bu->unit.pCharacterData->growthStr);
+
+                if (bu->changeStr)
+                    break;
+
+                bu->changeMag= GetStatIncrease(bu->unit.pCharacterData->growthMag);
+
+                if (bu->changeMag)
                     break;
 
                 bu->changeSkl = GetStatIncrease(bu->unit.pCharacterData->growthSkl);
@@ -1354,10 +1378,20 @@ void ApplyUnitDefaultPromotion(struct Unit* unit) {
     if (unit->maxHP > promotedClass->maxHP)
         unit->maxHP = promotedClass->maxHP;
 
-    unit->pow += promotedClass->promotionPow;
+    /*unit->pow += promotedClass->promotionPow;
 
     if (unit->pow > promotedClass->maxPow)
-        unit->pow = promotedClass->maxPow;
+    unit->pow = promotedClass->maxPow;*/
+
+    unit->str += promotedClass->promotionStr;
+
+    if (unit->str > promotedClass->maxStr)
+        unit->str = promotedClass->maxStr;
+
+    unit->mag += promotedClass->promotionMag;
+
+    if (unit->mag > promotedClass->maxMag)
+        unit->mag = promotedClass->maxMag;
 
     unit->skl += promotedClass->promotionSkl;
 
@@ -1426,10 +1460,20 @@ void ApplyUnitPromotion(struct Unit* unit, u8 classId) {
     if (unit->maxHP > promotedClass->maxHP)
         unit->maxHP = promotedClass->maxHP;
 
-    unit->pow += promotedClass->promotionPow;
+    /*unit->pow += promotedClass->promotionPow;
 
     if (unit->pow > promotedClass->maxPow)
-        unit->pow = promotedClass->maxPow;
+    unit->pow = promotedClass->maxPow;*/
+
+    unit->str += promotedClass->promotionStr;
+
+    if (unit->str > promotedClass->maxStr)
+        unit->str = promotedClass->maxStr;
+
+    unit->mag += promotedClass->promotionMag;
+
+    if (unit->mag > promotedClass->maxMag)
+        unit->mag = promotedClass->maxMag;
 
     unit->skl += promotedClass->promotionSkl;
 
@@ -1485,7 +1529,9 @@ void ApplyUnitPromotion(struct Unit* unit, u8 classId) {
 
 void GenerateBattleUnitStatGainsComparatively(struct BattleUnit* bu, struct Unit* unit) {
     bu->changeHP  = bu->unit.maxHP - unit->maxHP;
-    bu->changePow = bu->unit.pow   - unit->pow;
+    //bu->changePow = bu->unit.pow   - unit->pow;
+    bu->changeSkl = bu->unit.str   - unit->str;
+    bu->changeSkl = bu->unit.mag   - unit->mag;
     bu->changeSkl = bu->unit.skl   - unit->skl;
     bu->changeSpd = bu->unit.spd   - unit->spd;
     bu->changeDef = bu->unit.def   - unit->def;
@@ -1504,8 +1550,14 @@ void CheckBattleUnitStatCaps(struct Unit* unit, struct BattleUnit* bu) {
     if ((unit->maxHP + bu->changeHP) > UNIT_MHP_MAX(unit))
         bu->changeHP = UNIT_MHP_MAX(unit) - unit->maxHP;
 
-    if ((unit->pow + bu->changePow) > UNIT_POW_MAX(unit))
-        bu->changePow = UNIT_POW_MAX(unit) - unit->pow;
+    /*if ((unit->pow + bu->changePow) > UNIT_POW_MAX(unit))
+    bu->changePow = UNIT_POW_MAX(unit) - unit->pow;*/
+
+    if ((unit->str + bu->changeStr) > UNIT_STR_MAX(unit))
+        bu->changeStr = UNIT_STR_MAX(unit) - unit->str;
+
+    if ((unit->mag + bu->changeMag) > UNIT_MAG_MAX(unit))
+        bu->changeMag = UNIT_MAG_MAX(unit) - unit->mag;
 
     if ((unit->skl + bu->changeSkl) > UNIT_SKL_MAX(unit))
         bu->changeSkl = UNIT_SKL_MAX(unit) - unit->skl;
@@ -1629,7 +1681,9 @@ void UpdateUnitFromBattle(struct Unit* unit, struct BattleUnit* bu) {
         SetUnitStatus(unit, bu->statusOut);
 
     unit->maxHP += bu->changeHP;
-    unit->pow   += bu->changePow;
+    //unit->pow   += bu->changePow;
+    unit->str   += bu->changeStr;
+    unit->mag   += bu->changeMag;
     unit->skl   += bu->changeSkl;
     unit->spd   += bu->changeSpd;
     unit->def   += bu->changeDef;
@@ -2170,7 +2224,7 @@ void BattleApplyItemEffect(struct Proc* proc) {
 }
 
 int GetOffensiveStaffAccuracy(struct Unit* actor, struct Unit* target) {
-    int baseAccuracy = (GetUnitPower(actor) - GetUnitResistance(target)) * 5;
+    int baseAccuracy = (GetUnitMagic(actor) - GetUnitResistance(target)) * 5;
     int unitSkill = GetUnitSkill(actor);
     int distance = RECT_DISTANCE(actor->xPos, actor->yPos, target->xPos, target->yPos);
 
@@ -2347,7 +2401,7 @@ void BattleUnwindScripted(void) {
 
 void UnitLevelUp(struct Unit* unit) {
     if (unit->level != 20) {
-        int hpGain, powGain, sklGain, spdGain, defGain, resGain, lckGain;
+        int hpGain, /*powGain,*/ strGain, magGain, sklGain, spdGain, defGain, resGain, lckGain;
         int growthBonus;
         int totalGain;
 
@@ -2363,8 +2417,14 @@ void UnitLevelUp(struct Unit* unit) {
         hpGain  = GetStatIncrease(growthBonus + unit->pCharacterData->growthHP);
         totalGain += hpGain;
 
-        powGain = GetStatIncrease(growthBonus + unit->pCharacterData->growthPow);
-        totalGain += powGain;
+        //powGain = GetStatIncrease(growthBonus + unit->pCharacterData->growthPow);
+        //totalGain += powGain;
+
+        sklGain = GetStatIncrease(growthBonus + unit->pCharacterData->growthStr);
+        totalGain += strGain;
+
+        sklGain = GetStatIncrease(growthBonus + unit->pCharacterData->growthMag);
+        totalGain += magGain;
 
         sklGain = GetStatIncrease(growthBonus + unit->pCharacterData->growthSkl);
         totalGain += sklGain;
@@ -2388,9 +2448,19 @@ void UnitLevelUp(struct Unit* unit) {
                 if (hpGain)
                     break;
 
-                powGain = GetStatIncrease(unit->pCharacterData->growthPow);
+                /*powGain = GetStatIncrease(unit->pCharacterData->growthPow);
 
                 if (powGain)
+                    break;*/
+
+                strGain = GetStatIncrease(unit->pCharacterData->growthStr);
+
+                if (strGain)
+                    break;
+
+                magGain = GetStatIncrease(unit->pCharacterData->growthMag);
+
+                if (magGain)
                     break;
 
                 sklGain = GetStatIncrease(unit->pCharacterData->growthSkl);
@@ -2423,8 +2493,14 @@ void UnitLevelUp(struct Unit* unit) {
         if ((unit->maxHP + hpGain) > UNIT_MHP_MAX(unit))
             hpGain = UNIT_MHP_MAX(unit) - unit->maxHP;
 
-        if ((unit->pow + powGain) > UNIT_POW_MAX(unit))
-            powGain = UNIT_POW_MAX(unit) - unit->pow;
+        //if ((unit->pow + powGain) > UNIT_POW_MAX(unit))
+            //powGain = UNIT_POW_MAX(unit) - unit->pow;
+
+        if ((unit->str + strGain) > UNIT_STR_MAX(unit))
+            strGain = UNIT_SKL_MAX(unit) - unit->str;
+
+        if ((unit->mag + magGain) > UNIT_SKL_MAX(unit))
+            magGain = UNIT_SKL_MAX(unit) - unit->mag;
 
         if ((unit->skl + sklGain) > UNIT_SKL_MAX(unit))
             sklGain = UNIT_SKL_MAX(unit) - unit->skl;
@@ -2442,7 +2518,9 @@ void UnitLevelUp(struct Unit* unit) {
             lckGain = UNIT_LCK_MAX(unit) - unit->lck;
 
         unit->maxHP += hpGain;
-        unit->pow += powGain;
+        //unit->pow += powGain;
+        unit->str += strGain;
+        unit->mag += magGain;
         unit->skl += sklGain;
         unit->spd += spdGain;
         unit->def += defGain;
@@ -2458,4 +2536,9 @@ void BattleHitAdvance(void) {
 void BattleHitTerminate(void) {
     gBattleHitIterator++;
     gBattleHitIterator->info = BATTLE_HIT_INFO_END;
+}
+
+bool IsMagicAttack(struct BattleUnit *bu)
+{
+    return (IA_MAGICDAMAGE | IA_MAGIC) & bu->weaponAttributes;
 }

@@ -6,7 +6,9 @@
 struct ItemStatBonuses
 {
     /* 00 */ s8 hpBonus;
-    /* 01 */ s8 powBonus;
+    ///* 01 */ s8 powBonus;
+    /* 02 */ s8 strBonus;
+    /* 02 */ s8 magBonus;
     /* 02 */ s8 sklBonus;
     /* 03 */ s8 spdBonus;
     /* 04 */ s8 defBonus;
@@ -153,7 +155,9 @@ extern struct ItemData gItemData[];
 char* GetItemNameWithArticle(int item, s8 capitalize);
 
 int GetItemHpBonus(int item);
-int GetItemPowBonus(int item);
+//int GetItemPowBonus(int item);
+int GetItemStrBonus(int item);
+int GetItemMagBonus(int item);
 int GetItemSklBonus(int item);
 int GetItemSpdBonus(int item);
 int GetItemDefBonus(int item);
@@ -222,6 +226,7 @@ int GetItemUseEffect(int item);
 int GetItemCostPerUse(int item);
 int GetItemMaxCost(int item);
 int GetItemAwardedExp(int item);
+bool IsItemMagic(int item);
 const struct ItemData* GetItemData(int item);
 
 extern CONST_DATA struct ItemStatBonuses ItemBonus_Excalibur;

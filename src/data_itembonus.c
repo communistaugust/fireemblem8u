@@ -14,7 +14,7 @@ CONST_DATA struct ItemStatBonuses ItemBonus_BoosterHp = {
 };
 
 CONST_DATA struct ItemStatBonuses ItemBonus_BoosterPow = {
-	.powBonus = 2,
+	.strBonus = 2,
 };
 
 CONST_DATA struct ItemStatBonuses ItemBonus_BoosterSkl = {
@@ -46,7 +46,7 @@ CONST_DATA struct ItemStatBonuses ItemBonus_BoosterCon = {
 };
 
 CONST_DATA struct ItemStatBonuses ItemBonus_Sieglinde = {
-	.powBonus = 5,
+	.strBonus = 5,
 };
 
 CONST_DATA struct ItemStatBonuses ItemBonus_Ivaldi = {
@@ -58,7 +58,7 @@ CONST_DATA struct ItemStatBonuses ItemBonus_Vidofnir = {
 };
 
 CONST_DATA struct ItemStatBonuses ItemBonus_WretchAir = {
-	.powBonus = 10,
+	.strBonus = 10,
 	.sklBonus = 10,
 	.defBonus = 20,
 	.resBonus = 10,
@@ -69,7 +69,7 @@ CONST_DATA struct ItemStatBonuses ItemBonus_Audhulma = {
 };
 
 CONST_DATA struct ItemStatBonuses ItemBonus_Siegmund = {
-	.powBonus = 5,
+	.strBonus = 5,
 };
 
 CONST_DATA struct ItemStatBonuses ItemBonus_Garm = {
@@ -86,7 +86,7 @@ CONST_DATA struct ItemStatBonuses ItemBonus_NightMare = {
 };
 
 CONST_DATA struct ItemStatBonuses ItemBonus_DemonLight = {
-	.powBonus = 10,
+	.strBonus = 10,
 	.sklBonus = 10,
 	.defBonus = 10,
 	.resBonus = 15,
@@ -94,14 +94,14 @@ CONST_DATA struct ItemStatBonuses ItemBonus_DemonLight = {
 };
 
 CONST_DATA struct ItemStatBonuses ItemBonus_Ravger = {
-	.powBonus = 15,
+	.strBonus = 15,
 	.sklBonus = 15,
 	.defBonus = 15,
 	.resBonus = 10,
 };
 
 CONST_DATA struct ItemStatBonuses ItemBonus_DivineStone = {
-	.powBonus = 12,
+	.strBonus = 12,
 	.sklBonus = 12,
 	.defBonus = 15,
 	.resBonus = 20,

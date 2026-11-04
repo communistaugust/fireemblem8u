@@ -28,20 +28,23 @@ struct ProcEkrLevelup {
 
 enum ekr_lvup_status_index {
     EKRLVUP_STAT_HP = 0,
-    EKRLVUP_STAT_POW,
+    EKRLVUP_STAT_STR,
+    EKRLVUP_STAT_MAG,
     EKRLVUP_STAT_SKL,
     EKRLVUP_STAT_SPD,
     EKRLVUP_STAT_LCK,
     EKRLVUP_STAT_DEF,
     EKRLVUP_STAT_RES,
+    EKRLVUP_STAT_LEVEL_MAX,
     EKRLVUP_STAT_CON,
+    EKRLVUP_STAT_MOV,
     EKRLVUP_STAT_MAX,
 
-    EKRLVUP_STAT_CLASS = EKRLVUP_STAT_MAX,
+    EKRLVUP_STAT_CLASS = EKRLVUP_STAT_LEVEL_MAX,
     EKRLVUP_STAT_LV_MSG,
     EKRLVUP_STAT_LV_VAL,
 
-    EKRLVUP_STAT_PNAME = EKRLVUP_STAT_MAX,
+    EKRLVUP_STAT_PNAME = EKRLVUP_STAT_LEVEL_MAX,
     EKRLVUP_STAT_LVPRE_MSG,
     EKRLVUP_STAT_LVPRE_VAL
 };
@@ -82,8 +85,9 @@ struct ProcEobjLvup {
     /* 60 */ struct ProcEkrSubAnimeEmulator * child1, * child2;
 };
 
-extern CONST_DATA unsigned * EkrLvupMsgsStr[];
-extern CONST_DATA unsigned * EkrLvupMsgsMag[];
+/*extern CONST_DATA unsigned * EkrLvupMsgsStr[];
+extern CONST_DATA unsigned * EkrLvupMsgsMag[];*/
+extern CONST_DATA unsigned * EkrLvupMsgsCombined[];
 extern const u16 sEfxLvupPartsPos[];
 
 extern struct ProcEkrLevelup * gpProcEkrLevelup;
@@ -95,8 +99,8 @@ extern struct Unit * gpEkrLvupUnit;
 extern struct BattleUnit * gpEkrLvupBattleUnit;
 extern u16 gEkrLvupPreLevel;
 extern u16 gEkrLvupPostLevel;
-extern u16 gEkrLvupBaseStatus[EKRLVUP_STAT_MAX];
-extern u16 gEkrLvupPostStatus[EKRLVUP_STAT_MAX];
+extern u16 gEkrLvupBaseStatus[EKRLVUP_STAT_LEVEL_MAX];
+extern u16 gEkrLvupPostStatus[EKRLVUP_STAT_LEVEL_MAX];
 extern u16 gEkrLvupScrollPos1;
 extern u16 gEkrLvupScrollPos2;
 extern int gEkrLvupApfxUnexist;

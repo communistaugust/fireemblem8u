@@ -156,7 +156,7 @@ SECTIONS
         . = ALIGN(4); src/hardware.o(ewram_data);
         . = ALIGN(4); src/soundwrapper.o(ewram_data);
         . = ALIGN(4); src/proc.o(ewram_data);
-        . = ALIGN(4); src/icon.o(ewram_data);
+        . = ALIGN(4); src/new_stuff/iconRework/icon.o(ewram_data);
         . = ALIGN(4); src/fontgrp.o(ewram_data);
         . = ALIGN(4); src/animedrv.o(ewram_data);
         . = ALIGN(4); src/ctc.o(ewram_data);
@@ -180,35 +180,35 @@ SECTIONS
         . = ALIGN(4); src/cp_decide.o(ewram_data);
         . = ALIGN(4); src/cp_0803E2F4.o(ewram_data);
         . = ALIGN(4); src/sio_core.o(ewram_data);
-        . = 0x3DA24; gLinkArenaSt = .;
-        . = 0x3DA78; gUnk_Sio_0203DA78 = .;
-        . = 0x3DA88; gUnk_Sio_0203DA88 = .;
-        . = 0x3DAB0; Texts_0203DAB0 = .;
-        . = 0x3DAC0; gUnk_Sio_0203DAC0 = .;
-        . = 0x3DAC5; gUnk_Sio_0203DAC5 = .;
-        . = 0x3DB10; gSioSaveConfig = .;
-        . = 0x3DB14; Texts_0203DB14 = .;
-        . = 0x3DB1C; gUnk_Sio_0203DB1C = .;
-        . = 0x3DB64; Font_0203DB64 = .;
-        . = 0x3DB7C; gLinkArenaTeamList = .;
-        . = 0x3DC44; gSioResultRankings = .;
-        . = 0x3DC48; gUnk_Sio_0203DC48 = .;
-        . = 0x3DD0C; gSioTexts = .;
-        . = 0x3DD1C; Text_0203DB14 = .;
-        . = 0x3DD24; gUnk_Sio_0203DD24 = .;
-        . = 0x3DD28; gUnk_Sio_0203DD28 = .;
-        . = 0x3DD2C; gKeyInputSequenceBuffer = .;
-        . = 0x3DD4C; gKeyInputSequenceTimer = .;
-        . = 0x3DD50; gUnk_Sio_0203DD50 = .;
-        . = 0x3DD8C; gUnk_Sio_0203DD8C = .;
-        . = 0x3DD90; gUnk_Sio_0203DD90 = .;
-        . = 0x3DD94; gUnk_Sio_0203DD94 = .;
-        . = 0x3DD95; gUnk_Sio_0203DD95 = .;
-        . = 0x3DD9A; gUnk_Sio_0203DD9A = .;
-        . = 0x3DD9F; gUnk_Sio_0203DD9F = .;
-        . = 0x3DDB4; gUnk_Sio_0203DDB4 = .;
-        . = 0x3DDDC; gUnk_Sio_0203DDDC = .;
-        . = 0x3DDE0;
+                     gLinkArenaSt = .;
+        . = . + 0x54; gUnk_Sio_0203DA78 = .;
+        . = . + 0x10; gUnk_Sio_0203DA88 = .;
+        . = . + 0x28; Texts_0203DAB0 = .;
+        . = . + 0x10; gUnk_Sio_0203DAC0 = .;
+        . = . + 0x5; gUnk_Sio_0203DAC5 = .;
+        . = . + 0x4B; gSioSaveConfig = .;
+        . = . + 0x4; Texts_0203DB14 = .;
+        . = . + 0x8; gUnk_Sio_0203DB1C = .;
+        . = . + 0x48; Font_0203DB64 = .;
+        . = . + 0x18; gLinkArenaTeamList = .;
+        . = . + 0xC8; gSioResultRankings = .;
+        . = . + 0x4; gUnk_Sio_0203DC48 = .;
+        . = . + 0xC4; gSioTexts = .;
+        . = . + 0x10; Text_0203DB14 = .;
+        . = . + 0x8; gUnk_Sio_0203DD24 = .;
+        . = . + 0x4; gUnk_Sio_0203DD28 = .;
+        . = . + 0x4; gKeyInputSequenceBuffer = .;
+        . = . + 0x20; gKeyInputSequenceTimer = .;
+        . = . + 0x4; gUnk_Sio_0203DD50 = .;
+        . = . + 0x3C; gUnk_Sio_0203DD8C = .;
+        . = . + 0x4; gUnk_Sio_0203DD90 = .;
+        . = . + 0x4; gUnk_Sio_0203DD94 = .;
+        . = . + 0x1; gUnk_Sio_0203DD95 = .;
+        . = . + 0x5; gUnk_Sio_0203DD9A = .;
+        . = . + 0x5; gUnk_Sio_0203DD9F = .;
+        . = . + 0x15; gUnk_Sio_0203DDB4 = .;
+        . = . + 0x28; gUnk_Sio_0203DDDC = .;
+        . = . + 0x4;
         . = ALIGN(4); src/uiutils.o(ewram_data);
         . = ALIGN(4); src/uiselecttarget.o(ewram_data);
         . = ALIGN(4); src/banim-ekrbattle.o(ewram_data);
@@ -230,8 +230,8 @@ SECTIONS
         . = ALIGN(4); src/bmsave-xmap.o(ewram_data);
         . = ALIGN(4); src/savemenu.o(ewram_data);
         . = ALIGN(4); src/bmshop.o(ewram_data);
-        . = 0x3EFB8; gLoadUnitBuffer = .;
-        . = 0x3EFB8; end = .;
+        . = ALIGN(4); gLoadUnitBuffer = .;
+                      end = .;
     }
 
     IWRAM __iwram_start (NOLOAD) :
@@ -256,7 +256,7 @@ SECTIONS
         src/soundwrapper.o(.text);
         src/ramfunc.o(.text);
         src/proc.o(.text);
-        src/icon.o(.text);
+        src/new_stuff/iconRework/icon.o(.text);
         src/fontgrp.o(.text);
         src/animedrv.o(.text);
         src/ctc.o(.text);
@@ -834,7 +834,11 @@ SECTIONS
         . = ALIGN(4); *libc.a:locale.o(.rodata);
         . = ALIGN(4); *libc.a:mprec.o(.rodata);
         . = ALIGN(4); *libc.a:syscalls.o(.rodata);
-
+        . = ALIGN(4); src/new_stuff/iconRework/icon_array.o(.rodata);
+        . = ALIGN(4); src/new_stuff/skillSystem/skill_info.o(.rodata);
+        . = ALIGN(4); src/new_stuff/skillSystem/skill_system.o(.text);
+        . = ALIGN(4); src/new_stuff/modularMiniMug/modular_player_interface.o(.text);
+        . = ALIGN(4); src/new_stuff/modularMiniMug/modular_player_interface.o(.data);
         /* .data */
         . = ALIGN(4); src/main.o(.data);
         . = ALIGN(4); src/hardware.o(.data);
@@ -861,6 +865,10 @@ SECTIONS
         . = ALIGN(4); src/eventfx-stoneshatter.o(.data);
         . = ALIGN(4); src/data/icon/data_item_icon.o(.rodata);
         . = ALIGN(4); src/data/icon/generic_icon.o(.data);
+        . = ALIGN(4); src/new_stuff/iconRework/IconGetter.o(.text);
+        . = ALIGN(4); src/new_stuff/iconRework/icon_array.o(.rodata);
+        . = ALIGN(4); src/data/icon_rework_data.o(.data);
+        . = ALIGN(4); src/new_stuff/iconRework/icon_array.o(.data);
         . = ALIGN(4); src/bmlib.o(.data);
         . = ALIGN(4); src/bm.o(.data);
         . = ALIGN(4); src/bmunit.o(.data);
@@ -1090,6 +1098,7 @@ SECTIONS
         . = ALIGN(4); src/data/data_A01CC4.o(.data);
         . = ALIGN(4); src/data/data_chap_title.o(.data);
         . = ALIGN(4); src/data/data_A167C8.o(.data);
+        . = ALIGN(4); src/data/modular_player_interface_data.o(.data);
         . = ALIGN(4); src/unitlistscreen.o(.data);
         . = ALIGN(4); src/prepscreen.o(.data);
         . = ALIGN(4); src/prep_atmenu.o(.data);
@@ -1187,6 +1196,8 @@ SECTIONS
         . = ALIGN(4); *libc.a:locale.o(.data);
         . = ALIGN(4); *libc.a:mallocr.o(.data);
         . = ALIGN(4); src/data/data_B1FE7C.o(.data);
+        . = ALIGN(4); src/new_stuff/skillSystem/skill_info.o(.data);
+        . = ALIGN(4); src/data/skill_icon_data.o(.data);
         FILL(0xFF);
         . = 0xC00000; src/banim_data.o(.data.banim_array_len);
         . = 0xC00008; src/banim_data.o(.data.banim_array);

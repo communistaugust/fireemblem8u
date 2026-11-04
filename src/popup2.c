@@ -76,11 +76,11 @@ void NewPopup2_PlanA(ProcPtr parent, int IconIndex, char *str)
     DrawUiFrame2(x_tile >> 4, 8, y_tile >> 3, 4, 0);
 
     if (IconIndex >= 0) {
-        ResetIconGraphics_();
+        ResetIconGraphics();
         LoadIconPalettes(4);
         DrawIcon(
             TILEMAP_LOCATED(gBG0TilemapBuffer, x + 1, 9),
-            IconIndex,
+            ITEM_ICON(IconIndex),
             TILEREF(0, 0x4)); /* todo */
         x += 2;
     }
@@ -130,11 +130,11 @@ void NewPopup2_PlanB(ProcPtr proc, int icon_index, char *str0, int num, char *st
     DrawUiFrame2(x, 8, tiles, 4, 0);
 
     if (icon_index >= 0) {
-        ResetIconGraphics_();
+        ResetIconGraphics();
         LoadIconPalettes(4);
         DrawIcon(
             TILEMAP_LOCATED(gBG0TilemapBuffer, x + 1, 9),
-            icon_index,
+            ITEM_ICON(icon_index),
             TILEREF(0, 0x4)); /* todo */
         x += 2;
     }
@@ -191,7 +191,7 @@ void NewPopup2_PlanC(ProcPtr parent, int item, int msg)
     DrawUiFrame2(x, 8, y, 4, 0);
     DrawIcon(
         TILEMAP_LOCATED(gBG0TilemapBuffer, x + 1, 9),
-        GetItemIconId(item),
+        ITEM_ICON(GetItemIconId(item)),
         TILEREF(0, 0x4)
     );
 
@@ -264,7 +264,7 @@ void NewPopup2_PlanD(ProcPtr parent, int item, int msg0, int msg1)
     x0 += 1;
     DrawIcon(
         TILEMAP_LOCATED(gBG0TilemapBuffer, x1 + x0, 9),
-        GetItemIconId(item),
+        ITEM_ICON(GetItemIconId(item)),
         TILEREF(0, 0x4)
     );
     Proc_StartBlocking(ProcScr_Popup2, parent);

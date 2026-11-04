@@ -1655,6 +1655,7 @@ CONST_DATA struct UnitDefinition UnitDef_088B4BD4[] = {
         .items = {
             ITEM_LIGHT_LIGHTNING,
             ITEM_VULNERARY,
+            ITEM_BOOSTER_MOV,
         },
     },
     { 0 },

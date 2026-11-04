@@ -2,7 +2,7 @@
 #define GUARD_BM_UNIT_H
 
 #include "global.h"
-
+#include "icon.h"
 struct SupportData;
 struct BattleAnimDef;
 
@@ -27,7 +27,9 @@ struct CharacterData
 
     /* 0B */ s8 baseLevel;
     /* 0C */ s8 baseHP;
-    /* 0D */ s8 basePow;
+    /* 0D */ //s8 basePow;
+             s8 baseStr;
+             s8 baseMag;
     /* 0E */ s8 baseSkl;
     /* 0F */ s8 baseSpd;
     /* 10 */ s8 baseDef;
@@ -38,7 +40,9 @@ struct CharacterData
     /* 14 */ u8 baseRanks[8];
 
     /* 1C */ u8 growthHP;
-    /* 1D */ u8 growthPow;
+    /* 1D */ //u8 growthPow;
+             u8 growthStr;
+             u8 growthMag;
     /* 1E */ u8 growthSkl;
     /* 1F */ u8 growthSpd;
     /* 20 */ u8 growthDef;
@@ -53,9 +57,10 @@ struct CharacterData
     /* 28 */ u32 attributes;
 
     /* 2C */ const struct SupportData* pSupportData;
+             u8 unit_skill[4];
     /* 30 */ u8 visit_group;
 
-    /* 31 */ u8 _pad_[0x34 - 0x31];
+    /* 31 */ u8 _pad_[0x38 - 0x37];
 };
 
 struct ClassData
@@ -70,7 +75,9 @@ struct ClassData
     /* 0A */ u8 sort_order;
 
     /* 0B */ s8 baseHP;
-    /* 0C */ s8 basePow;
+    /* 0C */ //s8 basePow;
+             s8 baseStr;
+             s8 baseMag;
     /* 0D */ s8 baseSkl;
     /* 0E */ s8 baseSpd;
     /* 0F */ s8 baseDef;
@@ -79,7 +86,9 @@ struct ClassData
     /* 12 */ s8 baseMov;
 
     /* 13 */ s8 maxHP;
-    /* 14 */ s8 maxPow;
+    /* 14 */ //s8 maxPow;
+             s8 maxStr;
+             s8 maxMag;
     /* 15 */ s8 maxSkl;
     /* 16 */ s8 maxSpd;
     /* 17 */ s8 maxDef;
@@ -89,7 +98,9 @@ struct ClassData
     /* 1A */ s8 classRelativePower;
 
     /* 1B */ s8 growthHP;
-    /* 1C */ s8 growthPow;
+    /* 1C */ //s8 growthPow;
+             u8 growthStr;
+             u8 growthMag;
     /* 1D */ s8 growthSkl;
     /* 1E */ s8 growthSpd;
     /* 1F */ s8 growthDef;
@@ -97,7 +108,9 @@ struct ClassData
     /* 21 */ s8 growthLck;
 
     /* 22 */ u8 promotionHp;
-    /* 23 */ u8 promotionPow;
+    /* 23 */ //u8 promotionPow;
+             u8 promotionStr;
+             u8 promotionMag;
     /* 24 */ u8 promotionSkl;
     /* 25 */ u8 promotionSpd;
     /* 26 */ u8 promotionDef;
@@ -142,7 +155,9 @@ struct Unit
 
     /* 12 */ s8 maxHP;
     /* 13 */ s8 curHP;
-    /* 14 */ s8 pow;
+    /* 14 */ //s8 pow;
+             s8 str;
+             s8 mag;
     /* 15 */ s8 skl;
     /* 16 */ s8 spd;
     /* 17 */ s8 def;
@@ -178,7 +193,7 @@ struct Unit
     /* 44 */ u8 ai2;        // enum to gAi2ScriptTable
     /* 45 */ u8 ai_b_pc;
     /* 46 */ u8 ai_counter;
-
+    u8 unit_skill[4];
     /* pad */
     /* 47 */ u8 _u47;
 };
@@ -392,7 +407,7 @@ void UnitRemoveInvalidItems(struct Unit* unit);
 int GetUnitItemCount(struct Unit* unit);
 bool UnitHasItem(struct Unit* unit, int item);
 int LoadUnits(const struct UnitDefinition* uDef);
-void sub_8017A54(struct Unit* unit);
+void Halve_Power_Defense(struct Unit* unit);
 bool CanClassWieldWeaponType(u8 classId, u8 wpnType);
 struct Unit* LoadUnit(const struct UnitDefinition* uDef);
 void UnitInitFromDefinition(struct Unit* unit, const struct UnitDefinition* uDef);
@@ -429,7 +444,7 @@ int GetUnitMagBy2Range(struct Unit* unit);
 bool UnitHasMagicRank(struct Unit* unit);
 void sub_8018A7C(struct Unit* unit, int x, int y);
 int GetUnitKeyItemSlotForTerrain(struct Unit* unit, int terrain);
-int GetUnitAidIconId(u32 attributes);
+struct IconStruct GetUnitAidIconId(u32 attributes);
 int GetUnitWeaponUsabilityBits(struct Unit* unit);
 int GetCombinedEnemyWeaponUsabilityBits(void);
 bool CanUnitMove(void);
@@ -451,12 +466,15 @@ void ClearCutsceneUnits(void);
 void RefreshAllies(void);
 int GetUnitCurrentHp(struct Unit* unit);
 int GetUnitMaxHp(struct Unit* unit);
-int GetUnitPower(struct Unit* unit);
+//int GetUnitPower(struct Unit* unit);
+int GetUnitStrength(struct Unit* unit);
+int GetUnitMagic(struct Unit* unit);
 int GetUnitSkill(struct Unit* unit);
 int GetUnitSpeed(struct Unit* unit);
 int GetUnitDefense(struct Unit* unit);
 int GetUnitResistance(struct Unit* unit);
 int GetUnitLuck(struct Unit* unit);
+int GetUnitDamageStat(u16 item,struct Unit* unit);
 int GetUnitPortraitId(struct Unit* unit);
 int GetUnitMiniPortraitId(struct Unit* unit);
 int GetUnitLeaderCharId(struct Unit* unit);
@@ -465,6 +483,8 @@ void SetUnitHp(struct Unit* unit, int value);
 void AddUnitHp(struct Unit* unit, int amount);
 char* GetUnitRescueName(struct Unit* unit);
 char* GetUnitStatusName(struct Unit* unit);
+u8* GetUnitSkills(struct Unit* unit);
+bool CheckUnitSkills(struct Unit* unit,u8 skid);
 struct Unit* GetUnit(int id);
 const struct ClassData* GetClassData(int classId);
 const struct CharacterData* GetCharacterData(int charId);
@@ -480,7 +500,9 @@ void UnitRemoveItem(struct Unit* unit, int slot);
 #define UNIT_NAME_ID(aUnit) ((aUnit)->pCharacterData->nameTextId)
 
 #define UNIT_MHP_MAX(aUnit) (UNIT_FACTION(unit) == FACTION_RED ? 120 : 60)
-#define UNIT_POW_MAX(aUnit) ((aUnit)->pClassData->maxPow)
+//#define UNIT_POW_MAX(aUnit) ((aUnit)->pClassData->maxPow)
+#define UNIT_STR_MAX(aUnit) ((aUnit)->pClassData->maxStr)
+#define UNIT_MAG_MAX(aUnit) ((aUnit)->pClassData->maxMag)
 #define UNIT_SKL_MAX(aUnit) ((aUnit)->pClassData->maxSkl)
 #define UNIT_SPD_MAX(aUnit) ((aUnit)->pClassData->maxSpd)
 #define UNIT_DEF_MAX(aUnit) ((aUnit)->pClassData->maxDef)

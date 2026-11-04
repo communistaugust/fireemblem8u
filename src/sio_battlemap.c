@@ -1921,7 +1921,8 @@ int sub_804ADA0(struct Unit * unit)
         return 0;
     }
 
-    return bestMight + GetUnitPower(unit);
+    //return bestMight + GetUnitPower(unit);
+    return bestMight + GetUnitDamageStat(bestItem,unit);
 }
 
 //! FE8U = 0x0804AE08

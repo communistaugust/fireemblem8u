@@ -588,7 +588,7 @@ void sub_80156D4(void) {
     ResetText();
     LoadLegacyUiFrameGraphics();
     ResetFaces();
-    ResetIconGraphics_();
+    ResetIconGraphics();
     LoadIconPalettes(4);
     LoadObjUIGfx();
 
@@ -601,7 +601,7 @@ void ReadGameSaveCoreGfx(void) {
     ResetText();
     LoadUiFrameGraphics();
     ResetFaces();
-    ResetIconGraphics_();
+    ResetIconGraphics();
     LoadIconPalettes(4);
     LoadObjUIGfx();
 

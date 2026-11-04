@@ -325,7 +325,7 @@ void PrepItemScreen_SetupGfx(struct PrepItemScreenProc * proc)
 
     ResetText();
 
-    ResetIconGraphics_();
+    ResetIconGraphics();
     LoadIconPalettes(4);
 
     LoadUiFrameGraphics();
@@ -1777,7 +1777,7 @@ void PrepItemScreen_DrawUnitItems(struct Text * text, u16 * tilemap, struct Unit
             Text_DrawString(text, GetItemName(item));
         }
 
-        DrawIcon(TILEMAP_LOCATED(tilemap, 0, i * 2), GetItemIconId(item), OAM2_PAL(4));
+        DrawIcon(TILEMAP_LOCATED(tilemap, 0, i * 2), ITEM_ICON(GetItemIconId(item)), OAM2_PAL(4));
 
         PutText(text, TILEMAP_LOCATED(tilemap, 2, i * 2));
         PutNumberOrBlank(

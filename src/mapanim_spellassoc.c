@@ -197,7 +197,8 @@ void MapAnim_MoveCameraOnTarget(ProcPtr proc)
 void SpellWarpMoveCamera(ProcPtr proc)
 {
     gManimSt.xtarget = gBattleTarget.changeHP;
-    gManimSt.ytarget = gBattleTarget.changePow;
+    //gManimSt.ytarget = gBattleTarget.changePow;
+    gManimSt.ytarget = gBattleTarget.changeStr;
     EnsureCameraOntoPosition(proc, gManimSt.xtarget, gManimSt.ytarget);
 }
 
@@ -424,8 +425,8 @@ void SpellWarpStartFlashy(ProcPtr proc)
 
     PlaySoundEffect(SONG_B4);
     gManimSt.xtarget = gBattleTarget.changeHP;
-    gManimSt.ytarget = gBattleTarget.changePow;
-
+    //gManimSt.ytarget = gBattleTarget.changePow;
+    gManimSt.ytarget = gBattleTarget.changeStr;
     unit = gManimSt.actor[gManimSt.targetActorId].unit;
     StartWarpFlashy(unit, unit->xPos, unit->yPos);
 }

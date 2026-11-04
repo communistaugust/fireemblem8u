@@ -11,6 +11,7 @@
 #include "bm.h"
 #include "menuitempanel.h"
 #include "functions.h"
+#include "icon.h"
 
 void MenuItemPanelProcIdle(struct MenuItemPanelProc * proc);
 
@@ -174,7 +175,7 @@ void UpdateMenuItemPanel(int slot_or_item)
 		
 		DrawIcon(
 			TILEMAP_LOCATED(bg_base, 8, 1),
-			GetItemType(gBattleActor.weapon) + 0x70,
+			WTYPE_ICON(GetItemType(gBattleActor.weapon)),
 			icon_pal << 0xC);
 		break;
 	} /* switch item type */

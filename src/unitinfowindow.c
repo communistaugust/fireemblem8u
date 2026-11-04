@@ -316,7 +316,7 @@ void RefreshUnitInventoryInfoWindow(struct Unit* unit) {
 
         PutText(proc->lines + i, gBG0TilemapBuffer + TILEMAP_INDEX(xPos+3, yPos));
         PutNumberOrBlank(gBG0TilemapBuffer + TILEMAP_INDEX(xPos+11, yPos), 2, GetItemUses(item));
-        DrawIcon(gBG0TilemapBuffer + TILEMAP_INDEX(xPos+1, yPos), GetItemIconId(item), 0x4000);
+        DrawIcon(gBG0TilemapBuffer + TILEMAP_INDEX(xPos+1, yPos), ITEM_ICON(GetItemIconId(item)), 0x4000);
     }
 
     return;
@@ -349,7 +349,7 @@ void RefreshUnitStealInventoryInfoWindow(struct Unit* unit) {
         PutText(proc->lines + i, gBG0TilemapBuffer + TILEMAP_INDEX(xPos + 3, yPos));
 
         PutNumberOrBlank(gBG0TilemapBuffer + TILEMAP_INDEX(xPos + 11, yPos), stealable ? 2 : 1, GetItemUses(item));
-        DrawIcon(gBG0TilemapBuffer + TILEMAP_INDEX(xPos + 1, yPos), GetItemIconId(item), 0x4000);
+        DrawIcon(gBG0TilemapBuffer + TILEMAP_INDEX(xPos + 1, yPos), ITEM_ICON(GetItemIconId(item)), 0x4000);
     }
 
     return;
@@ -389,7 +389,7 @@ void RefreshHammerneUnitInfoWindow(struct Unit* unit) {
         PutNumberOrBlank(gBG0TilemapBuffer + TILEMAP_INDEX(xPos + 11, yPos), color, GetItemUses(item));
         PutNumberOrBlank(gBG0TilemapBuffer + TILEMAP_INDEX(xPos + 14, yPos), color, GetItemMaxUses(item));
 
-        DrawIcon(gBG0TilemapBuffer + TILEMAP_INDEX(xPos + 1, yPos), GetItemIconId(item), 0x4000);
+        DrawIcon(gBG0TilemapBuffer + TILEMAP_INDEX(xPos + 1, yPos), ITEM_ICON(GetItemIconId(item)), 0x4000);
     }
 
     BG_EnableSyncByMask(BG0_SYNC_BIT | BG1_SYNC_BIT);
@@ -507,7 +507,7 @@ void StartUnitRescueInfoWindowsCore(ProcPtr parent) {
 
 //! FE8U = 0x080351CC
 void RefreshUnitTakeRescueInfoWindows(ProcPtr parent) {
-    ResetIconGraphics_();
+    ResetIconGraphics();
     LoadIconPalettes(4);
 
     StartUnitRescueInfoWindowsCore(parent);
@@ -572,7 +572,7 @@ void RefreshUnitTakeInfoWindows(struct Unit* unit) {
 
 //! FE8U = 0x08035380
 void StartUnitGiveInfoWindows(ProcPtr parent) {
-    ResetIconGraphics_();
+    ResetIconGraphics();
     LoadIconPalettes(4);
 
     StartUnitRescueInfoWindowsCore(parent);

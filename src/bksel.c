@@ -266,9 +266,9 @@ void DrawBattleForecastContentsStandard(struct BattleForecastProc * proc)
     PutText(gaBattleForecastTextStructs + 1, gUiTmScratchA  + 0xA8 + 0x3B);
     PutText(gaBattleForecastTextStructs + 2, gUiTmScratchA  + 0xA8 + 0x7B);
 
-    DrawIcon(gUiTmScratchA + 0xA8 + 0xBF, GetItemIconId(gBattleTarget.weaponBefore), 0x4000);
+    DrawIcon(gUiTmScratchA + 0xA8 + 0xBF, ITEM_ICON(GetItemIconId(gBattleTarget.weaponBefore)), 0x4000);
 
-    DrawIcon(gUiTmScratchA + 0xA8 - 0x87, GetItemIconId(gBattleActor.weaponBefore), 0x3000);
+    DrawIcon(gUiTmScratchA + 0xA8 - 0x87, ITEM_ICON(GetItemIconId(gBattleActor.weaponBefore)), 0x3000);
 }
 
 void DrawBattleForecastContentsExtended(struct BattleForecastProc * proc)
@@ -320,9 +320,9 @@ void DrawBattleForecastContentsExtended(struct BattleForecastProc * proc)
     PutText(gaBattleForecastTextStructs + 2, gUiTmScratchA + 0xA8 + 0xBB);
     PutText(gaBattleForecastTextStructs + 5, gUiTmScratchA + 0xA8 + 0xFB);
 
-    DrawIcon(gUiTmScratchA + 0xA8 + 0x13F, GetItemIconId(gBattleTarget.weaponBefore), 0x4000);
+    DrawIcon(gUiTmScratchA + 0xA8 + 0x13F, ITEM_ICON(GetItemIconId(gBattleTarget.weaponBefore)), 0x4000);
 
-    DrawIcon(gUiTmScratchA + 0xA8 - 0x87, GetItemIconId(gBattleActor.weaponBefore), 0x3000);
+    DrawIcon(gUiTmScratchA + 0xA8 - 0x87, ITEM_ICON(GetItemIconId(gBattleActor.weaponBefore)), 0x3000);
 }
 
 void DrawBattleForecastContents(struct BattleForecastProc * proc)
@@ -381,7 +381,7 @@ void BattleForecast_Init(struct BattleForecastProc * proc)
 
     ResetTextFont();
 
-    ResetIconGraphics_();
+    ResetIconGraphics();
 
     InitBattleForecastIconPaletteBuffer();
 

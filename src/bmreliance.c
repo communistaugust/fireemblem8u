@@ -320,24 +320,23 @@ int GetUnitSupportBonuses(struct Unit* unit, struct SupportBonuses* bonuses)
     return result;
 }
 
-int GetUnitAffinityIcon(struct Unit* unit)
+struct IconStruct GetUnitAffinityIcon(struct Unit* unit)
 {
     int affinity = unit->pCharacterData->affinity;
 
     if (!affinity)
-        return -1;
-
-    return 0x79 + affinity; // TODO: ICON CONSTANTS
+        return EMPTY_ICON ;
+    return AFFIN_ICON(affinity);
 }
 
-int GetCharacterAffinityIcon(int characterId)
+IconStruct GetCharacterAffinityIcon(int characterId)
 {
     int affinity = GetCharacterData(characterId)->affinity;
 
     if (!affinity)
-        return -1;
+        return EMPTY_ICON;
 
-    return 0x79 + affinity; // TODO: ICON CONSTANTS
+    return AFFIN_ICON(affinity); // TODO: ICON CONSTANTS
 }
 
 int GetSupportLevelUiChar(int level)
@@ -406,7 +405,9 @@ void SwapUnitStats(struct Unit* unitA, struct Unit* unitB)
 
         SWAP(u8, unitA->maxHP, unitB->maxHP);
         SWAP(u8, unitA->curHP, unitB->curHP);
-        SWAP(u8, unitA->pow, unitB->pow);
+        //SWAP(u8, unitA->pow, unitB->pow);
+        SWAP(u8, unitA->str, unitB->str);
+        SWAP(u8, unitA->mag, unitB->mag);
         SWAP(u8, unitA->skl, unitB->skl);
         SWAP(u8, unitA->spd, unitB->spd);
         SWAP(u8, unitA->def, unitB->def);

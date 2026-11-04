@@ -230,8 +230,8 @@ void sub_8084BCC(struct Unit *unit)
     if (unit->maxHP > 0)
         unit->maxHP -= 1;
     
-    if (unit->pow > 0)
-        unit->pow -= 1;
+    //if (unit->pow > 0)
+        //unit->pow -= 1;
     
     if (unit->skl > 0)
         unit->skl -= 1;

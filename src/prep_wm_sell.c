@@ -192,7 +192,7 @@ void WmSell_Setup(struct WmSellProc* proc) {
     ResetFaces();
 
     ResetText();
-    ResetIconGraphics_();
+    ResetIconGraphics();
     LoadUiFrameGraphics();
     LoadObjUIGfx();
 

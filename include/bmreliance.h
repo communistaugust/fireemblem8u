@@ -2,6 +2,7 @@
 #define GUARD_BM_RELIANCE_H
 
 #include "global.h"
+#include "icon.h"
 
 enum
 {
@@ -62,8 +63,8 @@ int GetUnitSupporterNum(struct Unit* unit, u8 charId);
 void InitUnitsupports(struct Unit* unit);
 void ProcessTurnSupportExp(void);
 int GetUnitSupportBonuses(struct Unit* unit, struct SupportBonuses* bonuses);
-int GetUnitAffinityIcon(struct Unit* unit);
-int GetCharacterAffinityIcon(int characterId);
+struct IconStruct GetUnitAffinityIcon(struct Unit* unit);
+struct IconStruct GetCharacterAffinityIcon(int characterId);
 int GetSupportLevelUiChar(int level);
 char* GetAffinityName(int affinity); // unused?
 s8 HaveCharactersMaxSupport(u8 charA, u8 charB);

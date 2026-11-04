@@ -344,7 +344,9 @@ int ArenaGetPowerRanking(struct Unit* unit, s8 opponentIsMagic) {
     int result = unit->maxHP;
 
     result += unit->maxHP;
-    result += unit->pow * 2;
+    //result += unit->pow * 2;
+    result += unit->str * 2;
+    result += unit->mag * 2;
     result += unit->skl * 2;
     result += unit->spd * 2;
     result += unit->lck;
@@ -357,7 +359,11 @@ int ArenaGetPowerRanking(struct Unit* unit, s8 opponentIsMagic) {
     }
 
     if (UNIT_CATTRIBUTES(unit) & CA_CRITBONUS) {
-        result += GetUnitPower(unit);
+        //result += GetUnitPower(unit);
+        if(unit->mag > unit->str)
+            result += GetUnitMagic(unit);
+        else
+            result += unit->str;
     }
 
     return result;
@@ -487,19 +493,23 @@ u16 ArenaGetUpgradedWeapon(u16 item)
 s8 ArenaAdjustOpponentDamage(void) {
     s8 result = 0;
 
-    gBattleActor.battleAttack = GetUnitPower(gArenaState.playerUnit) + 5;
+    //gBattleTarget.battleAttack = GetUnitPower(gArenaState.opponentUnit) + 5;
 
     if (gArenaState.opponentIsMagic) {
+        gBattleTarget.battleAttack = GetUnitMagic(gArenaState.opponentUnit) + 5;
         gBattleActor.battleDefense = GetUnitResistance(gArenaState.playerUnit);
     } else {
+        gBattleTarget.battleAttack = GetUnitStrength(gArenaState.opponentUnit) + 5;
         gBattleActor.battleDefense = GetUnitDefense(gArenaState.playerUnit);
     }
 
-    gBattleTarget.battleAttack = GetUnitPower(gArenaState.opponentUnit) + 5;
+    //gBattleActor.battleAttack = GetUnitPower(gArenaState.playerUnit) + 5;
 
     if (gArenaState.playerIsMagic) {
+        gBattleActor.battleAttack = GetUnitMagic(gArenaState.playerUnit) + 5;
         gBattleTarget.battleDefense = GetUnitResistance(gArenaState.opponentUnit);
     } else {
+        gBattleActor.battleAttack = GetUnitStrength(gArenaState.playerUnit) + 5;
         gBattleTarget.battleDefense = GetUnitDefense(gArenaState.opponentUnit);
     }
 
@@ -526,8 +536,11 @@ s8 ArenaAdjustOpponentDamage(void) {
 
     if (gBattleTarget.battleAttack - gBattleActor.battleDefense < (GetUnitMaxHp(gArenaState.playerUnit) / 6)) {
         result = 1;
-
-        gArenaState.opponentUnit->pow += 3;
+        //gArenaState.opponentUnit->pow += 3;
+        if(gArenaState.opponentIsMagic)
+            gArenaState.opponentUnit->mag += 3;
+        else
+            gArenaState.opponentUnit->str += 3;
         gArenaState.opponentUnit->spd += 2;
         gArenaState.opponentUnit->skl += 2;
 
@@ -561,8 +574,16 @@ s8 ArenaAdjustOpponentPowerRanking(void) {
             gArenaState.opponentUnit->curHP -= 1;
         }
 
-        if (gArenaState.opponentUnit->pow != 0) {
+        /*if (gArenaState.opponentUnit->pow != 0) {
             gArenaState.opponentUnit->pow -= 1;
+        }*/
+
+        if (gArenaState.opponentUnit->str != 0 && !gArenaState.opponentIsMagic) {
+            gArenaState.opponentUnit->str -= 1;
+        }
+
+        if (gArenaState.opponentUnit->mag != 0 && gArenaState.opponentIsMagic) {
+            gArenaState.opponentUnit->mag -= 1;
         }
 
         if (gArenaState.opponentUnit->skl != 0) {
@@ -590,8 +611,16 @@ s8 ArenaAdjustOpponentPowerRanking(void) {
             gArenaState.opponentUnit->curHP += 2;
         }
 
-        if (gArenaState.opponentUnit->pow < 30) {
+        /*if (gArenaState.opponentUnit->pow < 30) {
             gArenaState.opponentUnit->pow += 1;
+        }*/
+
+        if (gArenaState.opponentUnit->mag < 30 && gArenaState.opponentIsMagic) {
+            gArenaState.opponentUnit->mag += 1;
+        }
+
+        if (gArenaState.opponentUnit->str < 30 && !gArenaState.opponentIsMagic) {
+            gArenaState.opponentUnit->str += 1;
         }
 
         if (gArenaState.opponentUnit->skl < 30) {

@@ -99,6 +99,7 @@ CONST_DATA EventListScr EventScr_Ch1_BeginningScene[] = {
     CALL(EventScr_MoveUnitS2ToLeader)
 
     SVAL(EVT_SLOT_2, EventScr_Ch1Tut_OnBeginning)
+    CALL(EventScr_08591FD8)
     CALL(EventScr_CallOnTutorialMode)
 
     /**

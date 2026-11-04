@@ -200,7 +200,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.encodedRange = 0x11,
 		.costPerUse = 60,
 		.weaponRank = WPN_EXP_D,
-		.iconId = 0xb2,
+		.iconId = 0xa0,
 		.weaponExp = 1,
 	},
 	[ITEM_SWORD_KILLER] = {
@@ -729,7 +729,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.weight = 5,
 		.encodedRange = 0x12,
 		.weaponRank = WPN_EXP_E,
-		.iconId = 0xb9,
+		.iconId = 0xa7,
 		.weaponExp = 1,
 	},
 	[ITEM_BOW_IRON] = {
@@ -1231,7 +1231,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.weight = 20,
 		.encodedRange = 0x12,
 		.weaponRank = WPN_EXP_S,
-		.iconId = 0xbc,
+		.iconId = 0xaa,
 		.weaponExp = 3,
 	},
 	[ITEM_STAFF_HEAL] = {
@@ -1788,7 +1788,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.attributes = IA_UNBREAKABLE | IA_NEGATE_FLYING,
 		.encodedRange = 0x11,
 		.costPerUse = 10000,
-		.iconId = 0xda,
+		.iconId = 0xc8,
 	},
 	[ITEM_MEMBERCARD] = {
 		.nameTextId = 0x3eb,
@@ -1799,7 +1799,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 6000,
-		.iconId = 0x84,
+		.iconId = 0x72,
 	},
 	[ITEM_SILVERCARD] = {
 		.nameTextId = 0x3ec,
@@ -1810,7 +1810,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 4000,
-		.iconId = 0x85,
+		.iconId = 0x73,
 	},
 	[ITEM_WHITEGEM] = {
 		.nameTextId = 0x3ef,
@@ -1820,7 +1820,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 20000,
-		.iconId = 0x86,
+		.iconId = 0x74,
 	},
 	[ITEM_BLUEGEM] = {
 		.nameTextId = 0x3f0,
@@ -1830,7 +1830,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 10000,
-		.iconId = 0x87,
+		.iconId = 0x75,
 	},
 	[ITEM_REDGEM] = {
 		.nameTextId = 0x3f1,
@@ -1840,7 +1840,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 5000,
-		.iconId = 0x88,
+		.iconId = 0x76,
 	},
 	[ITEM_GOLD] = {
 		.nameTextId = 0x3f2,
@@ -1850,7 +1850,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.weaponType = ITYPE_ITEM,
 		.maxUses = 1,
 		.encodedRange = 0x11,
-		.iconId = 0x89,
+		.iconId = 0x77,
 	},
 	[ITEM_LANCE_REGINLEIF] = {
 		.nameTextId = 0x374,
@@ -1866,7 +1866,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.crit = 10,
 		.encodedRange = 0x11,
 		.costPerUse = 160,
-		.iconId = 0xb3,
+		.iconId = 0xa1,
 		.weaponExp = 2,
 	},
 	[ITEM_CHESTKEY_BUNDLE] = {
@@ -1889,7 +1889,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 500,
-		.iconId = 0x8c,
+		.iconId = 0x7a,
 		.useEffectId = 39,
 	},
 	[ITEM_LIGHTRUNE] = {
@@ -1900,7 +1900,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 800,
-		.iconId = 0x8d,
+		.iconId = 0x7b,
 		.useEffectId = 40,
 	},
 	[ITEM_HOPLON_SHIELD] = {
@@ -1912,7 +1912,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.attributes = IA_UNBREAKABLE | IA_NEGATE_CRIT,
 		.encodedRange = 0x11,
 		.costPerUse = 5000,
-		.iconId = 0xdb,
+		.iconId = 0xc9,
 	},
 	[ITEM_FILLAS_MIGHT] = {
 		.nameTextId = 0x403,
@@ -1922,7 +1922,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.attributes = IA_HAMMERNE,
 		.maxUses = 15,
 		.encodedRange = 0x11,
-		.iconId = 0x8f,
+		.iconId = 0x7d,
 		.useEffectId = 41,
 	},
 	[ITEM_NINISS_GRACE] = {
@@ -1933,7 +1933,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.attributes = IA_HAMMERNE,
 		.maxUses = 15,
 		.encodedRange = 0x11,
-		.iconId = 0x90,
+		.iconId = 0x7e,
 		.useEffectId = 42,
 	},
 	[ITEM_THORS_IRE] = {
@@ -1944,7 +1944,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.attributes = IA_HAMMERNE,
 		.maxUses = 15,
 		.encodedRange = 0x11,
-		.iconId = 0x91,
+		.iconId = 0x7f,
 		.useEffectId = 43,
 	},
 	[ITEM_SETS_LITANY] = {
@@ -1955,7 +1955,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.attributes = IA_HAMMERNE,
 		.maxUses = 15,
 		.encodedRange = 0x11,
-		.iconId = 0x92,
+		.iconId = 0x80,
 		.useEffectId = 44,
 	},
 	[ITEM_SWORD_SHADOWKILLR] = {
@@ -1972,7 +1972,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.crit = 5,
 		.encodedRange = 0x11,
 		.weaponRank = WPN_EXP_E,
-		.iconId = 0x93,
+		.iconId = 0x81,
 		.weaponExp = 1,
 	},
 	[ITEM_LANCE_BRIGHTLANCE] = {
@@ -1989,7 +1989,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.crit = 5,
 		.encodedRange = 0x11,
 		.weaponRank = WPN_EXP_E,
-		.iconId = 0x94,
+		.iconId = 0x82,
 		.weaponExp = 1,
 	},
 	[ITEM_AXE_FIENDCLEAVER] = {
@@ -2006,7 +2006,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.crit = 5,
 		.encodedRange = 0x11,
 		.weaponRank = WPN_EXP_E,
-		.iconId = 0x95,
+		.iconId = 0x83,
 		.weaponExp = 1,
 	},
 	[ITEM_BOW_BEACONBOW] = {
@@ -2023,7 +2023,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.crit = 5,
 		.encodedRange = 0x22,
 		.weaponRank = WPN_EXP_E,
-		.iconId = 0x96,
+		.iconId = 0x84,
 		.weaponExp = 1,
 	},
 	[ITEM_SWORD_SIEGLINDE] = {
@@ -2039,7 +2039,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.hit = 90,
 		.weight = 9,
 		.encodedRange = 0x11,
-		.iconId = 0xb0,
+		.iconId = 0x9e,
 		.weaponExp = 1,
 	},
 	[ITEM_AXE_BATTLEAXE] = {
@@ -2056,7 +2056,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.encodedRange = 0x11,
 		.costPerUse = 50,
 		.weaponRank = WPN_EXP_B,
-		.iconId = 0xb8,
+		.iconId = 0xa6,
 		.weaponExp = 1,
 	},
 	[ITEM_LIGHT_IVALDI] = {
@@ -2074,7 +2074,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.crit = 5,
 		.encodedRange = 0x12,
 		.weaponRank = WPN_EXP_S,
-		.iconId = 0xbb,
+		.iconId = 0xa9,
 		.weaponExp = 1,
 	},
 	[ITEM_MASTERSEAL] = {
@@ -2086,7 +2086,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 20000,
-		.iconId = 0xd9,
+		.iconId = 0xc7,
 		.useEffectId = 45,
 	},
 	[ITEM_METISSTOME] = {
@@ -2097,7 +2097,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.weaponType = ITYPE_ITEM,
 		.maxUses = 1,
 		.encodedRange = 0x11,
-		.iconId = 0xdc,
+		.iconId = 0xca,
 		.useEffectId = 46,
 	},
 	[ITEM_HEAVENSEAL] = {
@@ -2108,7 +2108,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 20000,
-		.iconId = 0x9c,
+		.iconId = 0x8a,
 		.useEffectId = 47,
 	},
 	[ITEM_MONSTER_SHARPCLAW] = {
@@ -2121,7 +2121,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.hit = 65,
 		.weight = 14,
 		.encodedRange = 0x11,
-		.iconId = 0xd0,
+		.iconId = 0xbe,
 	},
 	[ITEM_STAFF_LATONA] = {
 		.nameTextId = 0x3d1,
@@ -2135,7 +2135,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.weight = 5,
 		.encodedRange = 0xFF,
 		.weaponRank = WPN_EXP_S,
-		.iconId = 0xc3,
+		.iconId = 0xb1,
 		.weaponExp = 1,
 	},
 	[ITEM_LANCE_DRAGON] = {
@@ -2152,7 +2152,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.encodedRange = 0x11,
 		.costPerUse = 150,
 		.weaponRank = WPN_EXP_C,
-		.iconId = 0xb6,
+		.iconId = 0xa4,
 		.weaponExp = 1,
 	},
 	[ITEM_LANCE_VIDOFNIR] = {
@@ -2169,7 +2169,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.weight = 11,
 		.encodedRange = 0x11,
 		.weaponRank = WPN_EXP_S,
-		.iconId = 0xb5,
+		.iconId = 0xa3,
 		.weaponExp = 1,
 	},
 	[ITEM_DARK_NAGLFAR] = {
@@ -2183,7 +2183,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.weight = 18,
 		.encodedRange = 0x12,
 		.weaponRank = WPN_EXP_S,
-		.iconId = 0xbd,
+		.iconId = 0xab,
 		.weaponExp = 1,
 	},
 	[ITEM_MONSTER_WRETCHAIR] = {
@@ -2198,7 +2198,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.hit = 100,
 		.encodedRange = 0x12,
 		.weaponRank = WPN_EXP_A,
-		.iconId = 0x79,
+		.iconId = 0x71,
 	},
 	[ITEM_SWORD_AUDHULMA] = {
 		.nameTextId = 0x367,
@@ -2214,7 +2214,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.weight = 9,
 		.encodedRange = 0x11,
 		.weaponRank = WPN_EXP_S,
-		.iconId = 0xb1,
+		.iconId = 0x9f,
 		.weaponExp = 1,
 	},
 	[ITEM_LANCE_SIEGMUND] = {
@@ -2230,7 +2230,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.hit = 80,
 		.weight = 11,
 		.encodedRange = 0x11,
-		.iconId = 0xb4,
+		.iconId = 0xa2,
 		.weaponExp = 1,
 	},
 	[ITEM_AXE_GARM] = {
@@ -2247,7 +2247,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.weight = 13,
 		.encodedRange = 0x11,
 		.weaponRank = WPN_EXP_S,
-		.iconId = 0xb7,
+		.iconId = 0xa5,
 		.weaponExp = 1,
 	},
 	[ITEM_BOW_NIDHOGG] = {
@@ -2264,7 +2264,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.weight = 7,
 		.encodedRange = 0x22,
 		.weaponRank = WPN_EXP_S,
-		.iconId = 0xba,
+		.iconId = 0xa8,
 		.weaponExp = 1,
 	},
 	[ITEM_LANCE_HEAVYSPEAR] = {
@@ -2281,7 +2281,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.encodedRange = 0x11,
 		.costPerUse = 75,
 		.weaponRank = WPN_EXP_D,
-		.iconId = 0xa7,
+		.iconId = 0x95,
 		.weaponExp = 1,
 	},
 	[ITEM_LANCE_SHORTSPEAR] = {
@@ -2297,7 +2297,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.encodedRange = 0x12,
 		.costPerUse = 50,
 		.weaponRank = WPN_EXP_C,
-		.iconId = 0xa8,
+		.iconId = 0x96,
 		.weaponExp = 1,
 	},
 	[ITEM_OCEANSEAL] = {
@@ -2309,7 +2309,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 10000,
-		.iconId = 0xa9,
+		.iconId = 0x97,
 		.useEffectId = 48,
 	},
 	[ITEM_LUNARBRACE] = {
@@ -2321,7 +2321,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.attributes = IA_UNSELLABLE,
 		.maxUses = 1,
 		.encodedRange = 0x11,
-		.iconId = 0xd8,
+		.iconId = 0xc6,
 		.useEffectId = 49,
 	},
 	[ITEM_SOLARBRACE] = {
@@ -2333,7 +2333,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.attributes = IA_UNSELLABLE,
 		.maxUses = 1,
 		.encodedRange = 0x11,
-		.iconId = 0xd7,
+		.iconId = 0xc5,
 		.useEffectId = 50,
 	},
 	[ITEM_1G] = {
@@ -2345,7 +2345,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 1,
-		.iconId = 0x89,
+		.iconId = 0x77,
 	},
 	[ITEM_5G] = {
 		.nameTextId = 0x3fa,
@@ -2356,7 +2356,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 5,
-		.iconId = 0x89,
+		.iconId = 0x77,
 	},
 	[ITEM_10G] = {
 		.nameTextId = 0x3fb,
@@ -2367,7 +2367,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 10,
-		.iconId = 0x89,
+		.iconId = 0x77,
 	},
 	[ITEM_50G] = {
 		.nameTextId = 0x3fc,
@@ -2378,7 +2378,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 50,
-		.iconId = 0x89,
+		.iconId = 0x77,
 	},
 	[ITEM_100G] = {
 		.nameTextId = 0x3fd,
@@ -2389,7 +2389,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 100,
-		.iconId = 0x89,
+		.iconId = 0x77,
 	},
 	[ITEM_3000G] = {
 		.nameTextId = 0x400,
@@ -2400,7 +2400,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 3000,
-		.iconId = 0x89,
+		.iconId = 0x77,
 	},
 	[ITEM_5000G] = {
 		.nameTextId = 0x401,
@@ -2411,7 +2411,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 5000,
-		.iconId = 0x89,
+		.iconId = 0x77,
 	},
 	[ITEM_SWORD_WINDSWORD] = {
 		.nameTextId = 0x368,
@@ -2427,7 +2427,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.encodedRange = 0x12,
 		.costPerUse = 200,
 		.weaponRank = WPN_EXP_B,
-		.iconId = 0xaa,
+		.iconId = 0x98,
 		.weaponExp = 1,
 	},
 	[ITEM_VULNERARY_2] = {
@@ -2451,7 +2451,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 60,
 		.encodedRange = 0x11,
 		.costPerUse = 100,
-		.iconId = 0xab,
+		.iconId = 0x99,
 		.useEffectId = 52,
 	},
 	[ITEM_UNK_REDNOTE] = {
@@ -2463,7 +2463,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 60,
 		.encodedRange = 0x11,
 		.costPerUse = 100,
-		.iconId = 0xac,
+		.iconId = 0x9a,
 		.useEffectId = 53,
 	},
 	[ITEM_DANCE] = {
@@ -2486,7 +2486,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.hit = 70,
 		.weight = 8,
 		.encodedRange = 0x13,
-		.iconId = 0xc7,
+		.iconId = 0xb5,
 	},
 	[ITEM_DEMONSTONE] = {
 		.nameTextId = 0x399,
@@ -2498,7 +2498,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.might = 10,
 		.hit = 65,
 		.encodedRange = 0x11,
-		.iconId = 0x88,
+		.iconId = 0x76,
 	},
 	[ITEM_DEMONLIGHT] = {
 		.nameTextId = 0x39a,
@@ -2510,7 +2510,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.might = 15,
 		.hit = 60,
 		.encodedRange = 0x13,
-		.iconId = 0xc5,
+		.iconId = 0xb3,
 	},
 	[ITEM_RAVAGER] = {
 		.nameTextId = 0x39b,
@@ -2523,7 +2523,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.hit = 85,
 		.crit = 10,
 		.encodedRange = 0x11,
-		.iconId = 0xc6,
+		.iconId = 0xb4,
 	},
 	[ITEM_DIVINESTONE] = {
 		.nameTextId = 0x398,
@@ -2539,7 +2539,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.hit = 100,
 		.crit = 15,
 		.encodedRange = 0x11,
-		.iconId = 0xc4,
+		.iconId = 0xb2,
 	},
 	[ITEM_MONSTER_DEMONSURG] = {
 		.nameTextId = 0x3c0,
@@ -2551,7 +2551,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.hit = 80,
 		.weight = 10,
 		.encodedRange = 0x12,
-		.iconId = 0xc1,
+		.iconId = 0xaf,
 	},
 	[ITEM_MONSTER_SHADOWSHT] = {
 		.nameTextId = 0x3c1,
@@ -2565,7 +2565,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.weight = 20,
 		.crit = 5,
 		.encodedRange = 0x3A,
-		.iconId = 0xc2,
+		.iconId = 0xb0,
 	},
 	[ITEM_MONSTER_ROTTENCLW] = {
 		.nameTextId = 0x39e,
@@ -2577,7 +2577,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.hit = 80,
 		.weight = 8,
 		.encodedRange = 0x11,
-		.iconId = 0xd1,
+		.iconId = 0xbf,
 	},
 	[ITEM_MONSTER_FETIDCLW] = {
 		.nameTextId = 0x39f,
@@ -2589,7 +2589,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.hit = 75,
 		.weight = 10,
 		.encodedRange = 0x11,
-		.iconId = 0xd2,
+		.iconId = 0xc0,
 	},
 	[ITEM_MONSTER_VENINCLW] = {
 		.nameTextId = 0x3a0,
@@ -2601,7 +2601,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.hit = 65,
 		.weight = 10,
 		.encodedRange = 0x11,
-		.iconId = 0xd3,
+		.iconId = 0xc1,
 		.weaponEffectId = WPN_EFFECT_POISON,
 	},
 	[ITEM_MONSTER_LTHLTALON] = {
@@ -2614,7 +2614,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.hit = 60,
 		.weight = 12,
 		.encodedRange = 0x11,
-		.iconId = 0xd4,
+		.iconId = 0xc2,
 		.weaponEffectId = WPN_EFFECT_POISON,
 	},
 	[ITEM_MONSTER_FIREFANG] = {
@@ -2627,7 +2627,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.hit = 90,
 		.weight = 5,
 		.encodedRange = 0x11,
-		.iconId = 0xd5,
+		.iconId = 0xc3,
 	},
 	[ITEM_MONSTER_HELLFANG] = {
 		.nameTextId = 0x3a3,
@@ -2639,7 +2639,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.hit = 80,
 		.weight = 8,
 		.encodedRange = 0x11,
-		.iconId = 0xd6,
+		.iconId = 0xc4,
 	},
 	[ITEM_MONSTER_EVILEYE] = {
 		.nameTextId = 0x3be,
@@ -2651,7 +2651,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.hit = 85,
 		.weight = 6,
 		.encodedRange = 0x12,
-		.iconId = 0xbe,
+		.iconId = 0xac,
 	},
 	[ITEM_MONSTER_CRIMSNEYE] = {
 		.nameTextId = 0x3bf,
@@ -2664,7 +2664,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.weight = 13,
 		.crit = 5,
 		.encodedRange = 0x12,
-		.iconId = 0xbf,
+		.iconId = 0xad,
 	},
 	[ITEM_MONSTER_STONE] = {
 		.nameTextId = 0x3bd,
@@ -2676,7 +2676,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.hit = 65,
 		.weight = 8,
 		.encodedRange = 0x13,
-		.iconId = 0xc0,
+		.iconId = 0xae,
 		.weaponEffectId = WPN_EFFECT_PETRIFY,
 		.weaponExp = 5,
 	},
@@ -2705,7 +2705,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.weaponType = ITYPE_ITEM,
 		.maxUses = 1,
 		.encodedRange = 0x11,
-		.iconId = 0xdd,
+		.iconId = 0xcb,
 		.useEffectId = 54,
 	},
 	[ITEM_150G] = {
@@ -2717,7 +2717,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 150,
-		.iconId = 0x89,
+		.iconId = 0x77,
 	},
 	[ITEM_200G] = {
 		.nameTextId = 0x3ff,
@@ -2728,7 +2728,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 200,
-		.iconId = 0x89,
+		.iconId = 0x77,
 	},
 	[ITEM_BLACKGEM] = {
 		.nameTextId = 0x3ee,
@@ -2738,7 +2738,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 30000,
-		.iconId = 0xc8,
+		.iconId = 0xb6,
 	},
 	[ITEM_GOLDGEM] = {
 		.nameTextId = 0x3ed,
@@ -2748,7 +2748,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.maxUses = 1,
 		.encodedRange = 0x11,
 		.costPerUse = 40000,
-		.iconId = 0xc9,
+		.iconId = 0xb7,
 	},
 	[ITEM_UNK_BC] = {
 		.nameTextId = 0x403,
@@ -2934,7 +2934,7 @@ CONST_DATA struct ItemData gItemData[] = {
 		.weaponType = ITYPE_ITEM,
 		.maxUses = 1,
 		.encodedRange = 0x11,
-		.iconId = 0x9d,
+		.iconId = 0x8b,
 	},
 	[ITEM_UNK_CD] = {
 		.nameTextId = 0x403,

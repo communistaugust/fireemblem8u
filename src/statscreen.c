@@ -25,11 +25,15 @@
 #include "helpbox.h"
 #include "bmlib.h"
 
+#include "constants/classes.h"
+#include "skill_system.h"
+
 #include "statscreen.h"
 
 #include "constants/classes.h"
 #include "constants/msg.h"
 #include "constants/songs.h"
+#include "constants/msg.h"
 
 struct StatScreenInfo EWRAM_DATA sStatScreenInfo = {};
 struct HelpBoxInfo EWRAM_DATA sMutableHbi = {};
@@ -37,23 +41,27 @@ const struct HelpBoxInfo * EWRAM_DATA sLastHbi = NULL;
 struct Vec2 EWRAM_DATA sHbOrigin = {};
 
 EWRAM_OVERLAY(0) struct StatScreenSt gStatScreen = {0};
-EWRAM_OVERLAY(0) u16 gUiTmScratchA[0x280] = {0};
+EWRAM_OVERLAY(0) u16 gUiTmScratchA[0x380] = {0};
 EWRAM_OVERLAY(0) u16 gUiTmScratchB[0x280] = {0};
 EWRAM_OVERLAY(0) u16 gUiTmScratchC[0x240] = {0};
 
 struct SSTextDispInfo const sPage0TextInfo[] =
 {
-    { gStatScreen.text + STATSCREEN_TEXT_SKLLABEL,   gUiTmScratchA + TILEMAP_INDEX(1, 3),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Skl },
-    { gStatScreen.text + STATSCREEN_TEXT_SPDLABEL,   gUiTmScratchA + TILEMAP_INDEX(1, 5),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Spd },
-    { gStatScreen.text + STATSCREEN_TEXT_LCKLABEL,   gUiTmScratchA + TILEMAP_INDEX(1, 7),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Lck },
-    { gStatScreen.text + STATSCREEN_TEXT_DEFLABEL,   gUiTmScratchA + TILEMAP_INDEX(1, 9),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Def },
-    { gStatScreen.text + STATSCREEN_TEXT_RESLABEL,   gUiTmScratchA + TILEMAP_INDEX(1, 11), TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Res },
-    { gStatScreen.text + STATSCREEN_TEXT_MOVLABEL,   gUiTmScratchA + TILEMAP_INDEX(9, 1),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Mov },
-    { gStatScreen.text + STATSCREEN_TEXT_CONLABEL,   gUiTmScratchA + TILEMAP_INDEX(9, 3),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Con },
-    { gStatScreen.text + STATSCREEN_TEXT_AIDLABEL,   gUiTmScratchA + TILEMAP_INDEX(9, 5),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Aid },
-    { gStatScreen.text + STATSCREEN_TEXT_RESCUENAME, gUiTmScratchA + TILEMAP_INDEX(9, 7),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Trv },
-    { gStatScreen.text + STATSCREEN_TEXT_AFFINLABEL, gUiTmScratchA + TILEMAP_INDEX(9, 9),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Affin },
-    { gStatScreen.text + STATSCREEN_TEXT_STATUS,     gUiTmScratchA + TILEMAP_INDEX(9, 11), TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Cnd },
+    { gStatScreen.text + STATSCREEN_TEXT_STRLABEL,   gUiTmScratchA + TILEMAP_INDEX(1, 1),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Str },
+    { gStatScreen.text + STATSCREEN_TEXT_MAGLABEL,   gUiTmScratchA + TILEMAP_INDEX(1, 3),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Mag },
+    { gStatScreen.text + STATSCREEN_TEXT_SKLLABEL,   gUiTmScratchA + TILEMAP_INDEX(1, 5),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Skl },
+    { gStatScreen.text + STATSCREEN_TEXT_SPDLABEL,   gUiTmScratchA + TILEMAP_INDEX(1, 7),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Spd },
+    { gStatScreen.text + STATSCREEN_TEXT_LCKLABEL,   gUiTmScratchA + TILEMAP_INDEX(1, 9),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Lck },
+    { gStatScreen.text + STATSCREEN_TEXT_DEFLABEL,   gUiTmScratchA + TILEMAP_INDEX(1, 11),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Def },
+    { gStatScreen.text + STATSCREEN_TEXT_RESLABEL,   gUiTmScratchA + TILEMAP_INDEX(1, 13), TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Res },
+    { gStatScreen.text + STATSCREEN_TEXT_MOVLABEL,   gUiTmScratchA + TILEMAP_INDEX(1, 15),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Mov },
+    { gStatScreen.text + STATSCREEN_TEXT_CONLABEL,   gUiTmScratchA + TILEMAP_INDEX(10, 1),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Con },
+    { gStatScreen.text + STATSCREEN_TEXT_AIDLABEL,   gUiTmScratchA + TILEMAP_INDEX(10, 3),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Aid },
+    { gStatScreen.text + STATSCREEN_TEXT_RESCUENAME, gUiTmScratchA + TILEMAP_INDEX(10, 5),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Trv },
+    //{ gStatScreen.text + STATSCREEN_TEXT_AFFINLABEL, gUiTmScratchA + TILEMAP_INDEX(10, 9),  TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Affin },
+    { gStatScreen.text + STATSCREEN_TEXT_STATUS,     gUiTmScratchA + TILEMAP_INDEX(10, 7), TEXT_COLOR_SYSTEM_GOLD, 0, &gMid_Cnd },
+    { gStatScreen.text + STATSCREEN_TEXT_SKILLS,      gUiTmScratchA + TILEMAP_INDEX(10, 9), TEXT_COLOR_SYSTEM_WHITE, 0, &gMid_Skills },
+
 
     { }, // end
 };
@@ -93,8 +101,8 @@ struct TextInitInfo CONST_DATA sSSMasterTextInitInfo[] =
 {
     { gStatScreen.text + STATSCREEN_TEXT_CHARANAME,  7  },
     { gStatScreen.text + STATSCREEN_TEXT_CLASSNAME,  8  },
-    { gStatScreen.text + STATSCREEN_TEXT_UNUSUED,    3  },
-    { gStatScreen.text + STATSCREEN_TEXT_POWLABEL,   3  },
+    { gStatScreen.text + STATSCREEN_TEXT_STRLABEL,   3  },
+    { gStatScreen.text + STATSCREEN_TEXT_MAGLABEL,   3  },
     { gStatScreen.text + STATSCREEN_TEXT_SKLLABEL,   3  },
     { gStatScreen.text + STATSCREEN_TEXT_SPDLABEL,   3  },
     { gStatScreen.text + STATSCREEN_TEXT_LCKLABEL,   3  },
@@ -126,6 +134,7 @@ struct TextInitInfo CONST_DATA sSSMasterTextInitInfo[] =
     { gStatScreen.text + STATSCREEN_TEXT_SUPPORT3,   7  },
     { gStatScreen.text + STATSCREEN_TEXT_SUPPORT4,   7  },
     { gStatScreen.text + STATSCREEN_TEXT_BWL,        16 },
+    { gStatScreen.text + STATSCREEN_TEXT_SKILLS,     6 },
 
     { }, // end
 };
@@ -476,7 +485,7 @@ void DisplayBwl(void)
 {
     struct UnitUsageStats* stats = GetPidStats(gStatScreen.unit->pCharacterData->number);
 
-    if (!stats)
+    if (stats)
         return;
 
     if (gBmSt.gameStateBits & BM_FLAG_LINKARENA)
@@ -547,10 +556,11 @@ void DrawStatWithBar(int num, int x, int y, int base, int total, int max)
 
 void DisplayPage0(void)
 {
+    int i;
     DisplayTexts(sPage0TextInfo);
 
     // Displaying str/mag label
-    if (UnitHasMagicRank(gStatScreen.unit))
+    /*if (UnitHasMagicRank(gStatScreen.unit))
     {
         // mag
         PutDrawText(
@@ -567,16 +577,27 @@ void DisplayPage0(void)
             gUiTmScratchA + TILEMAP_INDEX(1, 1),
             TEXT_COLOR_SYSTEM_GOLD, 0, 0,
             GetStringFromIndex(MSG_4FE)); // Str
-    }
+    }*/
 
     // displaying str/mag stat value
     DrawStatWithBar(0, 5, 1,
-        gStatScreen.unit->pow,
-        GetUnitPower(gStatScreen.unit),
-        UNIT_POW_MAX(gStatScreen.unit));
+        //gStatScreen.unit->pow,
+        /*GetUnitPower(gStatScreen.unit),
+        UNIT_POW_MAX(gStatScreen.unit));*/
+        gStatScreen.unit->str,
+        GetUnitStrength(gStatScreen.unit),
+        UNIT_STR_MAX(gStatScreen.unit));
+
+    DrawStatWithBar(1, 5, 3,
+        //gStatScreen.unit->pow,
+        /*GetUnitPower(gStatScreen.unit),
+        UNIT_POW_MAX(gStatScreen.unit));*/
+        gStatScreen.unit->mag,
+        GetUnitMagic(gStatScreen.unit),
+        UNIT_MAG_MAX(gStatScreen.unit));
 
     // displaying skl stat value
-    DrawStatWithBar(1, 5, 3,
+    DrawStatWithBar(2, 5, 5,
         gStatScreen.unit->state & US_RESCUING
             ? gStatScreen.unit->skl/2
             : gStatScreen.unit->skl,
@@ -586,7 +607,7 @@ void DisplayPage0(void)
             : UNIT_SKL_MAX(gStatScreen.unit));
 
     // displaying spd stat value
-    DrawStatWithBar(2, 5, 5,
+    DrawStatWithBar(3, 5, 7,
         gStatScreen.unit->state & US_RESCUING
             ? gStatScreen.unit->spd/2
             : gStatScreen.unit->spd,
@@ -596,41 +617,41 @@ void DisplayPage0(void)
             : UNIT_SPD_MAX(gStatScreen.unit));
 
     // displaying lck stat value
-    DrawStatWithBar(3, 5, 7,
+    DrawStatWithBar(4, 5, 9,
         gStatScreen.unit->lck,
         GetUnitLuck(gStatScreen.unit),
         UNIT_LCK_MAX(gStatScreen.unit));
 
     // displaying def stat value
-    DrawStatWithBar(4, 5, 9,
+    DrawStatWithBar(5, 5, 11,
         gStatScreen.unit->def,
         GetUnitDefense(gStatScreen.unit),
         UNIT_DEF_MAX(gStatScreen.unit));
 
     // displaying res stat value
-    DrawStatWithBar(5, 5, 11,
+    DrawStatWithBar(6, 5, 13,
         gStatScreen.unit->res,
         GetUnitResistance(gStatScreen.unit),
         UNIT_RES_MAX(gStatScreen.unit));
 
     // displaying mov stat value
-    DrawStatWithBar(6, 13, 1,
+        DrawStatWithBar(0, 5, 15,
         UNIT_MOV_BASE(gStatScreen.unit),
         UNIT_MOV(gStatScreen.unit),
         UNIT_MOV_MAX(gStatScreen.unit));
 
     // displaying con stat value
-    DrawStatWithBar(7, 13, 3,
+    DrawStatWithBar(8, 14, 1,
         UNIT_CON_BASE(gStatScreen.unit),
         UNIT_CON(gStatScreen.unit),
         UNIT_CON_MAX(gStatScreen.unit));
 
     // displaying unit aid
-    PutNumberOrBlank(gUiTmScratchA + TILEMAP_INDEX(13, 5), TEXT_COLOR_SYSTEM_BLUE,
+    PutNumberOrBlank(gUiTmScratchA + TILEMAP_INDEX(13, 3), TEXT_COLOR_SYSTEM_BLUE,
         GetUnitAid(gStatScreen.unit));
 
     // displaying unit aid icon
-    DrawIcon(gUiTmScratchA + TILEMAP_INDEX(14, 5),
+    DrawIcon(gUiTmScratchA + TILEMAP_INDEX(14, 3),
         GetUnitAidIconId(UNIT_CATTRIBUTES(gStatScreen.unit)),
         OAM2_PAL(STATSCREEN_BGPAL_EXTICONS));
 
@@ -696,11 +717,17 @@ void DisplayPage0(void)
 
     // display affinity icon
 
-    DrawIcon(
+    /*DrawIcon(
         gUiTmScratchA + TILEMAP_INDEX(12, 9),
         GetUnitAffinityIcon(gStatScreen.unit),
-        OAM2_PAL(STATSCREEN_BGPAL_EXTICONS));
-
+        OAM2_PAL(STATSCREEN_BGPAL_EXTICONS));*/
+        i=0;
+    for(i; i < 4; i++) {
+        if(GetUnitSkills(gStatScreen.unit)[i] != 0)
+        DrawIcon(gUiTmScratchA + TILEMAP_INDEX(10+i*2, 11),
+                SKILL_ICON(GetUnitSkills(gStatScreen.unit)[i]),
+                TILEREF(0, STATSCREEN_BGPAL_ITEMICONS));
+    }
     DisplayBwl();
 }
 
@@ -870,7 +897,7 @@ void DisplayWeaponExp(int num, int x, int y, int wtype)
 
     // Display weapon type icon
     DrawIcon(gUiTmScratchA + TILEMAP_INDEX(x, y),
-        0x70 + wtype, // TODO: icon id definitions
+        WTYPE_ICON(wtype), // TODO: icon id definitions
         OAM2_PAL(STATSCREEN_BGPAL_EXTICONS));
 
     color = wexp >= WPN_EXP_S
@@ -1579,7 +1606,7 @@ void StatScreen_Display(struct Proc* proc)
     // Init text and icons
 
     ResetText();
-    ResetIconGraphics_();
+    ResetIconGraphics();
 
     InitTexts();
 
@@ -1722,7 +1749,7 @@ void StartStatScreenHelp(int pageid, struct Proc* proc)
         {
 
         case STATSCREEN_PAGE_0:
-            gStatScreen.help = &gHelpInfo_Ss0Pow;
+            gStatScreen.help = &sHelpInfo_Ss0Str;
             break;
         
         case STATSCREEN_PAGE_1:
@@ -1794,6 +1821,36 @@ void HbPopulate_SSStatus(struct HelpBoxProc* proc)
         break;
 
     } // switch (gStatScreen.unit->statusIndex)
+}
+
+    void HbPopulate_SSSkill(struct HelpBoxProc* proc)
+{
+        int skill = gStatScreen.unit->unit_skill[proc->info->msgId];
+        proc->msgId = GetSkillDesc(skill);
+
+
+     // switch (gStatScreen.unit->statusIndex)
+}
+
+void HbRedirect_SSSkill(struct HelpBoxProc* proc)
+{
+    if (!gStatScreen.unit->unit_skill[0])
+        TryRelocateHbLeft(proc);
+
+    if (!gStatScreen.unit->unit_skill[proc->info->msgId])
+    {
+        if (proc->moveKey == DPAD_UP)
+            TryRelocateHbUp(proc);
+        else if (proc->moveKey == DPAD_RIGHT)
+            TryRelocateHbUp(proc);
+        else if (proc->moveKey == DPAD_LEFT)
+            TryRelocateHbLeft(proc);
+        else if (proc->moveKey == DPAD_DOWN)
+            TryRelocateHbDown(proc);
+    }
+
+
+    // switch (gStatScreen.unit->statusIndex)
 }
 
 void HbPopulate_SSPower(struct HelpBoxProc* proc)
@@ -2286,7 +2343,7 @@ int TryRelocateHbUp(struct HelpBoxProc* proc)
     return TRUE;
 }
 
-int TryRelocateHbDown(struct HelpBoxProc* proc)
+    int TryRelocateHbDown(struct HelpBoxProc* proc)
 {
     if (!proc->info->adjDown)
         return FALSE;
@@ -2458,76 +2515,127 @@ DECL_INFO sHelpInfo_HP =
     6, 136, MSG_544,
 };
 
-DECL_INFO gHelpInfo_Ss0Pow =
+DECL_INFO sHelpInfo_Ss0Str =
 {
-    NULL, &sHelpInfo_Ss0Skl, &sHelpInfo_Char, &sHelpInfo_Ss0Mov,
+
+    NULL, &sHelpInfo_Ss0Mag, &sHelpInfo_Char, &sHelpInfo_Ss0Con,
     102, 24, MSG_546, NULL, HbPopulate_SSPower,
+};
+
+DECL_INFO sHelpInfo_Ss0Mag =
+{
+    &sHelpInfo_Ss0Str, &sHelpInfo_Ss0Skl, &sHelpInfo_Char, &sHelpInfo_Ss0Aid,
+    102, 40, 0x547, NULL, HbPopulate_SSPower,
 };
 
 DECL_INFO sHelpInfo_Ss0Skl =
 {
-    &gHelpInfo_Ss0Pow, &sHelpInfo_Ss0Spd, &sHelpInfo_Char, &sHelpInfo_Ss0Con,
-    105, 40, MSG_548,
+    &sHelpInfo_Ss0Mag, &sHelpInfo_Ss0Spd, &sHelpInfo_Char, &sHelpInfo_Ss0Traveler,
+    102, 56, MSG_548,
 };
 
 DECL_INFO sHelpInfo_Ss0Spd =
 {
-    &sHelpInfo_Ss0Skl, &sHelpInfo_Ss0Lck, &sHelpInfo_Char, &sHelpInfo_Ss0Aid,
-    102, 56, MSG_549,
+    &sHelpInfo_Ss0Skl, &sHelpInfo_Ss0Lck, &sHelpInfo_Char, &sHelpInfo_Ss0Status,
+    102, 72, MSG_549,
 };
 
 DECL_INFO sHelpInfo_Ss0Lck =
 {
     &sHelpInfo_Ss0Spd, &sHelpInfo_Ss0Def, &sHelpInfo_Char, &sHelpInfo_Ss0Traveler,
-    102, 72, MSG_54A,
+    102, 88, MSG_54A,
 };
 
 DECL_INFO sHelpInfo_Ss0Def =
 {
-    &sHelpInfo_Ss0Lck, &sHelpInfo_Ss0Res, &sHelpInfo_Char, &sHelpInfo_Ss0Affinity,
-    102, 88, MSG_54B,
+    &sHelpInfo_Ss0Lck, &sHelpInfo_Ss0Res, &sHelpInfo_Char, &sHelpInfo_Ss0Skill1,
+    102, 104, MSG_54B,
 };
 
 DECL_INFO sHelpInfo_Ss0Res =
 {
-    &sHelpInfo_Ss0Def, NULL, &sHelpInfo_Class, &sHelpInfo_Ss0Status,
-    102, 104, MSG_54C,
+    &sHelpInfo_Ss0Def, &sHelpInfo_Ss0Mov, &sHelpInfo_Class, &sHelpInfo_Ss0Skill4,
+    102, 120, MSG_54C,
 };
 
 DECL_INFO sHelpInfo_Ss0Mov =
 {
-    NULL, &sHelpInfo_Ss0Con, &gHelpInfo_Ss0Pow, NULL,
-    166, 24, MSG_54D,
+    &sHelpInfo_Ss0Res, NULL, NULL, &sHelpInfo_Ss0Skill4,
+    102, 136, MSG_54D,
 };
 
 DECL_INFO sHelpInfo_Ss0Con =
 {
-    &sHelpInfo_Ss0Mov, &sHelpInfo_Ss0Aid, &sHelpInfo_Ss0Skl, NULL,
-    166, 40, MSG_54E,
+
+    &sHelpInfo_Ss0Mov, &sHelpInfo_Ss0Aid, &sHelpInfo_Ss0Str, NULL,
+    166, 24, MSG_54E,
 };
 
 DECL_INFO sHelpInfo_Ss0Aid =
 {
-    &sHelpInfo_Ss0Con, &sHelpInfo_Ss0Traveler, &sHelpInfo_Ss0Spd, NULL,
-    166, 56, MSG_54F,
+    &sHelpInfo_Ss0Con, &sHelpInfo_Ss0Traveler, &sHelpInfo_Ss0Mag, NULL,
+    166, 40, MSG_54F,
 };
 
 DECL_INFO sHelpInfo_Ss0Traveler =
 {
-    &sHelpInfo_Ss0Aid, &sHelpInfo_Ss0Affinity, &sHelpInfo_Ss0Lck, NULL,
-    166, 72, MSG_550,
+    &sHelpInfo_Ss0Aid, &sHelpInfo_Ss0Status, &sHelpInfo_Ss0Skl, NULL,
+    166, 56, MSG_550,
 };
 
-DECL_INFO sHelpInfo_Ss0Affinity =
+/*DECL_INFO sHelpInfo_Ss0Affinity =
 {
     &sHelpInfo_Ss0Traveler, &sHelpInfo_Ss0Status, &sHelpInfo_Ss0Def, NULL,
     166, 88, MSG_551,
-};
+};*/
 
 DECL_INFO sHelpInfo_Ss0Status =
 {
-    &sHelpInfo_Ss0Affinity, NULL, &sHelpInfo_Ss0Res, NULL,
-    166, 104, 0, NULL, HbPopulate_SSStatus,
+    &sHelpInfo_Ss0Traveler, &sHelpInfo_Ss0Skills, &sHelpInfo_Ss0Spd, NULL,
+    166, 72, 0, NULL, HbPopulate_SSStatus,
+};
+
+
+DECL_INFO sHelpInfo_Ss0Skills =
+{
+    &sHelpInfo_Ss0Status, &sHelpInfo_Ss0Skill1, &sHelpInfo_Ss0Lck, NULL,
+    166, 88, MSG_SKILLS, NULL, NULL,
+};
+
+DECL_INFO sHelpInfo_Ss0Skill1 =
+{
+    &sHelpInfo_Ss0Skills, &sHelpInfo_Ss0Skill4, &sHelpInfo_Ss0Def, &sHelpInfo_Ss0Skill2,
+    166, 104, 0, HbRedirect_SSSkill, HbPopulate_SSSkill,
+};
+
+DECL_INFO sHelpInfo_Ss0Skill2 =
+{
+    &sHelpInfo_Ss0Skills, &sHelpInfo_Ss0Skill5, &sHelpInfo_Ss0Skill1, &sHelpInfo_Ss0Skill3,
+    182, 104, 1, HbRedirect_SSSkill, HbPopulate_SSSkill,
+};
+
+DECL_INFO sHelpInfo_Ss0Skill3 =
+{
+    &sHelpInfo_Ss0Skills, &sHelpInfo_Ss0Skill6, &sHelpInfo_Ss0Skill2, NULL,
+    198, 104, 2, HbRedirect_SSSkill, HbPopulate_SSSkill,
+};
+
+DECL_INFO sHelpInfo_Ss0Skill4 =
+{
+    &sHelpInfo_Ss0Skill1, &sHelpInfo_Ss0Skill4, &sHelpInfo_Ss0Res, &sHelpInfo_Ss0Skill5,
+    166, 128, 3, HbRedirect_SSSkill, HbPopulate_SSSkill,
+};
+
+DECL_INFO sHelpInfo_Ss0Skill5 =
+{
+    &sHelpInfo_Ss0Skill2, NULL, &sHelpInfo_Ss0Skill5, &sHelpInfo_Ss0Skill6,
+    182, 106, 0, HbRedirect_SSSkill, HbPopulate_SSSkill,
+};
+
+DECL_INFO sHelpInfo_Ss0Skill6 =
+{
+    &sHelpInfo_Ss0Skill3, NULL, &sHelpInfo_Ss0Skill5, NULL,
+    192, 108, 0, HbRedirect_SSSkill, HbPopulate_SSSkill,
 };
 
 // Stat Screen Page 1 (Items & battle stats) (Ss1)
@@ -2868,3 +2976,4 @@ unsigned CONST_DATA gMid_Staff = MSG_509; // Staff
 unsigned CONST_DATA gMid_Anima = MSG_50A; // Anima
 unsigned CONST_DATA gMid_Light = MSG_50B; // Light
 unsigned CONST_DATA gMid_Dark = MSG_50C; // Dark
+unsigned CONST_DATA gMid_Skills = MSG_SKILLS;

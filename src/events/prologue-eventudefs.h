@@ -96,8 +96,9 @@ CONST_DATA struct UnitDefinition UnitDef_Event_PrologueAlly[] = {
         .redas = REDAs_PrologueAlly1,
         .items = {
             ITEM_SWORD_STEEL,
-            ITEM_LANCE_SILVER,
-            ITEM_VULNERARY,
+            ITEM_BOOSTER_CON,
+            ITEM_BOOSTER_MOV,
+            ITEM_BOOSTER_SPD,
         },
     },
     {
@@ -111,6 +112,7 @@ CONST_DATA struct UnitDefinition UnitDef_Event_PrologueAlly[] = {
         .redas = REDAs_PrologueAlly2,
         .items = {
             ITEM_VULNERARY,
+            ITEM_LUNARBRACE,
         },
     },
     { 0 },

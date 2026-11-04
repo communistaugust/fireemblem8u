@@ -40257,3 +40257,17 @@ I, too, shall search for a new path.[A][CR][LF]
 [ToggleSmile]A path that guides me to realizing the[LF]
 dreams Prince Lyon once held so dear.[.][A][X]
 
+##MSG_SKILL_StrBonus_NAME
+Strength +2[.][X]
+
+##MSG_SKILL_StrBonus
+Str+2: Grants +2 strength.[X]
+
+##MSG_SKILL_HpBonus_NAME
+HP +5[.][X]
+
+##MSG_SKILL_HpBonus
+HP +5: Grants +5 maximum HP.[X]
+
+##MSG_SKILLS
+Skills[X]

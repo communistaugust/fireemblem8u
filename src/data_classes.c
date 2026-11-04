@@ -15,7 +15,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x1,
 
         .baseHP  = 18,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 6,
         .baseSpd = 7,
         .baseDef = 6,
@@ -24,7 +24,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -34,7 +34,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 90,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 40,
         .growthSpd = 45,
         .growthDef = 15,
@@ -42,7 +42,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -73,7 +73,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x1,
 
         .baseHP  = 16,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 8,
         .baseSpd = 9,
         .baseDef = 3,
@@ -82,7 +82,8 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
+        .maxMag = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -92,7 +93,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 90,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 40,
         .growthSpd = 45,
         .growthDef = 15,
@@ -100,7 +101,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -131,7 +132,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x2,
 
         .baseHP  = 18,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 3,
         .baseSpd = 4,
         .baseDef = 5,
@@ -140,7 +141,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 7,
 
         .maxHP  = 60,
-        .maxPow = 27,
+        .maxStr = 27,
         .maxSkl = 26,
         .maxSpd = 24,
         .maxDef = 23,
@@ -150,7 +151,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 90,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 40,
         .growthSpd = 45,
         .growthDef = 15,
@@ -158,7 +159,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 4,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 3,
         .promotionSpd = 2,
         .promotionDef = 2,
@@ -189,7 +190,8 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x2,
 
         .baseHP  = 18,
-        .basePow = 3,
+        .baseStr = 3,
+        .baseMag = 1,
         .baseSkl = 3,
         .baseSpd = 4,
         .baseDef = 5,
@@ -198,7 +200,8 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 7,
 
         .maxHP  = 60,
-        .maxPow = 24,
+        .maxStr = 24,
+        .maxMag = 20,
         .maxSkl = 29,
         .maxSpd = 30,
         .maxDef = 22,
@@ -208,7 +211,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 90,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 40,
         .growthSpd = 45,
         .growthDef = 15,
@@ -216,7 +219,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 4,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 2,
         .promotionSpd = 1,
         .promotionDef = 3,
@@ -247,7 +250,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x20,
 
         .baseHP  = 20,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 2,
         .baseSpd = 5,
         .baseDef = 6,
@@ -256,7 +259,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 7,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -266,7 +269,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 75,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 40,
         .growthSpd = 28,
         .growthDef = 15,
@@ -274,7 +277,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 30,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -306,7 +309,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x20,
 
         .baseHP  = 18,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 3,
         .baseSpd = 3,
         .baseDef = 6,
@@ -315,7 +318,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 7,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -325,7 +328,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 75,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 40,
         .growthSpd = 28,
         .growthDef = 15,
@@ -333,7 +336,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 30,
 
         .promotionHp  = 1,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 2,
         .promotionSpd = 2,
         .promotionDef = 0,
@@ -365,7 +368,8 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x21,
 
         .baseHP  = 23,
-        .basePow = 7,
+        .baseStr = 7,
+        .baseMag = 3,
         .baseSkl = 4,
         .baseSpd = 7,
         .baseDef = 8,
@@ -374,7 +378,8 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 8,
 
         .maxHP  = 60,
-        .maxPow = 25,
+        .maxStr = 25,
+        .maxMag = 21,
         .maxSkl = 26,
         .maxSpd = 24,
         .maxDef = 25,
@@ -384,7 +389,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 70,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 30,
         .growthSpd = 18,
         .growthDef = 12,
@@ -392,7 +397,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 2,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 1,
         .promotionSpd = 1,
         .promotionDef = 2,
@@ -424,7 +429,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x21,
 
         .baseHP  = 23,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 6,
         .baseSpd = 11,
         .baseDef = 7,
@@ -433,7 +438,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 8,
 
         .maxHP  = 60,
-        .maxPow = 23,
+        .maxStr = 23,
         .maxSkl = 27,
         .maxSpd = 25,
         .maxDef = 24,
@@ -443,7 +448,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 70,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 35,
         .growthSpd = 25,
         .growthDef = 12,
@@ -451,7 +456,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 1,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 1,
         .promotionSpd = 2,
         .promotionDef = 1,
@@ -484,7 +489,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0xc,
 
         .baseHP  = 17,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 2,
         .baseSpd = 0,
         .baseDef = 9,
@@ -493,7 +498,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 4,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -503,7 +508,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 80,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 30,
         .growthSpd = 15,
         .growthDef = 28,
@@ -511,7 +516,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -541,7 +546,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0xc,
 
         .baseHP  = 16,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 3,
         .baseSpd = 1,
         .baseDef = 8,
@@ -550,7 +555,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 4,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -560,7 +565,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 80,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 30,
         .growthSpd = 15,
         .growthDef = 28,
@@ -568,7 +573,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 2,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 1,
         .promotionSpd = 1,
         .promotionDef = 2,
@@ -598,7 +603,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0xd,
 
         .baseHP  = 21,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 4,
         .baseSpd = 3,
         .baseDef = 13,
@@ -607,7 +612,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 29,
+        .maxStr = 29,
         .maxSkl = 27,
         .maxSpd = 24,
         .maxDef = 30,
@@ -617,7 +622,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 75,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 20,
         .growthSpd = 10,
         .growthDef = 23,
@@ -625,7 +630,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 20,
 
         .promotionHp  = 4,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 2,
         .promotionSpd = 3,
         .promotionDef = 2,
@@ -659,7 +664,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0xd,
 
         .baseHP  = 20,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 5,
         .baseSpd = 5,
         .baseDef = 11,
@@ -668,7 +673,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 27,
+        .maxStr = 27,
         .maxSkl = 28,
         .maxSpd = 25,
         .maxDef = 29,
@@ -678,7 +683,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 75,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 25,
         .growthSpd = 10,
         .growthDef = 23,
@@ -686,7 +691,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 20,
 
         .promotionHp  = 3,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 3,
         .promotionSpd = 2,
         .promotionDef = 3,
@@ -719,7 +724,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x7,
 
         .baseHP  = 16,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 1,
         .baseSpd = 9,
         .baseDef = 2,
@@ -728,7 +733,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -738,7 +743,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 50,
-        .growthPow = 5,
+        .growthStr = 5,
         .growthSkl = 45,
         .growthSpd = 40,
         .growthDef = 5,
@@ -746,7 +751,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -777,7 +782,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x1f,
 
         .baseHP  = 12,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 2,
         .baseDef = 2,
@@ -786,7 +791,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 8,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -796,7 +801,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 95,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 30,
         .growthSpd = 20,
         .growthDef = 0,
@@ -804,7 +809,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -831,7 +836,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x3,
 
         .baseHP  = 18,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 8,
         .baseSpd = 8,
         .baseDef = 4,
@@ -840,7 +845,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -850,7 +855,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 80,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 40,
         .growthSpd = 32,
         .growthDef = 18,
@@ -858,7 +863,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 30,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -887,7 +892,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x3,
 
         .baseHP  = 16,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 5,
         .baseSpd = 6,
         .baseDef = 2,
@@ -896,7 +901,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -906,7 +911,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 80,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 40,
         .growthSpd = 32,
         .growthDef = 18,
@@ -914,7 +919,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 30,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -943,7 +948,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x4,
 
         .baseHP  = 22,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 9,
         .baseSpd = 10,
         .baseDef = 8,
@@ -952,7 +957,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 25,
+        .maxStr = 25,
         .maxSkl = 30,
         .maxSpd = 26,
         .maxDef = 25,
@@ -962,7 +967,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 75,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 30,
         .growthSpd = 20,
         .growthDef = 20,
@@ -970,7 +975,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 4,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 2,
         .promotionSpd = 2,
         .promotionDef = 2,
@@ -1002,7 +1007,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x4,
 
         .baseHP  = 22,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 10,
         .baseSpd = 11,
         .baseDef = 6,
@@ -1011,7 +1016,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 24,
+        .maxStr = 24,
         .maxSkl = 30,
         .maxSpd = 26,
         .maxDef = 24,
@@ -1021,7 +1026,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 75,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 30,
         .growthSpd = 20,
         .growthDef = 20,
@@ -1029,7 +1034,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -1061,7 +1066,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x5,
 
         .baseHP  = 16,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 9,
         .baseSpd = 9,
         .baseDef = 2,
@@ -1070,7 +1075,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -1080,7 +1085,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 70,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 40,
         .growthSpd = 40,
         .growthDef = 15,
@@ -1088,7 +1093,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 30,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -1119,7 +1124,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x5,
 
         .baseHP  = 15,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 9,
         .baseSpd = 10,
         .baseDef = 1,
@@ -1128,7 +1133,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -1138,7 +1143,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 70,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 40,
         .growthSpd = 40,
         .growthDef = 15,
@@ -1146,7 +1151,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 30,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -1177,7 +1182,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x6,
 
         .baseHP  = 21,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 11,
         .baseSpd = 10,
         .baseDef = 5,
@@ -1186,7 +1191,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 24,
+        .maxStr = 24,
         .maxSkl = 29,
         .maxSpd = 30,
         .maxDef = 22,
@@ -1196,7 +1201,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 65,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 30,
         .growthSpd = 30,
         .growthDef = 15,
@@ -1204,7 +1209,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 5,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 2,
@@ -1235,7 +1240,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x6,
 
         .baseHP  = 19,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 11,
         .baseSpd = 12,
         .baseDef = 4,
@@ -1244,7 +1249,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 22,
+        .maxStr = 22,
         .maxSkl = 29,
         .maxSpd = 30,
         .maxDef = 22,
@@ -1254,7 +1259,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 65,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 30,
         .growthSpd = 30,
         .growthDef = 15,
@@ -1262,7 +1267,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 4,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 1,
         .promotionSpd = 0,
         .promotionDef = 2,
@@ -1293,7 +1298,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x8,
 
         .baseHP  = 16,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 1,
         .baseSpd = 9,
         .baseDef = 2,
@@ -1302,7 +1307,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 30,
         .maxSpd = 30,
         .maxDef = 20,
@@ -1312,7 +1317,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 50,
-        .growthPow = 5,
+        .growthStr = 5,
         .growthSkl = 45,
         .growthSpd = 40,
         .growthDef = 5,
@@ -1320,7 +1325,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 3,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 2,
@@ -1351,7 +1356,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x8,
 
         .baseHP  = 16,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 1,
         .baseSpd = 9,
         .baseDef = 2,
@@ -1360,7 +1365,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 30,
         .maxSpd = 30,
         .maxDef = 20,
@@ -1370,7 +1375,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 50,
-        .growthPow = 5,
+        .growthStr = 5,
         .growthSkl = 45,
         .growthSpd = 40,
         .growthDef = 5,
@@ -1378,7 +1383,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 2,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 1,
         .promotionSpd = 1,
         .promotionDef = 2,
@@ -1409,7 +1414,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0xa,
 
         .baseHP  = 18,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 3,
         .baseSpd = 3,
         .baseDef = 3,
@@ -1418,7 +1423,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -1428,7 +1433,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 70,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 40,
         .growthSpd = 32,
         .growthDef = 15,
@@ -1436,7 +1441,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 35,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -1467,7 +1472,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0xa,
 
         .baseHP  = 17,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 3,
         .baseSpd = 4,
         .baseDef = 3,
@@ -1476,7 +1481,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -1486,7 +1491,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 70,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 40,
         .growthSpd = 32,
         .growthDef = 15,
@@ -1494,7 +1499,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 35,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -1525,7 +1530,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0xb,
 
         .baseHP  = 21,
-        .basePow = 7,
+        .baseStr = 7,
         .baseSkl = 6,
         .baseSpd = 5,
         .baseDef = 5,
@@ -1534,7 +1539,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 25,
+        .maxStr = 25,
         .maxSkl = 30,
         .maxSpd = 28,
         .maxDef = 25,
@@ -1544,7 +1549,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 65,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 30,
         .growthSpd = 20,
         .growthDef = 15,
@@ -1552,7 +1557,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 30,
 
         .promotionHp  = 3,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 2,
         .promotionSpd = 2,
         .promotionDef = 2,
@@ -1583,7 +1588,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0xb,
 
         .baseHP  = 19,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 6,
         .baseSpd = 7,
         .baseDef = 5,
@@ -1592,7 +1597,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 24,
+        .maxStr = 24,
         .maxSkl = 30,
         .maxSpd = 29,
         .maxDef = 24,
@@ -1602,7 +1607,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 65,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 30,
         .growthSpd = 20,
         .growthDef = 15,
@@ -1610,7 +1615,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 30,
 
         .promotionHp  = 4,
-        .promotionPow = 3,
+        .promotionStr = 3,
         .promotionSkl = 1,
         .promotionSpd = 1,
         .promotionDef = 2,
@@ -1641,7 +1646,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0xc,
 
         .baseHP  = 21,
-        .basePow = 7,
+        .baseStr = 7,
         .baseSkl = 6,
         .baseSpd = 7,
         .baseDef = 6,
@@ -1650,7 +1655,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 7,
 
         .maxHP  = 60,
-        .maxPow = 25,
+        .maxStr = 25,
         .maxSkl = 28,
         .maxSpd = 30,
         .maxDef = 24,
@@ -1660,7 +1665,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 60,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -1668,7 +1673,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 3,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 1,
         .promotionSpd = 1,
         .promotionDef = 3,
@@ -1700,7 +1705,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0xc,
 
         .baseHP  = 21,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 6,
         .baseSpd = 7,
         .baseDef = 5,
@@ -1709,7 +1714,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 7,
 
         .maxHP  = 60,
-        .maxPow = 23,
+        .maxStr = 23,
         .maxSkl = 28,
         .maxSpd = 30,
         .maxDef = 22,
@@ -1719,7 +1724,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 60,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 30,
         .growthSpd = 35,
         .growthDef = 15,
@@ -1727,7 +1732,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 2,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 2,
         .promotionSpd = 1,
         .promotionDef = 3,
@@ -1759,7 +1764,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0xd,
 
         .baseHP  = 20,
-        .basePow = 7,
+        .baseStr = 7,
         .baseSkl = 3,
         .baseSpd = 5,
         .baseDef = 8,
@@ -1768,7 +1773,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 7,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -1778,7 +1783,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 80,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 35,
         .growthSpd = 30,
         .growthDef = 25,
@@ -1786,7 +1791,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -1817,7 +1822,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0xd,
 
         .baseHP  = 19,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 5,
         .baseSpd = 5,
         .baseDef = 7,
@@ -1826,7 +1831,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 7,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -1836,7 +1841,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 80,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 35,
         .growthSpd = 30,
         .growthDef = 25,
@@ -1844,7 +1849,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -1875,7 +1880,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0xe,
 
         .baseHP  = 25,
-        .basePow = 9,
+        .baseStr = 9,
         .baseSkl = 5,
         .baseSpd = 7,
         .baseDef = 10,
@@ -1884,7 +1889,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 8,
 
         .maxHP  = 60,
-        .maxPow = 27,
+        .maxStr = 27,
         .maxSkl = 25,
         .maxSpd = 23,
         .maxDef = 28,
@@ -1894,7 +1899,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 75,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 30,
         .growthSpd = 20,
         .growthDef = 20,
@@ -1902,7 +1907,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 20,
 
         .promotionHp  = 4,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 2,
         .promotionSpd = 0,
         .promotionDef = 2,
@@ -1934,7 +1939,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0xe,
 
         .baseHP  = 24,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 7,
         .baseSpd = 7,
         .baseDef = 9,
@@ -1943,7 +1948,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 8,
 
         .maxHP  = 60,
-        .maxPow = 25,
+        .maxStr = 25,
         .maxSkl = 26,
         .maxSpd = 24,
         .maxDef = 27,
@@ -1953,7 +1958,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 75,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 30,
         .growthSpd = 20,
         .growthDef = 20,
@@ -1961,7 +1966,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 20,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -1993,7 +1998,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0xf,
 
         .baseHP  = 20,
-        .basePow = 7,
+        .baseStr = 7,
         .baseSkl = 7,
         .baseSpd = 8,
         .baseDef = 7,
@@ -2002,7 +2007,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 8,
 
         .maxHP  = 60,
-        .maxPow = 25,
+        .maxStr = 25,
         .maxSkl = 26,
         .maxSpd = 28,
         .maxDef = 24,
@@ -2012,7 +2017,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 65,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 30,
         .growthSpd = 30,
         .growthDef = 15,
@@ -2020,7 +2025,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 3,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 2,
         .promotionSpd = 3,
         .promotionDef = 0,
@@ -2051,7 +2056,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0xf,
 
         .baseHP  = 19,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 8,
         .baseSpd = 9,
         .baseDef = 6,
@@ -2060,7 +2065,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 8,
 
         .maxHP  = 60,
-        .maxPow = 24,
+        .maxStr = 24,
         .maxSkl = 27,
         .maxSpd = 29,
         .maxDef = 23,
@@ -2070,7 +2075,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 65,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 30,
         .growthSpd = 30,
         .growthDef = 15,
@@ -2078,7 +2083,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 3,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 1,
         .promotionSpd = 2,
         .promotionDef = 1,
@@ -2109,7 +2114,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x12,
 
         .baseHP  = 16,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 2,
         .baseSpd = 3,
         .baseDef = 3,
@@ -2118,7 +2123,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -2128,7 +2133,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 55,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 40,
         .growthSpd = 35,
         .growthDef = 5,
@@ -2136,7 +2141,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 20,
 
         .promotionHp  = 1,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 1,
         .promotionSpd = 2,
         .promotionDef = 1,
@@ -2165,7 +2170,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x12,
 
         .baseHP  = 16,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 3,
         .baseSpd = 2,
         .baseDef = 2,
@@ -2174,7 +2179,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -2184,7 +2189,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 55,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 40,
         .growthSpd = 35,
         .growthDef = 5,
@@ -2192,7 +2197,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 20,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -2221,7 +2226,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x13,
 
         .baseHP  = 20,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 4,
         .baseSpd = 4,
         .baseDef = 5,
@@ -2230,7 +2235,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 28,
+        .maxStr = 28,
         .maxSkl = 30,
         .maxSpd = 26,
         .maxDef = 21,
@@ -2240,7 +2245,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 45,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 30,
         .growthSpd = 25,
         .growthDef = 10,
@@ -2248,7 +2253,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 15,
 
         .promotionHp  = 4,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 3,
@@ -2281,7 +2286,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x13,
 
         .baseHP  = 19,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 6,
         .baseSpd = 5,
         .baseDef = 3,
@@ -2290,7 +2295,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 30,
+        .maxStr = 30,
         .maxSkl = 28,
         .maxSpd = 26,
         .maxDef = 21,
@@ -2300,7 +2305,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 45,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 30,
         .growthSpd = 25,
         .growthDef = 10,
@@ -2308,7 +2313,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 15,
 
         .promotionHp  = 3,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 1,
         .promotionSpd = 0,
         .promotionDef = 3,
@@ -2341,7 +2346,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x14,
 
         .baseHP  = 20,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 3,
         .baseSpd = 5,
         .baseDef = 5,
@@ -2350,7 +2355,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 7,
 
         .maxHP  = 60,
-        .maxPow = 24,
+        .maxStr = 24,
         .maxSkl = 26,
         .maxSpd = 25,
         .maxDef = 24,
@@ -2360,7 +2365,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 45,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 30,
         .growthSpd = 40,
         .growthDef = 10,
@@ -2368,7 +2373,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 30,
 
         .promotionHp  = 4,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 2,
@@ -2400,7 +2405,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x14,
 
         .baseHP  = 19,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 5,
         .baseSpd = 6,
         .baseDef = 3,
@@ -2409,7 +2414,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 7,
 
         .maxHP  = 60,
-        .maxPow = 25,
+        .maxStr = 25,
         .maxSkl = 24,
         .maxSpd = 25,
         .maxDef = 24,
@@ -2419,7 +2424,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 45,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 30,
         .growthSpd = 40,
         .growthDef = 10,
@@ -2427,7 +2432,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 3,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 1,
         .promotionSpd = 0,
         .promotionDef = 2,
@@ -2459,7 +2464,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x18,
 
         .baseHP  = 21,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 4,
         .baseSpd = 4,
         .baseDef = 3,
@@ -2468,7 +2473,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 25,
+        .maxStr = 25,
         .maxSkl = 26,
         .maxSpd = 24,
         .maxDef = 22,
@@ -2478,7 +2483,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 45,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 25,
         .growthSpd = 22,
         .growthDef = 8,
@@ -2486,7 +2491,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 3,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 1,
         .promotionSpd = 0,
         .promotionDef = 3,
@@ -2519,7 +2524,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x18,
 
         .baseHP  = 19,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 5,
         .baseSpd = 4,
         .baseDef = 2,
@@ -2528,7 +2533,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 25,
+        .maxStr = 25,
         .maxSkl = 25,
         .maxSpd = 26,
         .maxDef = 21,
@@ -2538,7 +2543,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 45,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 25,
         .growthSpd = 22,
         .growthDef = 8,
@@ -2546,7 +2551,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 3,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 2,
         .promotionSpd = 1,
         .promotionDef = 2,
@@ -2580,7 +2585,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x1b,
 
         .baseHP  = 16,
-        .basePow = 2,
+        .baseStr = 2,
         .baseSkl = 1,
         .baseSpd = 2,
         .baseDef = 2,
@@ -2589,7 +2594,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -2599,7 +2604,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 50,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 32,
         .growthSpd = 30,
         .growthDef = 10,
@@ -2607,7 +2612,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 20,
 
         .promotionHp  = 1,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 0,
         .promotionSpd = 1,
         .promotionDef = 1,
@@ -2637,7 +2642,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x1b,
 
         .baseHP  = 15,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 1,
         .baseSpd = 1,
         .baseDef = 1,
@@ -2646,7 +2651,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -2656,7 +2661,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 50,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 32,
         .growthSpd = 30,
         .growthDef = 10,
@@ -2664,7 +2669,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 20,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -2694,7 +2699,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x1c,
 
         .baseHP  = 19,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 3,
         .baseSpd = 4,
         .baseDef = 4,
@@ -2703,7 +2708,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 29,
+        .maxStr = 29,
         .maxSkl = 26,
         .maxSpd = 26,
         .maxDef = 21,
@@ -2713,7 +2718,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 45,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 30,
         .growthSpd = 25,
         .growthDef = 10,
@@ -2721,7 +2726,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 20,
 
         .promotionHp  = 4,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 3,
         .promotionDef = 2,
@@ -2755,7 +2760,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x1c,
 
         .baseHP  = 17,
-        .basePow = 7,
+        .baseStr = 7,
         .baseSkl = 3,
         .baseSpd = 4,
         .baseDef = 3,
@@ -2764,7 +2769,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 29,
+        .maxStr = 29,
         .maxSkl = 26,
         .maxSpd = 26,
         .maxDef = 20,
@@ -2774,7 +2779,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 45,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 30,
         .growthSpd = 25,
         .growthDef = 10,
@@ -2782,7 +2787,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 20,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -2815,7 +2820,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x1d,
 
         .baseHP  = 18,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 3,
         .baseSpd = 4,
         .baseDef = 3,
@@ -2824,7 +2829,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 27,
+        .maxStr = 27,
         .maxSkl = 27,
         .maxSpd = 26,
         .maxDef = 20,
@@ -2834,7 +2839,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 45,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 30,
         .growthSpd = 25,
         .growthDef = 8,
@@ -2842,7 +2847,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 20,
 
         .promotionHp  = 3,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 1,
         .promotionSpd = 3,
         .promotionDef = 1,
@@ -2874,7 +2879,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x1d,
 
         .baseHP  = 18,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 3,
         .baseSpd = 4,
         .baseDef = 3,
@@ -2883,7 +2888,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 27,
+        .maxStr = 27,
         .maxSkl = 27,
         .maxSpd = 26,
         .maxDef = 20,
@@ -2893,7 +2898,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 45,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 30,
         .growthSpd = 25,
         .growthDef = 8,
@@ -2901,7 +2906,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 20,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -2933,7 +2938,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x9,
 
         .baseHP  = 16,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 1,
         .baseSpd = 9,
         .baseDef = 2,
@@ -2942,7 +2947,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 30,
         .maxSpd = 30,
         .maxDef = 20,
@@ -2952,7 +2957,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 50,
-        .growthPow = 10,
+        .growthStr = 10,
         .growthSkl = 45,
         .growthSpd = 35,
         .growthDef = 5,
@@ -2960,7 +2965,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 2,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 1,
         .promotionSpd = 0,
         .promotionDef = 2,
@@ -2989,7 +2994,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0xa6,
 
         .baseHP  = 50,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 10,
@@ -2998,7 +3003,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 0,
 
         .maxHP  = 60,
-        .maxPow = 30,
+        .maxStr = 30,
         .maxSkl = 30,
         .maxSpd = 30,
         .maxDef = 30,
@@ -3008,7 +3013,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 100,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -3016,7 +3021,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -3041,7 +3046,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x22,
 
         .baseHP  = 21,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 4,
         .baseSpd = 6,
         .baseDef = 11,
@@ -3050,7 +3055,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 28,
+        .maxStr = 28,
         .maxSkl = 24,
         .maxSpd = 24,
         .maxDef = 29,
@@ -3060,7 +3065,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 70,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 20,
         .growthSpd = 15,
         .growthDef = 21,
@@ -3068,7 +3073,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 20,
 
         .promotionHp  = 3,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 1,
         .promotionSpd = 2,
         .promotionDef = 2,
@@ -3102,7 +3107,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x22,
 
         .baseHP  = 20,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 6,
         .baseSpd = 7,
         .baseDef = 9,
@@ -3111,7 +3116,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 26,
+        .maxStr = 26,
         .maxSkl = 26,
         .maxSpd = 25,
         .maxDef = 28,
@@ -3121,7 +3126,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 70,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 25,
         .growthSpd = 20,
         .growthDef = 21,
@@ -3129,7 +3134,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 20,
 
         .promotionHp  = 3,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 1,
         .promotionSpd = 2,
         .promotionDef = 2,
@@ -3162,7 +3167,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x28,
 
         .baseHP  = 18,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 3,
         .baseSpd = 3,
         .baseDef = 6,
@@ -3171,7 +3176,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -3181,7 +3186,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 75,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 40,
         .growthSpd = 40,
         .growthDef = 25,
@@ -3189,7 +3194,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 2,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 1,
         .promotionSpd = 1,
         .promotionDef = 2,
@@ -3218,7 +3223,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x27,
 
         .baseHP  = 28,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 5,
         .baseSpd = 6,
         .baseDef = 5,
@@ -3227,7 +3232,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 26,
+        .maxStr = 26,
         .maxSkl = 29,
         .maxSpd = 28,
         .maxDef = 23,
@@ -3237,7 +3242,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 85,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 40,
         .growthSpd = 32,
         .growthDef = 18,
@@ -3245,7 +3250,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 4,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 2,
         .promotionSpd = 2,
         .promotionDef = 2,
@@ -3276,7 +3281,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x29,
 
         .baseHP  = 20,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 4,
         .baseSpd = 4,
         .baseDef = 5,
@@ -3285,7 +3290,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 29,
+        .maxStr = 29,
         .maxSkl = 28,
         .maxSpd = 27,
         .maxDef = 21,
@@ -3295,7 +3300,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 55,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 40,
         .growthSpd = 35,
         .growthDef = 10,
@@ -3303,7 +3308,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 4,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 0,
         .promotionSpd = 1,
         .promotionDef = 3,
@@ -3336,7 +3341,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x28,
 
         .baseHP  = 23,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 6,
         .baseSpd = 11,
         .baseDef = 7,
@@ -3345,7 +3350,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 23,
+        .maxStr = 23,
         .maxSkl = 30,
         .maxSpd = 29,
         .maxDef = 22,
@@ -3355,7 +3360,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 75,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 40,
         .growthSpd = 40,
         .growthDef = 25,
@@ -3363,7 +3368,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 2,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 1,
         .promotionSpd = 1,
         .promotionDef = 2,
@@ -3394,7 +3399,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x1f,
 
         .baseHP  = 20,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 2,
         .baseDef = 1,
@@ -3403,7 +3408,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 3,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -3413,7 +3418,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 95,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 30,
         .growthSpd = 20,
         .growthDef = 0,
@@ -3421,7 +3426,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -3448,7 +3453,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x1f,
 
         .baseHP  = 12,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 2,
         .baseDef = 2,
@@ -3457,7 +3462,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -3467,7 +3472,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 95,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 30,
         .growthSpd = 20,
         .growthDef = 0,
@@ -3475,7 +3480,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -3501,7 +3506,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x27,
 
         .baseHP  = 14,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 0,
         .baseSpd = 1,
         .baseDef = 1,
@@ -3510,7 +3515,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 4,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -3520,7 +3525,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 85,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 40,
         .growthSpd = 32,
         .growthDef = 18,
@@ -3528,7 +3533,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -3558,7 +3563,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x29,
 
         .baseHP  = 13,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 0,
         .baseSpd = 1,
         .baseDef = 0,
@@ -3567,7 +3572,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 4,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -3577,7 +3582,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 55,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 40,
         .growthSpd = 35,
         .growthDef = 10,
@@ -3585,7 +3590,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -3616,7 +3621,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x23,
 
         .baseHP  = 20,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 2,
         .baseSpd = 4,
         .baseDef = 2,
@@ -3625,7 +3630,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -3635,7 +3640,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 85,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 35,
         .growthSpd = 30,
         .growthDef = 15,
@@ -3643,7 +3648,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 15,
 
         .promotionHp  = 2,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 1,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -3672,7 +3677,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x25,
 
         .baseHP  = 28,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 5,
         .baseSpd = 6,
         .baseDef = 5,
@@ -3681,7 +3686,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 30,
+        .maxStr = 30,
         .maxSkl = 28,
         .maxSpd = 26,
         .maxDef = 26,
@@ -3691,7 +3696,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 80,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 25,
         .growthSpd = 20,
         .growthDef = 16,
@@ -3699,7 +3704,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 15,
 
         .promotionHp  = 3,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 2,
         .promotionSpd = 0,
         .promotionDef = 3,
@@ -3730,7 +3735,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x8b,
 
         .baseHP  = 20,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 1,
         .baseSpd = 5,
         .baseDef = 3,
@@ -3739,7 +3744,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -3749,7 +3754,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 82,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 30,
         .growthSpd = 20,
         .growthDef = 10,
@@ -3757,7 +3762,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 15,
 
         .promotionHp  = 2,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 1,
         .promotionSpd = 0,
         .promotionDef = 1,
@@ -3787,7 +3792,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x24,
 
         .baseHP  = 19,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 2,
         .baseSpd = 6,
         .baseDef = 3,
@@ -3796,7 +3801,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -3806,7 +3811,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 75,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 35,
         .growthSpd = 25,
         .growthDef = 10,
@@ -3814,7 +3819,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 15,
 
         .promotionHp  = 2,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 0,
         .promotionSpd = 1,
         .promotionDef = 1,
@@ -3844,7 +3849,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x26,
 
         .baseHP  = 24,
-        .basePow = 7,
+        .baseStr = 7,
         .baseSkl = 6,
         .baseSpd = 7,
         .baseDef = 6,
@@ -3853,7 +3858,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 30,
+        .maxStr = 30,
         .maxSkl = 29,
         .maxSpd = 28,
         .maxDef = 23,
@@ -3863,7 +3868,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 75,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 35,
         .growthSpd = 25,
         .growthDef = 10,
@@ -3871,7 +3876,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 15,
 
         .promotionHp  = 4,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 1,
         .promotionSpd = 1,
         .promotionDef = 2,
@@ -3902,7 +3907,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x17,
 
         .baseHP  = 18,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 1,
         .baseSpd = 2,
         .baseDef = 1,
@@ -3911,7 +3916,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -3921,7 +3926,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 50,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 35,
         .growthSpd = 32,
         .growthDef = 8,
@@ -3929,7 +3934,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 45,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -3959,7 +3964,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x15,
 
         .baseHP  = 18,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 1,
         .baseSpd = 2,
         .baseDef = 1,
@@ -3968,7 +3973,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -3978,7 +3983,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 50,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 35,
         .growthSpd = 32,
         .growthDef = 8,
@@ -3986,7 +3991,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 45,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -4014,7 +4019,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x8b,
 
         .baseHP  = 14,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 2,
         .baseSpd = 7,
         .baseDef = 1,
@@ -4023,7 +4028,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 10,
+        .maxStr = 10,
         .maxSkl = 10,
         .maxSpd = 30,
         .maxDef = 24,
@@ -4033,7 +4038,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 45,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 30,
         .growthSpd = 60,
         .growthDef = 0,
@@ -4041,7 +4046,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 70,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -4066,7 +4071,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x28,
 
         .baseHP  = 13,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 0,
         .baseSpd = 1,
         .baseDef = 0,
@@ -4075,7 +4080,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 4,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -4085,7 +4090,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 75,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 40,
         .growthSpd = 40,
         .growthDef = 25,
@@ -4093,7 +4098,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -4124,7 +4129,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x10,
 
         .baseHP  = 14,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 5,
         .baseSpd = 5,
         .baseDef = 3,
@@ -4133,7 +4138,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 7,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -4143,7 +4148,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 65,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 40,
         .growthSpd = 40,
         .growthDef = 12,
@@ -4151,7 +4156,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 35,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -4182,7 +4187,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x11,
 
         .baseHP  = 20,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 7,
         .baseSpd = 7,
         .baseDef = 5,
@@ -4191,7 +4196,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 8,
 
         .maxHP  = 60,
-        .maxPow = 23,
+        .maxStr = 23,
         .maxSkl = 25,
         .maxSpd = 28,
         .maxDef = 23,
@@ -4201,7 +4206,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 60,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 30,
         .growthSpd = 30,
         .growthDef = 12,
@@ -4209,7 +4214,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 30,
 
         .promotionHp  = 5,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 0,
         .promotionSpd = 2,
         .promotionDef = 2,
@@ -4241,7 +4246,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x16,
 
         .baseHP  = 16,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 2,
         .baseSpd = 2,
         .baseDef = 0,
@@ -4250,7 +4255,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -4260,7 +4265,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 50,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 35,
         .growthSpd = 32,
         .growthDef = 8,
@@ -4268,7 +4273,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 45,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -4298,7 +4303,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x19,
 
         .baseHP  = 15,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 1,
         .baseSpd = 3,
         .baseDef = 2,
@@ -4307,7 +4312,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -4317,7 +4322,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 50,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 35,
         .growthSpd = 55,
         .growthDef = 12,
@@ -4325,7 +4330,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 45,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -4356,7 +4361,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x1a,
 
         .baseHP  = 19,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 3,
         .baseSpd = 5,
         .baseDef = 4,
@@ -4365,7 +4370,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 7,
 
         .maxHP  = 60,
-        .maxPow = 25,
+        .maxStr = 25,
         .maxSkl = 24,
         .maxSpd = 25,
         .maxDef = 24,
@@ -4375,7 +4380,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 45,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 25,
         .growthSpd = 45,
         .growthDef = 10,
@@ -4383,7 +4388,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 3,
-        .promotionPow = 2,
+        .promotionStr = 2,
         .promotionSkl = 1,
         .promotionSpd = 0,
         .promotionDef = 2,
@@ -4414,7 +4419,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x2a,
 
         .baseHP  = 14,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 2,
         .baseSpd = 7,
         .baseDef = 0,
@@ -4423,7 +4428,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 10,
+        .maxStr = 10,
         .maxSkl = 10,
         .maxSpd = 30,
         .maxDef = 24,
@@ -4433,7 +4438,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 45,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 30,
         .growthSpd = 60,
         .growthDef = 0,
@@ -4441,7 +4446,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 70,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -4466,7 +4471,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x8a,
 
         .baseHP  = 20,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 0,
         .baseSpd = 1,
         .baseDef = 0,
@@ -4475,7 +4480,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -4485,7 +4490,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 80,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 30,
         .growthSpd = 20,
         .growthDef = 12,
@@ -4493,7 +4498,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -4522,7 +4527,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x2b,
 
         .baseHP  = 18,
-        .basePow = 9,
+        .baseStr = 9,
         .baseSkl = 4,
         .baseSpd = 5,
         .baseDef = 3,
@@ -4531,7 +4536,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 80,
-        .maxPow = 30,
+        .maxStr = 30,
         .maxSkl = 25,
         .maxSpd = 25,
         .maxDef = 30,
@@ -4541,7 +4546,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 45,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 30,
         .growthSpd = 25,
         .growthDef = 10,
@@ -4549,7 +4554,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 20,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -4579,7 +4584,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x92,
 
         .baseHP  = 19,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 1,
         .baseSpd = 2,
         .baseDef = 5,
@@ -4588,7 +4593,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 3,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 30,
@@ -4598,7 +4603,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 75,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 40,
         .growthSpd = 32,
         .growthDef = 15,
@@ -4606,7 +4611,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 15,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -4633,7 +4638,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x1e,
 
         .baseHP  = 1,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 2,
         .baseSpd = 4,
         .baseDef = 0,
@@ -4642,7 +4647,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 1,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 0,
@@ -4652,7 +4657,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 0,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 35,
         .growthSpd = 45,
         .growthDef = 15,
@@ -4660,7 +4665,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 50,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -4687,7 +4692,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x99,
 
         .baseHP  = 25,
-        .basePow = 2,
+        .baseStr = 2,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -4696,7 +4701,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 4,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -4706,7 +4711,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 95,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 30,
         .growthSpd = 20,
         .growthDef = 10,
@@ -4714,7 +4719,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 10,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -4740,7 +4745,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x9a,
 
         .baseHP  = 35,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 0,
         .baseSpd = 1,
         .baseDef = 0,
@@ -4749,7 +4754,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 80,
-        .maxPow = 25,
+        .maxStr = 25,
         .maxSkl = 22,
         .maxSpd = 21,
         .maxDef = 24,
@@ -4759,7 +4764,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 85,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 25,
         .growthSpd = 17,
         .growthDef = 10,
@@ -4767,7 +4772,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 50,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -4793,7 +4798,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x9b,
 
         .baseHP  = 20,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 2,
         .baseSpd = 3,
         .baseDef = 3,
@@ -4802,7 +4807,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -4812,7 +4817,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 80,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 30,
         .growthSpd = 20,
         .growthDef = 12,
@@ -4820,7 +4825,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 10,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -4851,7 +4856,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x9b,
 
         .baseHP  = 18,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 3,
         .baseSpd = 2,
         .baseDef = 3,
@@ -4860,7 +4865,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -4870,7 +4875,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 70,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 40,
         .growthSpd = 32,
         .growthDef = 15,
@@ -4878,7 +4883,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 10,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -4906,7 +4911,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x9c,
 
         .baseHP  = 21,
-        .basePow = 7,
+        .baseStr = 7,
         .baseSkl = 5,
         .baseSpd = 6,
         .baseDef = 5,
@@ -4915,7 +4920,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 24,
+        .maxStr = 24,
         .maxSkl = 28,
         .maxSpd = 26,
         .maxDef = 22,
@@ -4925,7 +4930,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 65,
-        .growthPow = 25,
+        .growthStr = 25,
         .growthSkl = 25,
         .growthSpd = 20,
         .growthDef = 15,
@@ -4933,7 +4938,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 10,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -4964,7 +4969,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x9c,
 
         .baseHP  = 21,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 6,
         .baseSpd = 5,
         .baseDef = 5,
@@ -4973,7 +4978,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 25,
+        .maxStr = 25,
         .maxSkl = 30,
         .maxSpd = 28,
         .maxDef = 25,
@@ -4983,7 +4988,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 65,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 30,
         .growthSpd = 20,
         .growthDef = 15,
@@ -4991,7 +4996,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 10,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5021,7 +5026,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x9d,
 
         .baseHP  = 25,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 3,
         .baseSpd = 3,
         .baseDef = 6,
@@ -5030,7 +5035,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 30,
+        .maxStr = 30,
         .maxSkl = 28,
         .maxSpd = 26,
         .maxDef = 26,
@@ -5040,7 +5045,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 82,
-        .growthPow = 50,
+        .growthStr = 50,
         .growthSkl = 30,
         .growthSpd = 20,
         .growthDef = 18,
@@ -5048,7 +5053,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 15,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5075,7 +5080,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x9e,
 
         .baseHP  = 36,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 5,
         .baseSpd = 5,
         .baseDef = 9,
@@ -5084,7 +5089,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 80,
-        .maxPow = 30,
+        .maxStr = 30,
         .maxSkl = 28,
         .maxSpd = 26,
         .maxDef = 26,
@@ -5094,7 +5099,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 85,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 25,
         .growthSpd = 20,
         .growthDef = 21,
@@ -5102,7 +5107,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 10,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5129,7 +5134,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x9f,
 
         .baseHP  = 40,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 5,
         .baseSpd = 6,
         .baseDef = 13,
@@ -5138,7 +5143,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 80,
-        .maxPow = 29,
+        .maxStr = 29,
         .maxSkl = 29,
         .maxSpd = 28,
         .maxDef = 30,
@@ -5148,7 +5153,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 95,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 35,
         .growthSpd = 25,
         .growthDef = 24,
@@ -5156,7 +5161,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 10,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5186,7 +5191,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0xa0,
 
         .baseHP  = 16,
-        .basePow = 4,
+        .baseStr = 4,
         .baseSkl = 10,
         .baseSpd = 10,
         .baseDef = 2,
@@ -5195,7 +5200,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 7,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -5205,7 +5210,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 70,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 45,
         .growthSpd = 45,
         .growthDef = 15,
@@ -5213,7 +5218,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 30,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5239,7 +5244,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0xa1,
 
         .baseHP  = 21,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 12,
         .baseSpd = 12,
         .baseDef = 5,
@@ -5248,7 +5253,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 8,
 
         .maxHP  = 60,
-        .maxPow = 24,
+        .maxStr = 24,
         .maxSkl = 29,
         .maxSpd = 30,
         .maxDef = 22,
@@ -5258,7 +5263,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 65,
-        .growthPow = 28,
+        .growthStr = 28,
         .growthSkl = 35,
         .growthSpd = 35,
         .growthDef = 16,
@@ -5266,7 +5271,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5292,7 +5297,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0xa2,
 
         .baseHP  = 21,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 2,
         .baseSpd = 5,
         .baseDef = 7,
@@ -5301,7 +5306,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 7,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -5311,7 +5316,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 80,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 40,
         .growthSpd = 28,
         .growthDef = 15,
@@ -5319,7 +5324,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 10,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5347,7 +5352,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0xa3,
 
         .baseHP  = 25,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 4,
         .baseSpd = 7,
         .baseDef = 9,
@@ -5356,7 +5361,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 8,
 
         .maxHP  = 80,
-        .maxPow = 25,
+        .maxStr = 25,
         .maxSkl = 26,
         .maxSpd = 24,
         .maxDef = 25,
@@ -5366,7 +5371,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 75,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 30,
         .growthSpd = 18,
         .growthDef = 13,
@@ -5374,7 +5379,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 10,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5405,7 +5410,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0xa4,
 
         .baseHP  = 15,
-        .basePow = 2,
+        .baseStr = 2,
         .baseSkl = 1,
         .baseSpd = 2,
         .baseDef = 2,
@@ -5414,7 +5419,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -5424,7 +5429,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 50,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 32,
         .growthSpd = 30,
         .growthDef = 10,
@@ -5432,7 +5437,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 30,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5462,7 +5467,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0xa5,
 
         .baseHP  = 17,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 3,
         .baseSpd = 3,
         .baseDef = 3,
@@ -5471,7 +5476,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 29,
+        .maxStr = 29,
         .maxSkl = 26,
         .maxSpd = 26,
         .maxDef = 20,
@@ -5481,7 +5486,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 45,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 30,
         .growthSpd = 25,
         .growthDef = 10,
@@ -5489,7 +5494,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 20,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5519,7 +5524,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0xa6,
 
         .baseHP  = 19,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 3,
         .baseSpd = 4,
         .baseDef = 5,
@@ -5528,7 +5533,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 29,
+        .maxStr = 29,
         .maxSkl = 26,
         .maxSpd = 26,
         .maxDef = 21,
@@ -5538,7 +5543,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 45,
-        .growthPow = 60,
+        .growthStr = 60,
         .growthSkl = 30,
         .growthSpd = 25,
         .growthDef = 10,
@@ -5546,7 +5551,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 30,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5575,7 +5580,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0xa6,
 
         .baseHP  = 50,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 10,
@@ -5584,7 +5589,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 0,
 
         .maxHP  = 60,
-        .maxPow = 30,
+        .maxStr = 30,
         .maxSkl = 30,
         .maxSpd = 30,
         .maxDef = 30,
@@ -5594,7 +5599,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 100,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5602,7 +5607,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5625,7 +5630,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0xa7,
 
         .baseHP  = 19,
-        .basePow = 6,
+        .baseStr = 6,
         .baseSkl = 3,
         .baseSpd = 6,
         .baseDef = 6,
@@ -5634,7 +5639,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -5644,7 +5649,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 80,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 35,
         .growthSpd = 35,
         .growthDef = 25,
@@ -5652,7 +5657,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 10,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5680,7 +5685,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0xa8,
 
         .baseHP  = 23,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 5,
         .baseSpd = 8,
         .baseDef = 9,
@@ -5689,7 +5694,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 7,
 
         .maxHP  = 60,
-        .maxPow = 27,
+        .maxStr = 27,
         .maxSkl = 25,
         .maxSpd = 23,
         .maxDef = 28,
@@ -5699,7 +5704,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 75,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 30,
         .growthSpd = 25,
         .growthDef = 20,
@@ -5707,7 +5712,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 10,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5737,7 +5742,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0xa9,
 
         .baseHP  = 53,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 0,
         .baseSpd = 1,
         .baseDef = 0,
@@ -5746,7 +5751,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 100,
-        .maxPow = 50,
+        .maxStr = 50,
         .maxSkl = 50,
         .maxSpd = 50,
         .maxDef = 50,
@@ -5756,7 +5761,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 85,
-        .growthPow = 35,
+        .growthStr = 35,
         .growthSkl = 20,
         .growthSpd = 20,
         .growthDef = 30,
@@ -5764,7 +5769,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5790,7 +5795,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0xaa,
 
         .baseHP  = 120,
-        .basePow = 23,
+        .baseStr = 23,
         .baseSkl = 20,
         .baseSpd = 18,
         .baseDef = 25,
@@ -5799,7 +5804,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 2,
 
         .maxHP  = 120,
-        .maxPow = 50,
+        .maxStr = 50,
         .maxSkl = 50,
         .maxSpd = 50,
         .maxDef = 50,
@@ -5809,7 +5814,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 95,
-        .growthPow = 40,
+        .growthStr = 40,
         .growthSkl = 30,
         .growthSpd = 20,
         .growthDef = 20,
@@ -5817,7 +5822,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 25,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5839,7 +5844,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .SMSId = 0x58,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5848,7 +5853,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 0,
 
         .maxHP  = 0,
-        .maxPow = 0,
+        .maxStr = 0,
         .maxSkl = 0,
         .maxSpd = 0,
         .maxDef = 0,
@@ -5858,7 +5863,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5866,7 +5871,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5885,7 +5890,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .SMSId = 0x59,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5894,7 +5899,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 0,
 
         .maxHP  = 0,
-        .maxPow = 0,
+        .maxStr = 0,
         .maxSkl = 0,
         .maxSpd = 0,
         .maxDef = 0,
@@ -5902,7 +5907,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .maxCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5910,7 +5915,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5929,7 +5934,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .SMSId = 0x5a,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5938,7 +5943,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 0,
 
         .maxHP  = 0,
-        .maxPow = 0,
+        .maxStr = 0,
         .maxSkl = 0,
         .maxSpd = 0,
         .maxDef = 0,
@@ -5946,7 +5951,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .maxCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5954,7 +5959,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -5973,7 +5978,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .SMSId = 0x5b,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -5982,7 +5987,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 0,
 
         .maxHP  = 0,
-        .maxPow = 0,
+        .maxStr = 0,
         .maxSkl = 0,
         .maxSpd = 0,
         .maxDef = 0,
@@ -5990,7 +5995,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .maxCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -5998,7 +6003,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6017,7 +6022,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .SMSId = 0x5c,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6026,7 +6031,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 0,
 
         .maxHP  = 0,
-        .maxPow = 0,
+        .maxStr = 0,
         .maxSkl = 0,
         .maxSpd = 0,
         .maxDef = 0,
@@ -6034,7 +6039,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .maxCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6042,7 +6047,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6061,7 +6066,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .SMSId = 0x5d,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6070,7 +6075,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 0,
 
         .maxHP  = 0,
-        .maxPow = 0,
+        .maxStr = 0,
         .maxSkl = 0,
         .maxSpd = 0,
         .maxDef = 0,
@@ -6078,7 +6083,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .maxCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6086,7 +6091,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6109,7 +6114,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x5e,
 
         .baseHP  = 8,
-        .basePow = 1,
+        .baseStr = 1,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6118,7 +6123,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -6128,7 +6133,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 10,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6136,7 +6141,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6159,7 +6164,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x63,
 
         .baseHP  = 7,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6168,7 +6173,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -6178,7 +6183,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 10,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6186,7 +6191,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6209,7 +6214,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x59,
 
         .baseHP  = 10,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 1,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6218,7 +6223,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -6228,7 +6233,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 10,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6236,7 +6241,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6259,7 +6264,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x62,
 
         .baseHP  = 9,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 1,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6268,7 +6273,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -6278,7 +6283,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 10,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6286,7 +6291,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6309,7 +6314,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x5c,
 
         .baseHP  = 12,
-        .basePow = 3,
+        .baseStr = 3,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 2,
@@ -6318,7 +6323,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -6328,7 +6333,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 10,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6336,7 +6341,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6359,7 +6364,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x61,
 
         .baseHP  = 10,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 1,
         .baseSpd = 0,
         .baseDef = 1,
@@ -6368,7 +6373,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -6378,7 +6383,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 10,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6386,7 +6391,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6407,7 +6412,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x1,
 
         .baseHP  = 10,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6416,7 +6421,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -6426,7 +6431,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 10,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6434,7 +6439,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6457,7 +6462,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x1,
 
         .baseHP  = 10,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6466,7 +6471,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -6476,7 +6481,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 10,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6484,7 +6489,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6505,7 +6510,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x1,
 
         .baseHP  = 10,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6514,7 +6519,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -6524,7 +6529,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 10,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6532,7 +6537,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6555,7 +6560,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x1,
 
         .baseHP  = 10,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6564,7 +6569,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -6574,7 +6579,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 10,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6582,7 +6587,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6601,7 +6606,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .SMSId = 0x66,
 
         .baseHP  = 0,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6610,7 +6615,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 0,
 
         .maxHP  = 0,
-        .maxPow = 0,
+        .maxStr = 0,
         .maxSkl = 0,
         .maxSpd = 0,
         .maxDef = 0,
@@ -6618,7 +6623,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .maxCon = 0,
 
         .growthHP  = 0,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6626,7 +6631,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6647,7 +6652,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x1,
 
         .baseHP  = 10,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6656,7 +6661,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -6666,7 +6671,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 10,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6674,7 +6679,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6695,7 +6700,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x1,
 
         .baseHP  = 15,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 3,
         .baseSpd = 3,
         .baseDef = 3,
@@ -6704,7 +6709,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 0,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -6714,7 +6719,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 10,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6722,7 +6727,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6747,7 +6752,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x1,
 
         .baseHP  = 10,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6756,7 +6761,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -6766,7 +6771,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 10,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6774,7 +6779,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6795,7 +6800,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x1,
 
         .baseHP  = 10,
-        .basePow = 0,
+        .baseStr = 0,
         .baseSkl = 0,
         .baseSpd = 0,
         .baseDef = 0,
@@ -6804,7 +6809,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -6814,7 +6819,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 10,
-        .growthPow = 0,
+        .growthStr = 0,
         .growthSkl = 0,
         .growthSpd = 0,
         .growthDef = 0,
@@ -6822,7 +6827,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 0,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6845,7 +6850,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x9f,
 
         .baseHP  = 40,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 5,
         .baseSpd = 6,
         .baseDef = 13,
@@ -6854,7 +6859,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 80,
-        .maxPow = 29,
+        .maxStr = 29,
         .maxSkl = 29,
         .maxSpd = 28,
         .maxDef = 30,
@@ -6864,7 +6869,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 95,
-        .growthPow = 30,
+        .growthStr = 30,
         .growthSkl = 35,
         .growthSpd = 25,
         .growthDef = 24,
@@ -6872,7 +6877,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 10,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6902,7 +6907,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .defaultPortraitId = 0x9e,
 
         .baseHP  = 36,
-        .basePow = 8,
+        .baseStr = 8,
         .baseSkl = 5,
         .baseSpd = 5,
         .baseDef = 9,
@@ -6911,7 +6916,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 6,
 
         .maxHP  = 80,
-        .maxPow = 30,
+        .maxStr = 30,
         .maxSkl = 28,
         .maxSpd = 26,
         .maxDef = 26,
@@ -6921,7 +6926,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 85,
-        .growthPow = 45,
+        .growthStr = 45,
         .growthSkl = 25,
         .growthSpd = 20,
         .growthDef = 21,
@@ -6929,7 +6934,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 10,
 
         .promotionHp  = 0,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 0,
         .promotionSpd = 0,
         .promotionDef = 0,
@@ -6957,7 +6962,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x27,
 
         .baseHP  = 20,
-        .basePow = 5,
+        .baseStr = 5,
         .baseSkl = 3,
         .baseSpd = 4,
         .baseDef = 2,
@@ -6966,7 +6971,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -6976,7 +6981,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 85,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 40,
         .growthSpd = 32,
         .growthDef = 18,
@@ -6984,7 +6989,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 2,
-        .promotionPow = 0,
+        .promotionStr = 0,
         .promotionSkl = 2,
         .promotionSpd = 0,
         .promotionDef = 2,
@@ -7013,7 +7018,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .sort_order = 0x29,
 
         .baseHP  = 17,
-        .basePow = 2,
+        .baseStr = 2,
         .baseSkl = 3,
         .baseSpd = 3,
         .baseDef = 3,
@@ -7022,7 +7027,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .baseMov = 5,
 
         .maxHP  = 60,
-        .maxPow = 20,
+        .maxStr = 20,
         .maxSkl = 20,
         .maxSpd = 20,
         .maxDef = 20,
@@ -7032,7 +7037,7 @@ CONST_DATA struct ClassData gClassData[] = {
 
 
         .growthHP  = 55,
-        .growthPow = 55,
+        .growthStr = 55,
         .growthSkl = 40,
         .growthSpd = 35,
         .growthDef = 10,
@@ -7040,7 +7045,7 @@ CONST_DATA struct ClassData gClassData[] = {
         .growthLck = 40,
 
         .promotionHp  = 2,
-        .promotionPow = 1,
+        .promotionStr = 1,
         .promotionSkl = 1,
         .promotionSpd = 0,
         .promotionDef = 2,

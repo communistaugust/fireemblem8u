@@ -188,7 +188,9 @@ struct GameSavePackedUnit {       /* Save Data */
              u32 flag       : 13;
 
              u32 max_hp     : 6;
-             u32 pow        : 5;
+             //u32 pow        : 5;
+             u32 str        : 5;
+             u32 mag        : 5;
              u32 skl        : 5;
              u32 spd        : 5;
              u32 def        : 5;
@@ -201,6 +203,10 @@ struct GameSavePackedUnit {       /* Save Data */
              u32 item3      : 14;
              u32 item4      : 14;
              u32 item5      : 14;
+             u32 skill1     : 9;
+             u32 skill2     : 9;
+             u32 skill3     : 9;
+             u32 skill4     : 9;
     
     /* 14 */ u8 pid;
     /* 15 */ u8 wpnRanks[0x8];
@@ -243,7 +249,9 @@ struct SuspendSavePackedUnit {     /* Suspend Data */
     /* 24 */ u32 level      : 5;
              u32 xPos       : 6;
              u32 yPos       : 6;
-             u32 pow        : 5;
+             //u32 pow        : 5;
+             u32 str        : 5;
+             u32 mag        : 5;
              u32 skl        : 5;
              u32 spd        : 5;
     /* 28 */ u32 def        : 5;
@@ -258,7 +266,11 @@ struct SuspendSavePackedUnit {     /* Suspend Data */
     
     /* 2C */ u32 movBonus   : 4;
              u32 item4      : 14;
-             u32 item5      : 14;
+    u32 item5      : 14;
+    u32 skill1     : 9;
+    u32 skill2     : 9;
+    u32 skill3     : 9;
+    u32 skill4     : 9;
     
     /* 30 */ u8 ballistaIndex;
     
@@ -384,7 +396,6 @@ struct SaveBlocks {
     /* 0x0064 */ struct SaveBlockInfo saveBlockInfo[SAVE_ID_MAX];
     /* 0x00D4 */ struct SuspendSaveBlock suspendSaveBlocks[2];
     /* 0x3FC4 */ struct GameSaveBlock gameSaveBlocks[3];
-    /* 0x691C */ struct MultiArenaSaveBlock multiArenaBlock;
     /* 0x7190 */ struct GameRankSaveDataPacks gameRankSave;
     /* 0x7224 */ struct SoundRoomSaveData soundRoomSave;
     /* 0x7248 */ struct bmsave_unkstruct2 unkstruct2;

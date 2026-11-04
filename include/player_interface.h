@@ -43,6 +43,29 @@ struct PlayerInterfaceConfigEntry
     STRUCT_PAD(0x06, 0x08);
 };
 
+enum {
+    xHPpos = 3,
+    yHPpos = 1,
+    xLVpos = 5,
+    yLVpos = 2,
+    xEXPpos = 8,
+    yEXPpos = 2,
+    xATKpos = 13,
+    yATKpos = 1,
+    xASpos = 13,
+    yASpos = 2,
+    xDEFpos = 13,
+    yDEFpos = 3,
+    xRESpos = 13,
+    yRESpos = 4,
+    xItemIcon = 9,
+    yItemIcon = 3,
+};
+
+enum{
+    MiniMugWidth = 18,
+    MiniMugHeight = 6
+};
 int GetWindowQuadrant(int x, int y);
 int GetCursorQuadrant(void);
 void GetHpBarLeftTile(u16 * buffer, s16 hp, int tileBase);
@@ -53,7 +76,7 @@ void MMB_Loop_SlideIn(struct PlayerInterfaceProc * proc);
 void MMB_Loop_SlideOut(struct PlayerInterfaceProc * proc);
 void TerrainDisplay_Loop_SlideIn(struct PlayerInterfaceProc * proc);
 void TerrainDisplay_Loop_SlideOut(struct PlayerInterfaceProc * proc);
-void sub_808C234(struct PlayerInterfaceProc * proc);
+void PutUnitMapUiWindow(struct PlayerInterfaceProc * proc);
 void sub_808C288(struct PlayerInterfaceProc * proc);
 void ApplyUnitMapUiFramePal(int faction, int palId);
 int sub_808C314(void);
@@ -98,6 +121,7 @@ void MenuButtonDisp_UpdateCursorPos(struct PlayerInterfaceProc * proc);
 void MenuButtonDisp_Loop_OnSlideIn(struct PlayerInterfaceProc * proc);
 void MenuButtonDisp_Loop_Display(struct PlayerInterfaceProc * proc);
 void MenuButtonDisp_Loop_OnSlideOut(struct PlayerInterfaceProc * proc);
+void UnitNewMiniMugInfo(struct PlayerInterfaceProc * proc, struct Unit * unit,s8 numbertoinsert,int xDigits,int yDigits);
 
 extern struct PlayerInterfaceConfigEntry sPlayerInterfaceConfigLut[4];
 

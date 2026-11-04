@@ -324,10 +324,6 @@ void *GetSaveWriteAddr(int index)
             return &gSram->suspendSaveBlocks[1];
             break;
 
-        case SAVE_ID_ARENA:
-            return &gSram->multiArenaBlock;
-            break;
-
         case SAVE_ID_XMAP:
             return CART_SRAM + SRAM_OFFSET_XMAP;
             break;

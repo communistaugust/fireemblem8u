@@ -1095,7 +1095,8 @@ void ClassInfoDisplay_Init(struct OpInfoClassDisplayProc * proc)
     BG_Fill(buffer, 0);
 
     proc->stats[0] = GetClassData(proc->classReelEnt->classId)->baseHP;
-    proc->stats[1] = GetClassData(proc->classReelEnt->classId)->basePow;
+    //proc->stats[1] = GetClassData(proc->classReelEnt->classId)->basePow;
+    proc->stats[1] = GetClassData(proc->classReelEnt->classId)->baseStr;
     proc->stats[2] = GetClassData(proc->classReelEnt->classId)->baseSkl;
     proc->stats[3] = GetClassData(proc->classReelEnt->classId)->baseSpd;
     proc->stats[4] = GetClassData(proc->classReelEnt->classId)->baseDef;

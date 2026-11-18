@@ -77,7 +77,7 @@ void MMB_Loop_SlideOut(struct PlayerInterfaceProc * proc);
 void TerrainDisplay_Loop_SlideIn(struct PlayerInterfaceProc * proc);
 void TerrainDisplay_Loop_SlideOut(struct PlayerInterfaceProc * proc);
 void PutUnitMapUiWindow(struct PlayerInterfaceProc * proc);
-void sub_808C288(struct PlayerInterfaceProc * proc);
+void PutUnitMapUi(struct PlayerInterfaceProc * proc);
 void ApplyUnitMapUiFramePal(int faction, int palId);
 int sub_808C314(void);
 int sub_808C33C(void);

@@ -620,7 +620,7 @@ void TerrainDisplay_Loop_SlideOut(struct PlayerInterfaceProc * proc)
 }*/
 
 //! FE8U = 0x0808C288
-void sub_808C288(struct PlayerInterfaceProc * proc)
+void PutTerrainMapUi(struct PlayerInterfaceProc * proc)
 {
     int x;
 
@@ -1167,7 +1167,7 @@ void TerrainDisplay_Loop_Display(struct PlayerInterfaceProc * proc)
               sPlayerInterfaceConfigLut[proc->cursorQuadrant].yTerrain)))
         {
             DrawTerrainDisplayWindow(proc);
-            sub_808C288(proc);
+            PutTerrainMapUi(proc);
             return;
         }
     }
